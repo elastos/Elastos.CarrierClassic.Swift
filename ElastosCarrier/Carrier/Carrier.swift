@@ -300,6 +300,17 @@ public class Carrier: NSObject {
         return nospam
     }
 
+    @objc(getSelfNospam:)
+    public func getSelfNospam(error: NSErrorPointer) -> UInt32 {
+        var nospam: UInt32 = 0
+        do {
+            nospam = try getSelfNospam()
+        } catch let aError as NSError {
+            error?.pointee = aError
+        }
+        return nospam
+    }
+
     /// Update self user information.
     ///
     /// After self user information changed, carrier node will update this
@@ -366,7 +377,6 @@ public class Carrier: NSObject {
     /// - Returns: The current presence status
     ///
     /// - Throws: CarrierError
-    //@objc(getSelfPresence:)
     public func getSelfPresence() throws -> CarrierPresenceStatus {
         var cpresence = CPresenceStatus_None
         let result = ela_get_self_presence(ccarrier, &cpresence)
@@ -379,6 +389,17 @@ public class Carrier: NSObject {
 
         let presence = convertCPresenceStatusToCarrierPresenceStatus(cpresence.rawValue)
         Log.d(Carrier.TAG, "Current self presence: \(presence)")
+        return presence
+    }
+
+    @objc(getSelfPresence:)
+    public func getSelfPresence(error: NSErrorPointer) -> CarrierPresenceStatus {
+        var presence : CarrierPresenceStatus = .None
+        do {
+            presence = try getSelfPresence()
+        } catch let aError as NSError {
+            error?.pointee = aError
+        }
         return presence
     }
 
