@@ -41,6 +41,7 @@ public class CarrierGroup: NSObject {
     init(_ ccarrier: OpaquePointer!, _ groupid: String,
                  _ delegate: CarrierGroupDelegate) {
 
+        
         self.ccarrier = ccarrier
         self.groupid  = groupid
         self.delegate = delegate
@@ -52,7 +53,7 @@ public class CarrierGroup: NSObject {
     deinit {
         leave()
     }
-
+    @objc(leave)
     func leave() {
         objc_sync_enter(self)
 
@@ -73,6 +74,7 @@ public class CarrierGroup: NSObject {
     /// - Returns:
     ///     The groupid in string.
     ///
+    @objc(getId)
     public func getId() -> String {
         return self.groupid
     }

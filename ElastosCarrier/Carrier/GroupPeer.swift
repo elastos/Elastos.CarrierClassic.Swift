@@ -47,7 +47,8 @@ public class CarrierGroupPeer: NSObject {
         Nickname, also as display name.
      */
     public var name: String?
-
+    
+    @objc(format:)
     internal static func format(_ info: CarrierGroupPeer) -> String {
         return String(format: "userId[%@], name[%@]",
                       String.toHardString(info.userId),

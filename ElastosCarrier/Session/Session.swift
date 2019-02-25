@@ -177,6 +177,7 @@ public class CarrierSession: NSObject {
 
     /// Close a session to friend. All resources include streams, channels,
     /// portforwardings associated with current session will be destroyed.
+    @objc(close)
     public func close() {
         objc_sync_enter(self)
         if !didClose {
@@ -193,6 +194,7 @@ public class CarrierSession: NSObject {
     /// Get remote peer id.
     ///
     /// - Returns: The remote peer userid or userid@nodeid
+    @objc(getPeer)
     public func getPeer() -> String {
         return to;
     }
@@ -347,6 +349,7 @@ public class CarrierSession: NSObject {
     /// - Returns: The new added carrier stream
     ///
     /// - Throws: CarrierError
+    @objc(addStreaWithType:options:delegate:error:)
     public func addStream(type: CarrierStreamType,
                           options: CarrierStreamOptions,
                           delegate: CarrierStreamDelegate) throws -> CarrierStream {
