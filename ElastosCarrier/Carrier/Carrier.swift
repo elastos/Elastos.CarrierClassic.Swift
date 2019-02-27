@@ -610,22 +610,7 @@ public class Carrier: NSObject {
     public func sendFriendMessage(to target: String, withMessage msg: String) throws {
         
         let msgData = msg.data(using: .utf8)
-        try! sendFriendMessage(to: target, withData: msgData!)
-
-//        let result = target.withCString {(cto) in
-//            return msg.withCString { (cmsg) -> Int32 in
-//                let len: Int = msg.utf8CString.count
-//                return ela_send_friend_message(ccarrier, cto, cmsg, len)
-//            }
-//        }
-//
-//        guard result >= 0 else {
-//            let errno: Int = getErrorCode()
-//            Log.e(Carrier.TAG, "Send message to \(target) error: 0x%X", errno)
-//            throw CarrierError.FromErrorCode(errno: errno)
-//        }
-//
-//        Log.d(Carrier.TAG, "Sended message: \(msg) to \(target).")
+        try sendFriendMessage(to: target, withData: msgData!)
     }
 
     /// Send a message to the specified friend.
