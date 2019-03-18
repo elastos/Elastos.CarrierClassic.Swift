@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint ElaCTest.podspec' to ensure this is a
+#  Be sure to run `pod spec lint carrier.podspec.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see https://docs.cocoapods.org/specification.html
@@ -9,13 +9,13 @@
 Pod::Spec.new do |s|
 
   s.name         = "carrier"
-  s.version      = "0.0.1"
+  s.version      = "5.2.2"
   s.summary      = "Elastos Carrier iOS SDK Distribution."
   s.swift_version = '4.0'
-  s.description  = 'Just for testing Just for testing Just for testing'
-  s.homepage     = "http://EXAMPLE/ElaCTest"
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "liaihong" => "478701610@qq.com" }
+  s.description  = 'Elastos carrier ios sdk framework distribution.'
+  s.homepage     = "https://www.elastos.org"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author             = { "carrier-dev" => "release@elastos.org" }
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/elastos/Elastos.NET.Carrier.iOS.SDK.git", :tag => s.version  }
