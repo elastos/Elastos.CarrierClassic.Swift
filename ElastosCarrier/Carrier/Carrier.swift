@@ -526,27 +526,27 @@ public class Carrier: NSObject {
     ///            content.
     ///
     /// - Throws: CarrierError
-    @objc(addFriendWith:withGreeting:error:)
-    public func addFriend(with userId: String,
+    @objc(addFriendWithAddress:withGreeting:error:)
+    public func addFriend(_ address: String,
                           withGreeting hello: String) throws {
 
-        Log.d(Carrier.TAG, "Begin to add be friend with user \(userId)" +
-            "by sending friend request with hello: \(hello) to \(userId)")
+        Log.d(Carrier.TAG, "Begin to add be friend with user \(address)" +
+            "by sending friend request with hello: \(hello) to \(address)")
 
-        let result = userId.withCString { (cuserId) in
+        let result = address.withCString { (caddress) in
             return hello.withCString { (chello) in
-                return ela_add_friend(ccarrier, cuserId, chello)
+                return ela_add_friend(ccarrier, caddress, chello)
             }
         }
 
         guard result >= 0 else {
             let errno: Int = getErrorCode()
-            Log.e(Carrier.TAG, "Send friend request to user \(userId)" +
+            Log.e(Carrier.TAG, "Send friend request to user \(address)" +
                 " error: 0x%X", errno)
             throw CarrierError.FromErrorCode(errno: errno)
         }
 
-        Log.d(Carrier.TAG, "Sended a friend request to user \(userId).")
+        Log.d(Carrier.TAG, "Sended a friend request to user \(address).")
     }
 
     /// Accept the friend request.

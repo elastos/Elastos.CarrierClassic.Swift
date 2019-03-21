@@ -1113,7 +1113,7 @@ internal func ela_is_friend(_ carrier: OpaquePointer!,
  */
 @_silgen_name("ela_add_friend")
 internal func ela_add_friend(_ carrier: OpaquePointer!,
-                             _ userid: UnsafePointer<Int8>!,
+                             _ address: UnsafePointer<Int8>!,
                              _ hello: UnsafePointer<Int8>!) -> Int32
 
 /**
