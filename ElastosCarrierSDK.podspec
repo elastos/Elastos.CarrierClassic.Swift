@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "elastos-carrier"
+  s.name         = "ElastosCarrierSDK"
   s.version      = "v5.2.2"
   s.summary      = "Elastos Carrier iOS SDK Distribution."
   s.swift_version = '4.0'
