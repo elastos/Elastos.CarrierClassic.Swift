@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2746EE8A2243790E00D66C9A /* RobotConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE822243790D00D66C9A /* RobotConnector.swift */; };
+		2746EE8B2243790E00D66C9A /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE832243790D00D66C9A /* TestHelper.swift */; };
+		2746EE8C2243790E00D66C9A /* TestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE842243790D00D66C9A /* TestOptions.swift */; };
+		2746EE8D2243790E00D66C9A /* CheckIDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE852243790D00D66C9A /* CheckIDTest.swift */; };
+		2746EE8E2243790E00D66C9A /* FriendAddTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE862243790E00D66C9A /* FriendAddTest.swift */; };
+		2746EE8F2243790E00D66C9A /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746EE882243790E00D66C9A /* Robot.swift */; };
 		A35CE15221BB4F3C00AF4FE3 /* GroupPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */; };
 		A35CE15321BB4F3C00AF4FE3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15121BB4F3B00AF4FE3 /* Group.swift */; };
 		A35CE15521BBCDD200AF4FE3 /* CarrierGroupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15421BBCDD200AF4FE3 /* CarrierGroupDelegate.swift */; };
@@ -23,7 +29,6 @@
 		A38A7CC5214B6A9D0010D5EB /* libelacarrier.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A38A7CC2214B6A9D0010D5EB /* libelacarrier.dylib */; };
 		A38A7CC6214B6A9D0010D5EB /* libcrystal.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A38A7CC3214B6A9D0010D5EB /* libcrystal.dylib */; };
 		A3B497C12003736300420421 /* ElastosCarrier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B497B72003736200420421 /* ElastosCarrier.framework */; };
-		A3B497C62003736300420421 /* ElastosCarrierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497C52003736300420421 /* ElastosCarrierTests.swift */; };
 		A3B497C82003736300420421 /* ElastosCarrier.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B497BA2003736300420421 /* ElastosCarrier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3B497D72003759400420421 /* ela_session.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B497D52003759400420421 /* ela_session.h */; };
 		A3B497D82003759400420421 /* ela_carrier.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B497D62003759400420421 /* ela_carrier.h */; };
@@ -66,6 +71,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2746EE822243790D00D66C9A /* RobotConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotConnector.swift; sourceTree = "<group>"; };
+		2746EE832243790D00D66C9A /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		2746EE842243790D00D66C9A /* TestOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOptions.swift; sourceTree = "<group>"; };
+		2746EE852243790D00D66C9A /* CheckIDTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIDTest.swift; sourceTree = "<group>"; };
+		2746EE862243790E00D66C9A /* FriendAddTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddTest.swift; sourceTree = "<group>"; };
+		2746EE882243790E00D66C9A /* Robot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupPeer.swift; path = Carrier/GroupPeer.swift; sourceTree = "<group>"; };
 		A35CE15121BB4F3B00AF4FE3 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Carrier/Group.swift; sourceTree = "<group>"; };
 		A35CE15421BBCDD200AF4FE3 /* CarrierGroupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarrierGroupDelegate.swift; path = Carrier/CarrierGroupDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +96,6 @@
 		A3B497BA2003736300420421 /* ElastosCarrier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElastosCarrier.h; sourceTree = "<group>"; };
 		A3B497BB2003736300420421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3B497C02003736300420421 /* ElastosCarrierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElastosCarrierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3B497C52003736300420421 /* ElastosCarrierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElastosCarrierTests.swift; sourceTree = "<group>"; };
 		A3B497C72003736300420421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3B497D52003759400420421 /* ela_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_session.h; path = NativeDistributions/include/ela_session.h; sourceTree = "<group>"; };
 		A3B497D62003759400420421 /* ela_carrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_carrier.h; path = NativeDistributions/include/ela_carrier.h; sourceTree = "<group>"; };
@@ -151,6 +161,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2746EE812243790D00D66C9A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2746EE822243790D00D66C9A /* RobotConnector.swift */,
+				2746EE832243790D00D66C9A /* TestHelper.swift */,
+				2746EE842243790D00D66C9A /* TestOptions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2746EE872243790E00D66C9A /* Robot */ = {
+			isa = PBXGroup;
+			children = (
+				2746EE882243790E00D66C9A /* Robot.swift */,
+			);
+			path = Robot;
+			sourceTree = "<group>";
+		};
 		A35CE15621BD428B00AF4FE3 /* FileTransfer */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +239,10 @@
 		A3B497C42003736300420421 /* ElastosCarrierTests */ = {
 			isa = PBXGroup;
 			children = (
-				A3B497C52003736300420421 /* ElastosCarrierTests.swift */,
+				2746EE872243790E00D66C9A /* Robot */,
+				2746EE812243790D00D66C9A /* Common */,
+				2746EE852243790D00D66C9A /* CheckIDTest.swift */,
+				2746EE862243790E00D66C9A /* FriendAddTest.swift */,
 				A3B497C72003736300420421 /* Info.plist */,
 			);
 			path = ElastosCarrierTests;
@@ -383,6 +414,7 @@
 					};
 					A3B497BF2003736300420421 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -470,7 +502,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3B497C62003736300420421 /* ElastosCarrierTests.swift in Sources */,
+				2746EE8C2243790E00D66C9A /* TestOptions.swift in Sources */,
+				2746EE8A2243790E00D66C9A /* RobotConnector.swift in Sources */,
+				2746EE8B2243790E00D66C9A /* TestHelper.swift in Sources */,
+				2746EE8E2243790E00D66C9A /* FriendAddTest.swift in Sources */,
+				2746EE8F2243790E00D66C9A /* Robot.swift in Sources */,
+				2746EE8D2243790E00D66C9A /* CheckIDTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,11 +704,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ElastosCarrierTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.ElastosCarrierTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,6 +720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ElastosCarrierTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
