@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2746EEC22244C4A900D66C9A /* libelafiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746EEBF2244C4A900D66C9A /* libelafiletrans.a */; };
-		2746EEC32244C4A900D66C9A /* libelacarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746EEC02244C4A900D66C9A /* libelacarrier.a */; };
-		2746EEC42244C4A900D66C9A /* libelasession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746EEC12244C4A900D66C9A /* libelasession.a */; };
 		2746EEC62244C4CE00D66C9A /* libelafiletrans.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = A35CE16721BFAEE900AF4FE3 /* libelafiletrans.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2746EEC72244C4CE00D66C9A /* libcrystal.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = A38A7CC3214B6A9D0010D5EB /* libcrystal.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2746EEC82244C4CE00D66C9A /* libelacarrier.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = A38A7CC2214B6A9D0010D5EB /* libelacarrier.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -149,9 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2746EEC22244C4A900D66C9A /* libelafiletrans.a in Frameworks */,
-				2746EEC42244C4A900D66C9A /* libelasession.a in Frameworks */,
-				2746EEC32244C4A900D66C9A /* libelacarrier.a in Frameworks */,
 				A35CE16821BFAEE900AF4FE3 /* libelafiletrans.dylib in Frameworks */,
 				A38A7CC4214B6A9D0010D5EB /* libelasession.dylib in Frameworks */,
 				A38A7CC5214B6A9D0010D5EB /* libelacarrier.dylib in Frameworks */,
