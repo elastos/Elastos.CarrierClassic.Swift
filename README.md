@@ -54,7 +54,7 @@ TODO.
 
 ## CocoaPods
 
-### 1. pod install 
+### 1. Pod install
 The distribution has been published to CocoaPods platform. So, the simple way to use **ElastosCarrierSDK.framework** is just to add the following line to your **Podfile**:
 
 ```
@@ -66,13 +66,11 @@ Then run the command below to install it before open your iOS workspace:
 $ pod install
 ```
 
-### 2. add script for codesign
+### 2. Add shell script for codesign
 
-Select the top-level your project in the Project navigator. Select TARGET your project name in the left part of the main view, and then select the Build Phases tab. Add a new build phase by clicking the + towards the top left of the main view. Select New Run Script Phase. Expand the new Run Script, just appended to the list of phases.
+In the project navigator, select the tab **Build Phases**  in the specific  **TARGET" ** item. Then click **+** button on the right-top corner to choose **New Run Script Phase** and expand it to add shell script as below:
 
-Paste the following into the text area just below the Shell field:
-
-```shell
+```
  "${SRCROOT}/Pods/ElastosCarrierSDK/ElastosCarrier-framework/CocoaPods/codesigncarrierframework.sh"
 ```
 
