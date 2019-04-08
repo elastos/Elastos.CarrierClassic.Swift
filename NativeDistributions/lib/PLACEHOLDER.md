@@ -7,7 +7,7 @@ This folder is hold for dependency status libraries list below:
 - libpjnath.a  
 - libpjlib-util.a
 - libpjmedia.a
-- Lib crystal.a
+- libcrystal.a
 - libelacarrier.a
 - libelasession.a
 - Libelafiletrans.a
