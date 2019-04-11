@@ -49,17 +49,17 @@
 		A3B498142003B3A500420421 /* NetworkTopology.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498072003B3A400420421 /* NetworkTopology.swift */; };
 		A3B498172003B3AF00420421 /* CarrierError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498162003B3AE00420421 /* CarrierError.swift */; };
 		A3B4981920045F0A00420421 /* PresenceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4981820045F0A00420421 /* PresenceStatus.swift */; };
-		A3D41F53225B7C330000D1A7 /* libelacarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F48225B7C320000D1A7 /* libelacarrier.a */; };
-		A3D41F54225B7C330000D1A7 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F49225B7C330000D1A7 /* libpjnath.a */; };
-		A3D41F55225B7C330000D1A7 /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4A225B7C330000D1A7 /* libsodium.a */; };
-		A3D41F56225B7C330000D1A7 /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4B225B7C330000D1A7 /* libcrystal.a */; };
-		A3D41F57225B7C330000D1A7 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4C225B7C330000D1A7 /* libpjlib-util.a */; };
-		A3D41F58225B7C330000D1A7 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4D225B7C330000D1A7 /* libpj.a */; };
-		A3D41F59225B7C330000D1A7 /* libelafiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4E225B7C330000D1A7 /* libelafiletrans.a */; };
-		A3D41F5A225B7C330000D1A7 /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4F225B7C330000D1A7 /* libflatccrt.a */; };
-		A3D41F5B225B7C330000D1A7 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F50225B7C330000D1A7 /* libpjmedia.a */; };
-		A3D41F5C225B7C330000D1A7 /* libelasession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F51225B7C330000D1A7 /* libelasession.a */; };
-		A3D41F5D225B7C330000D1A7 /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F52225B7C330000D1A7 /* libtoxcore.a */; };
+		A3FB995E225ED83400C4361A /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4B225B7C330000D1A7 /* libcrystal.a */; };
+		A3FB995F225ED83400C4361A /* libelacarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F48225B7C320000D1A7 /* libelacarrier.a */; };
+		A3FB9960225ED83400C4361A /* libelafiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4E225B7C330000D1A7 /* libelafiletrans.a */; };
+		A3FB9961225ED83400C4361A /* libelasession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F51225B7C330000D1A7 /* libelasession.a */; };
+		A3FB9962225ED83400C4361A /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4F225B7C330000D1A7 /* libflatccrt.a */; };
+		A3FB9963225ED83400C4361A /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4D225B7C330000D1A7 /* libpj.a */; };
+		A3FB9964225ED83400C4361A /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4C225B7C330000D1A7 /* libpjlib-util.a */; };
+		A3FB9965225ED83400C4361A /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F50225B7C330000D1A7 /* libpjmedia.a */; };
+		A3FB9966225ED83400C4361A /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F49225B7C330000D1A7 /* libpjnath.a */; };
+		A3FB9967225ED83400C4361A /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F4A225B7C330000D1A7 /* libsodium.a */; };
+		A3FB9968225ED83400C4361A /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D41F52225B7C330000D1A7 /* libtoxcore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,14 +84,14 @@
 		A35CE16121BE41E500AF4FE3 /* FileTransferDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTransferDelegate.swift; sourceTree = "<group>"; };
 		A35CE16321BE45F300AF4FE3 /* FileTransferConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTransferConnectionState.swift; sourceTree = "<group>"; };
 		A360377F20161AAF001A666E /* BootstrapNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BootstrapNode.swift; path = Carrier/BootstrapNode.swift; sourceTree = "<group>"; };
-		A3925D3622587E7900D0108E /* libtoxcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtoxcore.a; path = NativeDistributions/libs/libtoxcore.a; sourceTree = "<group>"; };
-		A3925D3722587E7900D0108E /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "NativeDistributions/libs/libpjlib-util.a"; sourceTree = "<group>"; };
-		A3925D3822587E7900D0108E /* libsodium.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsodium.a; path = NativeDistributions/libs/libsodium.a; sourceTree = "<group>"; };
-		A3925D3922587E7900D0108E /* libcrystal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrystal.a; path = NativeDistributions/libs/libcrystal.a; sourceTree = "<group>"; };
-		A3925D3A22587E7900D0108E /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = NativeDistributions/libs/libpj.a; sourceTree = "<group>"; };
-		A3925D3B22587E7900D0108E /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = NativeDistributions/libs/libpjmedia.a; sourceTree = "<group>"; };
-		A3925D3C22587E7900D0108E /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = NativeDistributions/libs/libpjnath.a; sourceTree = "<group>"; };
-		A3925D4422587EA000D0108E /* libflatccrt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflatccrt.a; path = NativeDistributions/libs/libflatccrt.a; sourceTree = "<group>"; };
+		A3925D3622587E7900D0108E /* libtoxcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtoxcore.a; path = NativeDistributions/lib/libtoxcore.a; sourceTree = "<group>"; };
+		A3925D3722587E7900D0108E /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "NativeDistributions/lib/libpjlib-util.a"; sourceTree = "<group>"; };
+		A3925D3822587E7900D0108E /* libsodium.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsodium.a; path = NativeDistributions/lib/libsodium.a; sourceTree = "<group>"; };
+		A3925D3922587E7900D0108E /* libcrystal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrystal.a; path = NativeDistributions/lib/libcrystal.a; sourceTree = "<group>"; };
+		A3925D3A22587E7900D0108E /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = NativeDistributions/lib/libpj.a; sourceTree = "<group>"; };
+		A3925D3B22587E7900D0108E /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = NativeDistributions/lib/libpjmedia.a; sourceTree = "<group>"; };
+		A3925D3C22587E7900D0108E /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = NativeDistributions/lib/libpjnath.a; sourceTree = "<group>"; };
+		A3925D4422587EA000D0108E /* libflatccrt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflatccrt.a; path = NativeDistributions/lib/libflatccrt.a; sourceTree = "<group>"; };
 		A3B497B72003736200420421 /* ElastosCarrierSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ElastosCarrierSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B497BA2003736300420421 /* ElastosCarrierSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElastosCarrierSDK.h; sourceTree = "<group>"; };
 		A3B497BB2003736300420421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,9 +137,9 @@
 		A3D41F50225B7C330000D1A7 /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = NativeDistributions/lib/libpjmedia.a; sourceTree = "<group>"; };
 		A3D41F51225B7C330000D1A7 /* libelasession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelasession.a; path = NativeDistributions/lib/libelasession.a; sourceTree = "<group>"; };
 		A3D41F52225B7C330000D1A7 /* libtoxcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtoxcore.a; path = NativeDistributions/lib/libtoxcore.a; sourceTree = "<group>"; };
-		A3D8BBAB225887DF00FE2962 /* libelafiletrans.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelafiletrans.a; path = NativeDistributions/libs/libelafiletrans.a; sourceTree = "<group>"; };
-		A3D8BBAC225887E000FE2962 /* libelacarrier.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelacarrier.a; path = NativeDistributions/libs/libelacarrier.a; sourceTree = "<group>"; };
-		A3D8BBAD225887E000FE2962 /* libelasession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelasession.a; path = NativeDistributions/libs/libelasession.a; sourceTree = "<group>"; };
+		A3D8BBAB225887DF00FE2962 /* libelafiletrans.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelafiletrans.a; path = NativeDistributions/lib/libelafiletrans.a; sourceTree = "<group>"; };
+		A3D8BBAC225887E000FE2962 /* libelacarrier.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelacarrier.a; path = NativeDistributions/lib/libelacarrier.a; sourceTree = "<group>"; };
+		A3D8BBAD225887E000FE2962 /* libelasession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelasession.a; path = NativeDistributions/lib/libelasession.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,17 +147,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D41F53225B7C330000D1A7 /* libelacarrier.a in Frameworks */,
-				A3D41F54225B7C330000D1A7 /* libpjnath.a in Frameworks */,
-				A3D41F55225B7C330000D1A7 /* libsodium.a in Frameworks */,
-				A3D41F56225B7C330000D1A7 /* libcrystal.a in Frameworks */,
-				A3D41F57225B7C330000D1A7 /* libpjlib-util.a in Frameworks */,
-				A3D41F58225B7C330000D1A7 /* libpj.a in Frameworks */,
-				A3D41F59225B7C330000D1A7 /* libelafiletrans.a in Frameworks */,
-				A3D41F5A225B7C330000D1A7 /* libflatccrt.a in Frameworks */,
-				A3D41F5B225B7C330000D1A7 /* libpjmedia.a in Frameworks */,
-				A3D41F5C225B7C330000D1A7 /* libelasession.a in Frameworks */,
-				A3D41F5D225B7C330000D1A7 /* libtoxcore.a in Frameworks */,
+				A3FB995E225ED83400C4361A /* libcrystal.a in Frameworks */,
+				A3FB995F225ED83400C4361A /* libelacarrier.a in Frameworks */,
+				A3FB9960225ED83400C4361A /* libelafiletrans.a in Frameworks */,
+				A3FB9961225ED83400C4361A /* libelasession.a in Frameworks */,
+				A3FB9962225ED83400C4361A /* libflatccrt.a in Frameworks */,
+				A3FB9963225ED83400C4361A /* libpj.a in Frameworks */,
+				A3FB9964225ED83400C4361A /* libpjlib-util.a in Frameworks */,
+				A3FB9965225ED83400C4361A /* libpjmedia.a in Frameworks */,
+				A3FB9966225ED83400C4361A /* libpjnath.a in Frameworks */,
+				A3FB9967225ED83400C4361A /* libsodium.a in Frameworks */,
+				A3FB9968225ED83400C4361A /* libtoxcore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
