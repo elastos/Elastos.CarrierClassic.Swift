@@ -1,3 +1,12 @@
+
+04/12/2019 Li AiHong aihongLi0107@gmail.com
+
+**version 5.2.4**, main changes to previous version:
+
+```markdown
+- Support staticlibrary for ElastosCarrierSDK in the Xcode10.2
+```
+
 03/29/2019 Tang Zhilong stiartsly@gmail.com
 
 **version 5.2.3**, main changes to previous version:
