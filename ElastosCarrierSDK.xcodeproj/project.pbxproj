@@ -471,7 +471,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FMK_NAME=${PROJECT_NAME}\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Debug-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Debug-iphonesimulator/${FMK_NAME}.framework\nxcodebuild -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphoneos -arch arm64 clean build\nxcodebuild -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphonesimulator -arch x86_64 clean build\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\ncp -R \"${SIMULATOR_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\" \"${INSTALL_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\"\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"\n";
+			shellScript = "FMK_NAME=${PROJECT_NAME}\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Debug-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Debug-iphonesimulator/${FMK_NAME}.framework\nxcodebuild -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphoneos -arch arm64 clean build || exit 1\nxcodebuild -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphonesimulator -arch x86_64 clean build || exit 1\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\ncp -R \"${SIMULATOR_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\" \"${INSTALL_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\"\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -697,7 +697,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeDistributions/$(EFFECTIVE_PLATFORM_NAME)",
+					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -729,7 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeDistributions/$(EFFECTIVE_PLATFORM_NAME)",
+					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
