@@ -15,6 +15,9 @@ install:
   - cd $TRAVIS_BUILD_DIR/NativeDistributions
   - ls -l
   - tar -zxf /tmp/*${BUILD_ENV}-*.tar.gz
+  - cd $TRAVIS_BUILD_DIR/NativeDistributions/lib
+  - mkdir -- -iphoneos
+  - find . -name "*.a" -exec mv "{}" /-- -iphoneos \;
   - cd $TRAVIS_BUILD_DIR
 
 script:
