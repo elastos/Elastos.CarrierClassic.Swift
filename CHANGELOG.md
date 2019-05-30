@@ -4,6 +4,7 @@
 
 ```markdown
 - Resolve crash when ccookies is nil
+- Upgrade native carrier sdk to be v5.3.3
 ```
 
 05/06/2019 Li AiHong aihongli2019@gmail.com
