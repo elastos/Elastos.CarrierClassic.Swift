@@ -75,8 +75,8 @@ public class CarrierFileTransfer: NSObject {
     /// instance.
     ///
     /// - Throws: CarrierError
-    @objc(generateFileid:)
-    class public func generateFileid() throws -> String {
+    @objc(acquireFileId:)
+    class public func acquireFileId() throws -> String {
         let len  = CarrierFileTransfer.MAX_FILE_ID_LEN + 1
         let fileId = UnsafeMutablePointer<Int8>.allocate(capacity: len)
         let cfileId = ela_filetransfer_fileid(fileId, len)
