@@ -21,6 +21,28 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1100297B22D74B54009D592F /* TransportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297022D74B54009D592F /* TransportInfo.swift */; };
+		1100297C22D74B54009D592F /* TransportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297022D74B54009D592F /* TransportInfo.swift */; };
+		1100297D22D74B54009D592F /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297122D74B54009D592F /* Stream.swift */; };
+		1100297E22D74B54009D592F /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297122D74B54009D592F /* Stream.swift */; };
+		1100297F22D74B54009D592F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297222D74B54009D592F /* Session.swift */; };
+		1100298022D74B54009D592F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297222D74B54009D592F /* Session.swift */; };
+		1100298122D74B54009D592F /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297322D74B54009D592F /* StreamType.swift */; };
+		1100298222D74B54009D592F /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297322D74B54009D592F /* StreamType.swift */; };
+		1100298322D74B54009D592F /* PortForwardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297422D74B54009D592F /* PortForwardingProtocol.swift */; };
+		1100298422D74B54009D592F /* PortForwardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297422D74B54009D592F /* PortForwardingProtocol.swift */; };
+		1100298522D74B54009D592F /* StreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297522D74B54009D592F /* StreamDelegate.swift */; };
+		1100298622D74B54009D592F /* StreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297522D74B54009D592F /* StreamDelegate.swift */; };
+		1100298722D74B54009D592F /* NetworkTopology.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297622D74B54009D592F /* NetworkTopology.swift */; };
+		1100298822D74B54009D592F /* NetworkTopology.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297622D74B54009D592F /* NetworkTopology.swift */; };
+		1100298922D74B54009D592F /* CloseReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297722D74B54009D592F /* CloseReason.swift */; };
+		1100298A22D74B54009D592F /* CloseReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297722D74B54009D592F /* CloseReason.swift */; };
+		1100298B22D74B54009D592F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297822D74B54009D592F /* SessionManager.swift */; };
+		1100298C22D74B54009D592F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297822D74B54009D592F /* SessionManager.swift */; };
+		1100298D22D74B54009D592F /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297922D74B54009D592F /* AddressInfo.swift */; };
+		1100298E22D74B54009D592F /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297922D74B54009D592F /* AddressInfo.swift */; };
+		1100298F22D74B54009D592F /* StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297A22D74B54009D592F /* StreamState.swift */; };
+		1100299022D74B54009D592F /* StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100297A22D74B54009D592F /* StreamState.swift */; };
 		1155FC6122815C4E00F8E6A0 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC5E22815C4E00F8E6A0 /* libc++.1.tbd */; };
 		1155FC6222815C4E00F8E6A0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC5F22815C4E00F8E6A0 /* libc++.tbd */; };
 		1155FC6322815C4E00F8E6A0 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC6022815C4E00F8E6A0 /* libc++abi.tbd */; };
@@ -49,17 +71,6 @@
 		116061F02268ABBC00BDCB9F /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497E72003763500420421 /* Carrier.swift */; };
 		116061F12268ABC100BDCB9F /* CarrierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497E62003763500420421 /* CarrierDelegate.swift */; };
 		116061F22268ABC600BDCB9F /* CarrierOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497E42003763500420421 /* CarrierOptions.swift */; };
-		116061F32268ABCB00BDCB9F /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FD2003B3A400420421 /* AddressInfo.swift */; };
-		116061F42268ABD000BDCB9F /* CloseReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FE2003B3A400420421 /* CloseReason.swift */; };
-		116061F52268ABDB00BDCB9F /* NetworkTopology.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498072003B3A400420421 /* NetworkTopology.swift */; };
-		116061F62268ABDE00BDCB9F /* PortForwardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FC2003B3A400420421 /* PortForwardingProtocol.swift */; };
-		116061F72268ABE200BDCB9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498052003B3A400420421 /* Session.swift */; };
-		116061F82268ABE700BDCB9F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FF2003B3A400420421 /* SessionManager.swift */; };
-		116061F92268ABEB00BDCB9F /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498002003B3A400420421 /* Stream.swift */; };
-		116061FA2268ABF300BDCB9F /* StreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498012003B3A400420421 /* StreamDelegate.swift */; };
-		116061FB2268ABF700BDCB9F /* StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498042003B3A400420421 /* StreamState.swift */; };
-		116061FC2268ABFA00BDCB9F /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498062003B3A400420421 /* StreamType.swift */; };
-		116061FD2268ABFE00BDCB9F /* TransportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498022003B3A400420421 /* TransportInfo.swift */; };
 		116061FE2268AC0400BDCB9F /* FileTransferConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE16321BE45F300AF4FE3 /* FileTransferConnectionState.swift */; };
 		116061FF2268AC0700BDCB9F /* FileTransferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE16121BE41E500AF4FE3 /* FileTransferDelegate.swift */; };
 		116062002268AC0B00BDCB9F /* FileTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15F21BE413000AF4FE3 /* FileTransfer.swift */; };
@@ -97,17 +108,6 @@
 		A3B497F92003B39800420421 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497F62003B39800420421 /* String.swift */; };
 		A3B497FA2003B39800420421 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497F72003B39800420421 /* Log.swift */; };
 		A3B497FB2003B39800420421 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497F82003B39800420421 /* Base58.swift */; };
-		A3B498092003B3A500420421 /* PortForwardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FC2003B3A400420421 /* PortForwardingProtocol.swift */; };
-		A3B4980A2003B3A500420421 /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FD2003B3A400420421 /* AddressInfo.swift */; };
-		A3B4980B2003B3A500420421 /* CloseReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FE2003B3A400420421 /* CloseReason.swift */; };
-		A3B4980C2003B3A500420421 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497FF2003B3A400420421 /* SessionManager.swift */; };
-		A3B4980D2003B3A500420421 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498002003B3A400420421 /* Stream.swift */; };
-		A3B4980E2003B3A500420421 /* StreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498012003B3A400420421 /* StreamDelegate.swift */; };
-		A3B4980F2003B3A500420421 /* TransportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498022003B3A400420421 /* TransportInfo.swift */; };
-		A3B498112003B3A500420421 /* StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498042003B3A400420421 /* StreamState.swift */; };
-		A3B498122003B3A500420421 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498052003B3A400420421 /* Session.swift */; };
-		A3B498132003B3A500420421 /* StreamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498062003B3A400420421 /* StreamType.swift */; };
-		A3B498142003B3A500420421 /* NetworkTopology.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498072003B3A400420421 /* NetworkTopology.swift */; };
 		A3B498172003B3AF00420421 /* CarrierError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B498162003B3AE00420421 /* CarrierError.swift */; };
 		A3B4981920045F0A00420421 /* PresenceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4981820045F0A00420421 /* PresenceStatus.swift */; };
 		A3F4A0A9226F1C6300146D25 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A09E226F1C6300146D25 /* libpjmedia.a */; };
@@ -146,6 +146,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1100297022D74B54009D592F /* TransportInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportInfo.swift; sourceTree = "<group>"; };
+		1100297122D74B54009D592F /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		1100297222D74B54009D592F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		1100297322D74B54009D592F /* StreamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamType.swift; sourceTree = "<group>"; };
+		1100297422D74B54009D592F /* PortForwardingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortForwardingProtocol.swift; sourceTree = "<group>"; };
+		1100297522D74B54009D592F /* StreamDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamDelegate.swift; sourceTree = "<group>"; };
+		1100297622D74B54009D592F /* NetworkTopology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTopology.swift; sourceTree = "<group>"; };
+		1100297722D74B54009D592F /* CloseReason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseReason.swift; sourceTree = "<group>"; };
+		1100297822D74B54009D592F /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		1100297922D74B54009D592F /* AddressInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
+		1100297A22D74B54009D592F /* StreamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamState.swift; sourceTree = "<group>"; };
 		1155FC5E22815C4E00F8E6A0 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		1155FC5F22815C4E00F8E6A0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		1155FC6022815C4E00F8E6A0 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
@@ -196,17 +207,6 @@
 		A3B497F62003B39800420421 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Utilities/String.swift; sourceTree = "<group>"; };
 		A3B497F72003B39800420421 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Utilities/Log.swift; sourceTree = "<group>"; };
 		A3B497F82003B39800420421 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Base58.swift; path = Utilities/Base58.swift; sourceTree = "<group>"; };
-		A3B497FC2003B3A400420421 /* PortForwardingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PortForwardingProtocol.swift; path = Session/PortForwardingProtocol.swift; sourceTree = "<group>"; };
-		A3B497FD2003B3A400420421 /* AddressInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressInfo.swift; path = Session/AddressInfo.swift; sourceTree = "<group>"; };
-		A3B497FE2003B3A400420421 /* CloseReason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloseReason.swift; path = Session/CloseReason.swift; sourceTree = "<group>"; };
-		A3B497FF2003B3A400420421 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Session/SessionManager.swift; sourceTree = "<group>"; };
-		A3B498002003B3A400420421 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Session/Stream.swift; sourceTree = "<group>"; };
-		A3B498012003B3A400420421 /* StreamDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamDelegate.swift; path = Session/StreamDelegate.swift; sourceTree = "<group>"; };
-		A3B498022003B3A400420421 /* TransportInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransportInfo.swift; path = Session/TransportInfo.swift; sourceTree = "<group>"; };
-		A3B498042003B3A400420421 /* StreamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamState.swift; path = Session/StreamState.swift; sourceTree = "<group>"; };
-		A3B498052003B3A400420421 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Session/Session.swift; sourceTree = "<group>"; };
-		A3B498062003B3A400420421 /* StreamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamType.swift; path = Session/StreamType.swift; sourceTree = "<group>"; };
-		A3B498072003B3A400420421 /* NetworkTopology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTopology.swift; path = Session/NetworkTopology.swift; sourceTree = "<group>"; };
 		A3B498162003B3AE00420421 /* CarrierError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarrierError.swift; path = Exceptions/CarrierError.swift; sourceTree = "<group>"; };
 		A3B4981820045F0A00420421 /* PresenceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresenceStatus.swift; path = Carrier/PresenceStatus.swift; sourceTree = "<group>"; };
 		A3D41F48225B7C320000D1A7 /* libelacarrier.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libelacarrier.a; path = NativeDistributions/lib/libelacarrier.a; sourceTree = "<group>"; };
@@ -293,6 +293,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1100296F22D74B54009D592F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				1100297022D74B54009D592F /* TransportInfo.swift */,
+				1100297122D74B54009D592F /* Stream.swift */,
+				1100297222D74B54009D592F /* Session.swift */,
+				1100297322D74B54009D592F /* StreamType.swift */,
+				1100297422D74B54009D592F /* PortForwardingProtocol.swift */,
+				1100297522D74B54009D592F /* StreamDelegate.swift */,
+				1100297622D74B54009D592F /* NetworkTopology.swift */,
+				1100297722D74B54009D592F /* CloseReason.swift */,
+				1100297822D74B54009D592F /* SessionManager.swift */,
+				1100297922D74B54009D592F /* AddressInfo.swift */,
+				1100297A22D74B54009D592F /* StreamState.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		116061D82268AB4A00BDCB9F /* ElastosCarrierSDK_macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,8 +407,8 @@
 			children = (
 				A3B497DD2003760500420421 /* Exceptions */,
 				A3B497DA200375EE00420421 /* Carrier */,
-				A3B497DB200375F600420421 /* Session */,
 				A35CE15621BD428B00AF4FE3 /* FileTransfer */,
+				1100296F22D74B54009D592F /* Session */,
 				A3B497DC200375FD00420421 /* Utilities */,
 				A3B497BA2003736300420421 /* ElastosCarrierSDK.h */,
 				A3B497BB2003736300420421 /* Info.plist */,
@@ -446,24 +464,6 @@
 				A3B497E42003763500420421 /* CarrierOptions.swift */,
 			);
 			name = Carrier;
-			sourceTree = "<group>";
-		};
-		A3B497DB200375F600420421 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				A3B497FD2003B3A400420421 /* AddressInfo.swift */,
-				A3B497FE2003B3A400420421 /* CloseReason.swift */,
-				A3B498072003B3A400420421 /* NetworkTopology.swift */,
-				A3B497FC2003B3A400420421 /* PortForwardingProtocol.swift */,
-				A3B498052003B3A400420421 /* Session.swift */,
-				A3B497FF2003B3A400420421 /* SessionManager.swift */,
-				A3B498002003B3A400420421 /* Stream.swift */,
-				A3B498012003B3A400420421 /* StreamDelegate.swift */,
-				A3B498042003B3A400420421 /* StreamState.swift */,
-				A3B498062003B3A400420421 /* StreamType.swift */,
-				A3B498022003B3A400420421 /* TransportInfo.swift */,
-			);
-			name = Session;
 			sourceTree = "<group>";
 		};
 		A3B497DC200375FD00420421 /* Utilities */ = {
@@ -658,40 +658,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1100298022D74B54009D592F /* Session.swift in Sources */,
 				116061E02268AB6E00BDCB9F /* CCarrier.swift in Sources */,
-				116061F82268ABE700BDCB9F /* SessionManager.swift in Sources */,
+				1100298E22D74B54009D592F /* AddressInfo.swift in Sources */,
 				116062012268AC0F00BDCB9F /* FileTransferInfo.swift in Sources */,
 				116061E82268ABA000BDCB9F /* GroupPeer.swift in Sources */,
 				116061EC2268ABAD00BDCB9F /* ConnectionStatus.swift in Sources */,
 				116061F12268ABC100BDCB9F /* CarrierDelegate.swift in Sources */,
+				1100298622D74B54009D592F /* StreamDelegate.swift in Sources */,
 				116061E92268ABA300BDCB9F /* BootstrapNode.swift in Sources */,
 				116061EA2268ABA700BDCB9F /* PresenceStatus.swift in Sources */,
+				1100297C22D74B54009D592F /* TransportInfo.swift in Sources */,
+				1100298422D74B54009D592F /* PortForwardingProtocol.swift in Sources */,
 				116061FF2268AC0700BDCB9F /* FileTransferDelegate.swift in Sources */,
 				116061E12268AB7100BDCB9F /* CSession.swift in Sources */,
-				116061F42268ABD000BDCB9F /* CloseReason.swift in Sources */,
 				116061F22268ABC600BDCB9F /* CarrierOptions.swift in Sources */,
 				116061EE2268ABB400BDCB9F /* LogLevel.swift in Sources */,
-				116061FA2268ABF300BDCB9F /* StreamDelegate.swift in Sources */,
 				116061DF2268AB6900BDCB9F /* CFileTransfer.swift in Sources */,
+				1100298C22D74B54009D592F /* SessionManager.swift in Sources */,
 				116061EB2268ABAA00BDCB9F /* Callbacks.swift in Sources */,
 				116061FE2268AC0400BDCB9F /* FileTransferConnectionState.swift in Sources */,
+				1100298222D74B54009D592F /* StreamType.swift in Sources */,
 				116061E72268AB9C00BDCB9F /* Group.swift in Sources */,
+				1100297E22D74B54009D592F /* Stream.swift in Sources */,
 				116062002268AC0B00BDCB9F /* FileTransfer.swift in Sources */,
 				116061E62268AB9800BDCB9F /* CarrierGroupDelegate.swift in Sources */,
+				1100298822D74B54009D592F /* NetworkTopology.swift in Sources */,
 				116061E52268AB9300BDCB9F /* CarrierError.swift in Sources */,
-				116061F62268ABDE00BDCB9F /* PortForwardingProtocol.swift in Sources */,
 				116062042268AC1C00BDCB9F /* Log.swift in Sources */,
-				116061F52268ABDB00BDCB9F /* NetworkTopology.swift in Sources */,
-				116061FB2268ABF700BDCB9F /* StreamState.swift in Sources */,
+				1100298A22D74B54009D592F /* CloseReason.swift in Sources */,
 				116061F02268ABBC00BDCB9F /* Carrier.swift in Sources */,
-				116061FC2268ABFA00BDCB9F /* StreamType.swift in Sources */,
-				116061F92268ABEB00BDCB9F /* Stream.swift in Sources */,
 				116062032268AC1800BDCB9F /* Base58.swift in Sources */,
-				116061FD2268ABFE00BDCB9F /* TransportInfo.swift in Sources */,
 				116062052268AC2000BDCB9F /* String.swift in Sources */,
-				116061F72268ABE200BDCB9F /* Session.swift in Sources */,
 				116061EF2268ABB900BDCB9F /* UserInfo.swift in Sources */,
-				116061F32268ABCB00BDCB9F /* AddressInfo.swift in Sources */,
+				1100299022D74B54009D592F /* StreamState.swift in Sources */,
 				116062022268AC1300BDCB9F /* FileTransferManager.swift in Sources */,
 				116061ED2268ABB000BDCB9F /* FriendInfo.swift in Sources */,
 			);
@@ -701,42 +701,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1100297F22D74B54009D592F /* Session.swift in Sources */,
 				A3B497EB2003763600420421 /* UserInfo.swift in Sources */,
+				1100298D22D74B54009D592F /* AddressInfo.swift in Sources */,
 				A3B498172003B3AF00420421 /* CarrierError.swift in Sources */,
-				A3B498092003B3A500420421 /* PortForwardingProtocol.swift in Sources */,
 				A35CE15521BBCDD200AF4FE3 /* CarrierGroupDelegate.swift in Sources */,
-				A3B4980B2003B3A500420421 /* CloseReason.swift in Sources */,
-				A3B498132003B3A500420421 /* StreamType.swift in Sources */,
-				A3B4980F2003B3A500420421 /* TransportInfo.swift in Sources */,
-				A3B4980E2003B3A500420421 /* StreamDelegate.swift in Sources */,
-				A3B4980C2003B3A500420421 /* SessionManager.swift in Sources */,
 				A3B497F92003B39800420421 /* String.swift in Sources */,
 				A35CE15821BD428B00AF4FE3 /* FileTransferManager.swift in Sources */,
+				1100298522D74B54009D592F /* StreamDelegate.swift in Sources */,
 				A3B497EC2003763600420421 /* Callbacks.swift in Sources */,
 				A35CE16221BE41E500AF4FE3 /* FileTransferDelegate.swift in Sources */,
-				A3B498112003B3A500420421 /* StreamState.swift in Sources */,
-				A3B498122003B3A500420421 /* Session.swift in Sources */,
+				1100297B22D74B54009D592F /* TransportInfo.swift in Sources */,
+				1100298322D74B54009D592F /* PortForwardingProtocol.swift in Sources */,
 				A3B497E82003763600420421 /* LogLevel.swift in Sources */,
 				A35CE16421BE45F300AF4FE3 /* FileTransferConnectionState.swift in Sources */,
 				A360378020161AAF001A666E /* BootstrapNode.swift in Sources */,
 				A3B497F52003779300420421 /* CCarrier.swift in Sources */,
 				A35CE15221BB4F3C00AF4FE3 /* GroupPeer.swift in Sources */,
-				A3B498142003B3A500420421 /* NetworkTopology.swift in Sources */,
+				1100298B22D74B54009D592F /* SessionManager.swift in Sources */,
 				A3B497F02003763600420421 /* CarrierDelegate.swift in Sources */,
 				A3B497FA2003B39800420421 /* Log.swift in Sources */,
+				1100298122D74B54009D592F /* StreamType.swift in Sources */,
 				A3B497F12003763600420421 /* Carrier.swift in Sources */,
+				1100297D22D74B54009D592F /* Stream.swift in Sources */,
 				A35CE15C21BD43CF00AF4FE3 /* CFileTransfer.swift in Sources */,
 				A3B497E92003763600420421 /* FriendInfo.swift in Sources */,
+				1100298722D74B54009D592F /* NetworkTopology.swift in Sources */,
 				A35CE16021BE413000AF4FE3 /* FileTransfer.swift in Sources */,
 				A3B497EE2003763600420421 /* CarrierOptions.swift in Sources */,
+				1100298922D74B54009D592F /* CloseReason.swift in Sources */,
 				A35CE15E21BE0D7200AF4FE3 /* FileTransferInfo.swift in Sources */,
 				A35CE15321BB4F3C00AF4FE3 /* Group.swift in Sources */,
 				A3B4981920045F0A00420421 /* PresenceStatus.swift in Sources */,
 				A3B497F42003779300420421 /* CSession.swift in Sources */,
+				1100298F22D74B54009D592F /* StreamState.swift in Sources */,
 				A3B497FB2003B39800420421 /* Base58.swift in Sources */,
 				A3B497ED2003763600420421 /* ConnectionStatus.swift in Sources */,
-				A3B4980A2003B3A500420421 /* AddressInfo.swift in Sources */,
-				A3B4980D2003B3A500420421 /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +979,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=100 -Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1011,11 +1012,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=100 -Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 x86_64";
