@@ -681,7 +681,7 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
+    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?, UnsafeMutablePointer<CBool>?) -> Swift.Void)!
 
     /**
      * \~English
@@ -1228,6 +1228,10 @@ internal func ela_remove_friend(_ carrier: OpaquePointer!,
  *      msg         [in] The message content defined by application.
  * @param
  *      len         [in] The message length in bytes.
+ * @param
+ *      is_offline  [out] Whether the target user is offline when the message
+ *                        is sent: true, offline; false, online. This pointer
+ *                        can be NULL.
  *
  * @return
  *      0 if the text message successfully sent.
@@ -1238,7 +1242,8 @@ internal func ela_remove_friend(_ carrier: OpaquePointer!,
 internal func ela_send_friend_message(_ carrier: OpaquePointer!,
                                       _ to: UnsafePointer<Int8>!,
                                       _ msg: UnsafePointer<Int8>!,
-                                      _ len: Int) -> Int32
+                                      _ len: Int,
+                                      _ is_offline: UnsafeMutablePointer<CBool>) -> Int32
 
 /**
  * \~English

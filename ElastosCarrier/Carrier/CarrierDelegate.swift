@@ -168,12 +168,15 @@ public protocol CarrierDelegate {
     ///   - carrier: Carrier node instance
     ///   - from: The id(userid@nodeid) from who send the message
     ///   - message: The message content
+    ///   - is_offline: Whether the target user is offline when the message is sent:
+    ///                 true, offline; false, online.
     ///
     /// - Returns: Void
-    @objc(carrier:didReceiveFriendMessage:data:) optional
+    @objc(carrier:didReceiveFriendMessage:data:is_online:) optional
     func didReceiveFriendMessage(_ carrier: Carrier,
                                  _ from: String,
-                                 _ data: Data)
+                                 _ data: Data,
+                                 _ is_offline: Bool)
 
     /// Tell the delegate that an friend invite request has been received.
     ///
