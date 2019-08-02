@@ -121,6 +121,28 @@ internal struct COptions {
 
     /**
      * \~English
+     * Set the log level for Carrier logging output.
+     *  Default is CLogLevel_Error.
+     */
+    var log_level: CLogLevel = CLogLevel_Error
+
+    /**
+     * \~English
+     * Set all logging messages from Carrier output to logfile.
+     * Default is NULL, all the logging message will output to stdout.
+     */
+    var log_file: UnsafePointer<Int8>?
+
+    /**
+     * \~English
+     * Set a customized log printer, all logging messages from Carrier
+     * will also output to this printer.
+     * Default is NULL.
+     */
+    var log_printer: (UnsafePointer<Int8>?, CVaListPointer?)
+
+    /**
+     * \~English
      * The total number of bootstrap nodes to connect.
      * There must have at least one bootstrap node for the very first time
      * to create carrier instance.
