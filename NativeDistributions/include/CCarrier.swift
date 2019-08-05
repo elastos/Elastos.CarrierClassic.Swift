@@ -131,7 +131,7 @@ internal struct COptions {
      * Set all logging messages from Carrier output to logfile.
      * Default is NULL, all the logging message will output to stdout.
      */
-    var log_file: UnsafePointer<Int8>?
+    var log_file: UnsafeMutablePointer<Int8>?
 
     /**
      * \~English
@@ -703,7 +703,7 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?, UnsafeMutablePointer<CBool>?) -> Swift.Void)!
+    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?, UnsafePointer<Bool>?) -> Swift.Void)!
 
     /**
      * \~English
@@ -1265,7 +1265,7 @@ internal func ela_send_friend_message(_ carrier: OpaquePointer!,
                                       _ to: UnsafePointer<Int8>!,
                                       _ msg: UnsafePointer<Int8>!,
                                       _ len: Int,
-                                      _ is_offline: UnsafeMutablePointer<CBool>) -> Int32
+                                      _ is_offline: UnsafePointer<Bool>) -> Int32
 
 /**
  * \~English
