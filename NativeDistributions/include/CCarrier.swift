@@ -139,7 +139,7 @@ internal struct COptions {
      * will also output to this printer.
      * Default is NULL.
      */
-    var log_printer: (UnsafePointer<Int8>?, CVaListPointer?)
+    var log_printer: UnsafeMutablePointer<(UnsafePointer<Int8>?, CVaListPointer?)>?
 
     /**
      * \~English
