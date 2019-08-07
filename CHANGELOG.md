@@ -1,3 +1,11 @@
+08/07/2019 Li AiHong aihongli2019@gmail.com
+
+**version 5.3.3**, main changes to previous version:
+
+```markdown
+- Upgrade native carrier sdk to be v5.3.4
+```
+
 05/30/2019 Li AiHong aihongli2019@gmail.com
 
 **version 5.3.2**, main changes to previous version:
