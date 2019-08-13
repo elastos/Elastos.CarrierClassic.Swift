@@ -703,7 +703,7 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?, UnsafePointer<Bool>?) -> Swift.Void)!
+    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafePointer<Bool>?, UnsafeMutableRawPointer?) -> Swift.Void)!
 
     /**
      * \~English
