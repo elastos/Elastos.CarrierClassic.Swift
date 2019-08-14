@@ -1,3 +1,13 @@
+08/14/2019 Li AiHong aihongli2019@gmail.com
+
+**version 5.3.3**, main changes to previous version:
+
+```markdown
+- Fix filetransfer bug
+- Fix carrier Goup invite callback bug
+- Use travis-ci.com
+```
+
 08/07/2019 Li AiHong aihongli2019@gmail.com
 
 **version 5.3.3**, main changes to previous version:
