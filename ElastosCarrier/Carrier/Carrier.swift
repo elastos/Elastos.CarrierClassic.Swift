@@ -96,16 +96,6 @@ public class Carrier: NSObject {
         }
     }
     
-    /// Set log level for carrier node.
-    /// Default level to control log output is `CarrierLogLevel.Info`
-    ///
-    /// - Parameter level: The log level
-    @objc(setLogLevel:)
-    public static func setLogLevel(_ level: CarrierLogLevel) {
-        Log.setLevel(level)
-        ela_log_init(convertCarrierLogLevelToCLogLevel(level), nil, nil)
-    }
-    
     /// Create node singleton instance. After initialize the instance,
     /// it's ready to start and therefore connect to the carrier network.
     ///
