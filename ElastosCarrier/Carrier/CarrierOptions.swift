@@ -85,4 +85,3 @@ internal func cleanupCOptions(_ cOptions : COptions) {
     cleanupCBootstraphive(cOptions.hive_bootstraps!, cOptions.hive_bootstraps_size)
     UnsafeMutablePointer<CHiveBootstrapNode>(mutating: cOptions.hive_bootstraps)?.deallocate()
 }
-
