@@ -1,3 +1,12 @@
+09/19/2019 Li AiHong aihongli2019@gmail.com
+
+**version 5.4.1**, main changes to previous version:
+
+```markdown
+- Upgrade native carrier sdk to be v5.4.1
+- Sync last native ela_carrier.h
+```
+
 08/20/2019 Li AiHong aihongli2019@gmail.com
 
 **version 5.4.0**, main changes to previous version:
