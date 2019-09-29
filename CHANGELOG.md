@@ -1,3 +1,12 @@
+09/29/2019 Li Aihong liaihong@elastos.org
+
+**version 5.4.2**, main changes to previous version:
+
+```markdown
+- Update swift version and support for swift5.1
+- Adapt Xcode11.
+```
+
 09/19/2019 Li AiHong aihongli2019@gmail.com
 
 **version 5.4.1**, main changes to previous version:
