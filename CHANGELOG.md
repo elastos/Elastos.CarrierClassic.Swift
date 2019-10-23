@@ -1,3 +1,11 @@
+10/23/2019 Li Aihong liaihong@elastos.org
+
+**version 5.4.3**, main changes to previous version:
+
+```markdown
+- Upgrade native carrier sdk to be v5.4.2
+```
+
 09/29/2019 Li Aihong liaihong@elastos.org
 
 **version 5.4.2**, main changes to previous version:
