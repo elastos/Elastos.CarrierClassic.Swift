@@ -722,30 +722,26 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var friend_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
-
-    /**
-     * \~English
-     * An application-defined function that process the group invite request.
-     *
-     * @param
-     *      carrier     [in] A handle to the Carrier node instance.
-     * @param
-     *      from        [in] The friendid from who send the invite request.
-     * @param
-     *      cookie      [in] The cookie attached to this invite request.
-     * @param
-     *      len         [in] The data length in bytes.
-     * @param
-     *      context     [in] The application defined context data.
-     */
     var group_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int,
         UnsafeMutableRawPointer?) -> Swift.Void)!
-//    var group_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
-//    void (*group_invite)(ElaCarrier *w, const char *from,
-//    const void *cookie, size_t len, void *context);
-//    void (*friend_message)(ElaCarrier *carrier, const char *from,
-//    const void *msg, size_t len, void *context);
+    
+        /**
+         * \~English
+         * An application-defined function that process the group invite request.
+         *
+         * @param
+         *      carrier     [in] A handle to the Carrier node instance.
+         * @param
+         *      from        [in] The friendid from who send the invite request.
+         * @param
+         *      cookie      [in] The cookie attached to this invite request.
+         * @param
+         *      len         [in] The data length in bytes.
+         * @param
+         *      context     [in] The application defined context data.
+         */
+    var friend_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
+    
     /**
      * \~English
      * Group related callbacks.
