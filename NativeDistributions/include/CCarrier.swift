@@ -703,7 +703,7 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var friend_message: ((OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, CBool?, UnsafeMutableRawPointer?) -> Swift.Void)!
+    var friend_message: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, Bool, UnsafeMutableRawPointer?) -> Swift.Void)!
 
     /**
      * \~English
@@ -722,8 +722,7 @@ internal struct CCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    var group_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int,
-        UnsafeMutableRawPointer?) -> Swift.Void)!
+    var friend_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
     
         /**
          * \~English
@@ -740,7 +739,8 @@ internal struct CCallbacks {
          * @param
          *      context     [in] The application defined context data.
          */
-    var friend_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int, UnsafeMutableRawPointer?) -> Swift.Void)!
+    var group_invite: (@convention(c) (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int,
+        UnsafeMutableRawPointer?) -> Swift.Void)!
     
     /**
      * \~English
