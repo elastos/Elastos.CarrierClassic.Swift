@@ -1,3 +1,13 @@
+11/19/2019 Li Aihong liaihong@elastos.org
+
+**version 5.4.4**, main changes to previous version:
+
+```markdown
+- Fix crash issue for group invitation
+- Fix bugs for acquireFileName(by:) & acquireFileId(by:)
+- Adapt Xcode11.2.1
+```
+
 10/23/2019 Li Aihong liaihong@elastos.org
 
 **version 5.4.3**, main changes to previous version:
