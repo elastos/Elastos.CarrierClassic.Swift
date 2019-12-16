@@ -17,9 +17,6 @@ This folder is hold for native dependency libraries with layout below:
     |--libsrtp.a
     |--libtoxcore.a
     |--libz.a
-    |--libc++.1.tbd
-    |--libc++.tbd
-    |--libc++abi.tbd
 |-- -iphonesimulator
     |--libcjson.a
     |--libcrystal.a
@@ -36,9 +33,6 @@ This folder is hold for native dependency libraries with layout below:
     |--libsrtp.a
     |--libtoxcore.a
     |--libz.a
-    |--libc++.1.tbd
-    |--libc++.tbd
-    |--libc++abi.tbd
 ```
 
 **Notice**:
@@ -64,7 +58,4 @@ And if you want build framework used for macos platform, then added relevant nat
     |--libsrtp.a
     |--libtoxcore.a
     |--libz.a
-    |--libc++.1.tbd
-    |--libc++.tbd
-    |--libc++abi.tbd
 ```
