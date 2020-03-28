@@ -3,10 +3,10 @@
 **version 5.5.0**, main changes to previous version:
 
 ```markdown
-- Correct default port value for IPFS node service.
-- Fix cmake typo.
-- Update cygwin.
-- Allow ela_get_groups() to be called in the whole lifecycle of carrier due to introduction of persistent group.
+- Be able to create multiple carrier instances now, which required by Trinity (or elastOS). General application over Carrier network should still keep using singleton carrier instance under application context.
+- Carrier::getGroups() now can get the groups that created or joined over the previous online time;
+- All groups in Carrier context updated to share one GroupHandler, and become part of CarrierHandler. 
+- Update the prototype of methods of Carrier::createGroup()and Carrier::joinGroup(), which removed GroupHandler from parameter list.
 ```
 
 11/19/2019 Li Aihong liaihong@elastos.org
