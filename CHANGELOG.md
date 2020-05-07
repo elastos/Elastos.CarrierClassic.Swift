@@ -3,15 +3,9 @@
 **version 5.5.1**, main changes to previous version:
 
 ```markdown
-- Upgrade native carrier sdk to be v5.5.1:
-    - Support with carrier extension especially used for webrtc
-    - Improve implementation of bulk message sending/receiving
-    - Support feature of sending/receiving big data block (1K~5M)
-    - Turn off to run elatets in travis CI and circle CI
-    - fix group info store issue when killed by system.
-    - Update reference location of dependency CUnit release package
-    - This is a combination of 2 commits.
-    - Try to leave all groups before start to test ela_get_groups APIs because of group persistence
+Upgrade native carrier sdk to be v5.5.1 with updates listed:
+- Improve implementation of bulk message sending/receiving
+- fix group info store issue when killed by system.
 ```
 
 03/28/2020 Li Aihong liaihong@trinity-tech.io
