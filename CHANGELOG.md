@@ -1,3 +1,13 @@
+05/07/2020 Li Aihong liaihong@trinity-tech.io
+
+**version 5.5.1**, main changes to previous version:
+
+```markdown
+Upgrade native carrier sdk to be v5.5.1 with updates listed:
+- Improve implementation of bulk message sending/receiving
+- fix group info store issue when killed by system.
+```
+
 03/28/2020 Li Aihong liaihong@trinity-tech.io
 
 **version 5.5.0**, main changes to previous version:
