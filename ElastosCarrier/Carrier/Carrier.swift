@@ -36,7 +36,7 @@ public class Carrier: NSObject {
         _ data: String?) -> Void
 
     public typealias CarrierFriendMessageReceiptResponseHandler =
-        (_ msgid: Int64, _ status: Int) -> Void
+        (_ msgid: Int64, _ status: CarrierReceiptState) -> Void
 
     /// Carrier node App message max length.
     @objc public static let MAX_APP_MESSAGE_LEN: Int = 2048
@@ -859,16 +859,16 @@ public class Carrier: NSObject {
             let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
                 .takeRetainedValue() as! [AnyObject?]
 
-            let carrier = ectxt[0] as! Carrier
             let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
 
             let msgid = Int64(cmsgid)
-            let status = Int(cstatus)
 
+            var status = Int(cstatus)
             if status != 0 {
-                // TODO: throws error
+                status = getErrorCode()
             }
-            handler(msgid, status)
+            let receipt = CarrierReceiptState(rawValue: status)!
+            handler(msgid, receipt)
         }
 
         let econtext: [AnyObject?] = [self, responseHandler as AnyObject]
@@ -916,16 +916,16 @@ public class Carrier: NSObject {
             let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
                 .takeRetainedValue() as! [AnyObject?]
 
-            let carrier = ectxt[0] as! Carrier
             let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
 
             let msgid = Int64(cmsgid)
-            let status = Int(cstatus)
 
+            var status = Int(cstatus)
             if status != 0 {
-                // TODO: throws error
+                status = getErrorCode()
             }
-            handler(msgid, status)
+            let receipt = CarrierReceiptState(rawValue: status)!
+            handler(msgid, receipt)
         }
 
         let econtext: [AnyObject?] = [self, responseHandler as AnyObject]

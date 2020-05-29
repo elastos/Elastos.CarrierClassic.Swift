@@ -182,8 +182,10 @@ private func onFriendMessage(_: OpaquePointer?,
     
     let from = String(cString: cfrom!)
     let msg  = Data(bytes: cmessage!, count: len)
+    let interval:TimeInterval = TimeInterval.init(timestamp)
+    let date = Date(timeIntervalSince1970: interval)
 
-    handler.didReceiveFriendMessage?(carrier, from, msg, timestamp, is_offline)
+    handler.didReceiveFriendMessage?(carrier, from, msg, date, is_offline)
 }
 
 private func onFriendInvite(_: OpaquePointer?, cfrom: UnsafePointer<Int8>?,

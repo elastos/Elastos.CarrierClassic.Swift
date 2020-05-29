@@ -177,7 +177,7 @@ public protocol CarrierDelegate: CarrierGroupDelegate {
     func didReceiveFriendMessage(_ carrier: Carrier,
                                  _ from: String,
                                  _ data: Data,
-                                 _ timestamp: Int64,
+                                 _ timestamp: Date,
                                  _ isOffline: Bool)
 
     /// Tell the delegate that an friend invite request has been received.

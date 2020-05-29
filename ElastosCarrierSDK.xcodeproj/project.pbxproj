@@ -98,6 +98,8 @@
 		118B6E62247FB64000E0950F /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11612D3E22F12977001179CD /* libz.a */; };
 		118B6E65247FB7D000E0950F /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118B6E63247FB64100E0950F /* libssl.a */; };
 		118B6E66247FB80500E0950F /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118B6E64247FB64100E0950F /* libcrypto.a */; };
+		118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
+		118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		A35CE15221BB4F3C00AF4FE3 /* GroupPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */; };
 		A35CE15321BB4F3C00AF4FE3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15121BB4F3B00AF4FE3 /* Group.swift */; };
 		A35CE15521BBCDD200AF4FE3 /* CarrierGroupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15421BBCDD200AF4FE3 /* CarrierGroupDelegate.swift */; };
@@ -204,6 +206,7 @@
 		11612D8822F1722D001179CD /* ela_filetransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_filetransfer.h; path = NativeDistributions/include/ela_filetransfer.h; sourceTree = "<group>"; };
 		118B6E63247FB64100E0950F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "NativeDistributions/lib/-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		118B6E64247FB64100E0950F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "NativeDistributions/lib/-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
+		118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarrierReceiptState.swift; path = Carrier/CarrierReceiptState.swift; sourceTree = "<group>"; };
 		11A2088D247FB2900081A284 /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = "NativeDistributions/lib/-iphonesimulator/libcjson.a"; sourceTree = "<group>"; };
 		A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupPeer.swift; path = Carrier/GroupPeer.swift; sourceTree = "<group>"; };
 		A35CE15121BB4F3B00AF4FE3 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Carrier/Group.swift; sourceTree = "<group>"; };
@@ -536,6 +539,7 @@
 				A3B497E72003763500420421 /* Carrier.swift */,
 				A3B497E62003763500420421 /* CarrierDelegate.swift */,
 				A3B497E42003763500420421 /* CarrierOptions.swift */,
+				118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */,
 			);
 			name = Carrier;
 			sourceTree = "<group>";
@@ -760,6 +764,7 @@
 				116061EA2268ABA700BDCB9F /* PresenceStatus.swift in Sources */,
 				116061FF2268AC0700BDCB9F /* FileTransferDelegate.swift in Sources */,
 				116061E12268AB7100BDCB9F /* CSession.swift in Sources */,
+				118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */,
 				116061F42268ABD000BDCB9F /* CloseReason.swift in Sources */,
 				116061F22268ABC600BDCB9F /* CarrierOptions.swift in Sources */,
 				116061EE2268ABB400BDCB9F /* LogLevel.swift in Sources */,
@@ -803,6 +808,7 @@
 				A3B4980E2003B3A500420421 /* StreamDelegate.swift in Sources */,
 				A3B4980C2003B3A500420421 /* SessionManager.swift in Sources */,
 				A3B497F92003B39800420421 /* String.swift in Sources */,
+				118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */,
 				A35CE15821BD428B00AF4FE3 /* FileTransferManager.swift in Sources */,
 				A3B497EC2003763600420421 /* Callbacks.swift in Sources */,
 				A35CE16221BE41E500AF4FE3 /* FileTransferDelegate.swift in Sources */,
