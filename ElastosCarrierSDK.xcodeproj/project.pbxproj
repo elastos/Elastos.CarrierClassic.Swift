@@ -1064,6 +1064,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20200604100448;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1077,6 +1078,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
+				MARKETING_VERSION = 5.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1096,6 +1098,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20200604100448;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1109,6 +1112,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 				);
+				MARKETING_VERSION = 5.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
