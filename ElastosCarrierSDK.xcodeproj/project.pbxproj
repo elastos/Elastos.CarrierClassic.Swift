@@ -100,6 +100,10 @@
 		118B6E66247FB80500E0950F /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118B6E64247FB64100E0950F /* libcrypto.a */; };
 		118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
+		A30D52902489E26300E07564 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D528F2489E26300E07564 /* extension.h */; };
+		A30D52922489E29400E07564 /* CExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52912489E29400E07564 /* CExtension.swift */; };
+		A30D52942489E65800E07564 /* ela_turnserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D52932489E65800E07564 /* ela_turnserver.h */; };
+		A30D52982489E92200E07564 /* CTurnServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52972489E92200E07564 /* CTurnServer.swift */; };
 		A35CE15221BB4F3C00AF4FE3 /* GroupPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */; };
 		A35CE15321BB4F3C00AF4FE3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15121BB4F3B00AF4FE3 /* Group.swift */; };
 		A35CE15521BBCDD200AF4FE3 /* CarrierGroupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15421BBCDD200AF4FE3 /* CarrierGroupDelegate.swift */; };
@@ -208,6 +212,10 @@
 		118B6E64247FB64100E0950F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "NativeDistributions/lib/-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
 		118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarrierReceiptState.swift; path = Carrier/CarrierReceiptState.swift; sourceTree = "<group>"; };
 		11A2088D247FB2900081A284 /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = "NativeDistributions/lib/-iphonesimulator/libcjson.a"; sourceTree = "<group>"; };
+		A30D528F2489E26300E07564 /* extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = extension.h; path = NativeDistributions/include/extension.h; sourceTree = "<group>"; };
+		A30D52912489E29400E07564 /* CExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CExtension.swift; path = NativeDistributions/include/CExtension.swift; sourceTree = "<group>"; };
+		A30D52932489E65800E07564 /* ela_turnserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_turnserver.h; path = NativeDistributions/include/ela_turnserver.h; sourceTree = "<group>"; };
+		A30D52972489E92200E07564 /* CTurnServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTurnServer.swift; path = NativeDistributions/include/CTurnServer.swift; sourceTree = "<group>"; };
 		A35CE15021BB4F3B00AF4FE3 /* GroupPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupPeer.swift; path = Carrier/GroupPeer.swift; sourceTree = "<group>"; };
 		A35CE15121BB4F3B00AF4FE3 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Carrier/Group.swift; sourceTree = "<group>"; };
 		A35CE15421BBCDD200AF4FE3 /* CarrierGroupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarrierGroupDelegate.swift; path = Carrier/CarrierGroupDelegate.swift; sourceTree = "<group>"; };
@@ -513,12 +521,16 @@
 		A3B497D42003757A00420421 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				A30D528F2489E26300E07564 /* extension.h */,
+				A30D52932489E65800E07564 /* ela_turnserver.h */,
 				11612D8622F1722D001179CD /* ela_carrier.h */,
 				11612D8822F1722D001179CD /* ela_filetransfer.h */,
 				11612D8722F1722D001179CD /* ela_session.h */,
 				A35CE15B21BD43CF00AF4FE3 /* CFileTransfer.swift */,
 				A3B497F32003779300420421 /* CCarrier.swift */,
 				A3B497F22003779300420421 /* CSession.swift */,
+				A30D52912489E29400E07564 /* CExtension.swift */,
+				A30D52972489E92200E07564 /* CTurnServer.swift */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -599,7 +611,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				11612D8922F1722D001179CD /* ela_carrier.h in Headers */,
+				A30D52902489E26300E07564 /* extension.h in Headers */,
 				A3B497C82003736300420421 /* ElastosCarrierSDK.h in Headers */,
+				A30D52942489E65800E07564 /* ela_turnserver.h in Headers */,
 				11612D8D22F1722D001179CD /* ela_filetransfer.h in Headers */,
 				11612D8B22F1722D001179CD /* ela_session.h in Headers */,
 			);
@@ -811,11 +825,13 @@
 				118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */,
 				A35CE15821BD428B00AF4FE3 /* FileTransferManager.swift in Sources */,
 				A3B497EC2003763600420421 /* Callbacks.swift in Sources */,
+				A30D52922489E29400E07564 /* CExtension.swift in Sources */,
 				A35CE16221BE41E500AF4FE3 /* FileTransferDelegate.swift in Sources */,
 				A3B498112003B3A500420421 /* StreamState.swift in Sources */,
 				A3B498122003B3A500420421 /* Session.swift in Sources */,
 				A3B497E82003763600420421 /* LogLevel.swift in Sources */,
 				A35CE16421BE45F300AF4FE3 /* FileTransferConnectionState.swift in Sources */,
+				A30D52982489E92200E07564 /* CTurnServer.swift in Sources */,
 				A360378020161AAF001A666E /* BootstrapNode.swift in Sources */,
 				A3B497F52003779300420421 /* CCarrier.swift in Sources */,
 				A35CE15221BB4F3C00AF4FE3 /* GroupPeer.swift in Sources */,
