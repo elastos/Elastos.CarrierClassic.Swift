@@ -23,7 +23,7 @@
 import Foundation
 
 internal typealias CExtensionInviteCallback = @convention(c)
-    (OpaquePointer?, UnsafePointer<Int8>?, UnsafeRawPointer, Int, UnsafeMutableRawPointer?) -> Swift.Void
+    (OpaquePointer?, UnsafePointer<Int8>?, UnsafePointer<Int8>, Int, UnsafeMutableRawPointer?) -> Swift.Void
 
 @_silgen_name("extension_init")
 internal func extension_init(_ carrier: OpaquePointer,
@@ -36,7 +36,7 @@ internal func extension_cleanup(_ carrier: OpaquePointer) -> Swift.Void
 
 
 internal typealias CExtensionInviteReplyCallback = @convention(c)
-    (OpaquePointer?, UnsafePointer<Int8>, Int32, UnsafePointer<Int8>?, UnsafeRawPointer?, Int,
+    (OpaquePointer?, UnsafePointer<Int8>, Int32, UnsafePointer<Int8>?, UnsafePointer<Int8>?, Int,
      UnsafeMutableRawPointer) -> Swift.Void
 
 @_silgen_name("extension_invite_friend")
