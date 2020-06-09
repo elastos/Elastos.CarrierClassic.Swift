@@ -2,7 +2,7 @@
 import UIKit
 
 @objc(ELACarrierExtension)
-open class CarrierExtension: NSObject {
+public class CarrierExtension: NSObject {
 
     public typealias CarrierExtensionInviteReplyCallback =
         (_ carrier: CarrierExtension, _ from: String, _ status: Int, _ reason: String?,
@@ -15,13 +15,13 @@ open class CarrierExtension: NSObject {
     var carrier: Carrier
     var nativeCookie = 0
 
-    init(_ carrier: Carrier) {
+    public init(_ carrier: Carrier) {
         self.carrier = carrier
         Log.i(TAG, "CarrierExtension instance created")
     }
 
     @objc (turnServerInfo:)
-    func turnServerInfo() throws -> TurnServerInfo {
+    public func turnServerInfo() throws -> TurnServerInfo {
         var cinfo = CTurnServer()
         let result = ela_get_turn_server(carrier.ccarrier!, &cinfo)
         guard result >= 0 else {
@@ -35,7 +35,7 @@ open class CarrierExtension: NSObject {
     }
 
     @objc (inviteFriend:::error:)
-    func inviteFriend(_ to: String, _ data: String, _ handler: @escaping CarrierExtensionInviteReplyCallback) throws {
+    public func inviteFriend(_ to: String, _ data: String, _ handler: @escaping CarrierExtensionInviteReplyCallback) throws {
         guard !to.isEmpty else {
             throw CarrierError.InvalidArgument
         }
@@ -85,7 +85,7 @@ open class CarrierExtension: NSObject {
     }
 
     @objc (replyFriendInvite::::error:)
-    func replyFriendInvite(_ to: String, _ status: Int, _ reason: String?, _ data: String?) throws {
+    public func replyFriendInvite(_ to: String, _ status: Int, _ reason: String?, _ data: String?) throws {
         guard !to.isEmpty else {
             throw CarrierError.InvalidArgument
         }
@@ -137,7 +137,7 @@ open class CarrierExtension: NSObject {
     }
 
     @objc (registerExtension:error:)
-    func registerExtension(_ handler: @escaping CarrierExtensionInviteCallback) throws {
+    public func registerExtension(_ handler: @escaping CarrierExtensionInviteCallback) throws {
         let cb: CExtensionInviteCallback = {
 
             (_, cfrom, cdata, clen, cctxt) in
@@ -165,7 +165,7 @@ open class CarrierExtension: NSObject {
     }
 
     @objc (cleanup:)
-    func cleanup() throws {
+    public func cleanup() throws {
         extension_cleanup(carrier.ccarrier!)
     }
 }
