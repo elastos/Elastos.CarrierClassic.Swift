@@ -2,7 +2,7 @@
 import Foundation
 
 @objc(ELACarrierExtension)
-public class CarrierExtension: NSObject {
+open class CarrierExtension: NSObject {
 
     public typealias CarrierExtensionInviteReplyCallback =
         (_ carrier: CarrierExtension, _ from: String, _ status: Int, _ reason: String?,
