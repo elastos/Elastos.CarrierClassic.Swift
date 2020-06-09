@@ -1,5 +1,5 @@
 
-import UIKit
+import Foundation
 
 @objc(ELACarrierExtension)
 public class CarrierExtension: NSObject {

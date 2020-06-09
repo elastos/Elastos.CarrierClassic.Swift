@@ -1,5 +1,5 @@
 
-import UIKit
+import Foundation
 
 public class TurnServerInfo: NSObject {
     var server: String
