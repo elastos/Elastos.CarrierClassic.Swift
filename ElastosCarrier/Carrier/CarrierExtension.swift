@@ -34,7 +34,6 @@ open class CarrierExtension: NSObject {
         guard result >= 0 else {
             let errno: Int = getErrorCode()
             Log.e(TAG, "Get turn server error: 0x%X", errno)
-            ela_kill(carrier!.ccarrier)
             throw CarrierError.FromErrorCode(errno: errno)
         }
 
