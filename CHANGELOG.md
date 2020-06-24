@@ -1,3 +1,13 @@
+06/24/2020 Li Aihong liaihong@trinity-tech.io
+
+**version 5.6.1**, main changes to previous version:
+
+```markdown
+- Upgrade native carrier sdk to be v5.6.1
+- Support pre-defined secret key.
+- Support webrtc.
+```
+
 06/04/2020 Li Aihong liaihong@trinity-tech.io
 
 **version 5.6.0**, main changes to previous version:
