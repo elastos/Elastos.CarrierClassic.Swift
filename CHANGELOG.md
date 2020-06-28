@@ -5,7 +5,7 @@
 ```markdown
 - Upgrade native carrier sdk to be v5.6.1
 - Support pre-defined secret key.
-- Support webrtc.
+- Support internal extension module for WebRTC calling.
 ```
 
 06/04/2020 Li Aihong liaihong@trinity-tech.io
