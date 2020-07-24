@@ -1,3 +1,11 @@
+07/24/2020 Li Aihong liaihong@trinity-tech.io
+
+**version 5.6.3**, main changes to previous version:
+
+```markdown
+- Support the attribute of TurnServerInfo param to public.
+```
+
 07/07/2020 Li Aihong liaihong@trinity-tech.io
 
 **version 5.6.2**, main changes to previous version:
