@@ -1,3 +1,12 @@
+
+08/11/2020 Li Aihong liaihong@trinity-tech.io
+
+**version 5.6.4**, main changes to previous version:
+
+```markdown
+- Upgrade native carrier sdk to be v5.6.3
+```
+
 07/24/2020 Li Aihong liaihong@trinity-tech.io
 
 **version 5.6.3**, main changes to previous version:
