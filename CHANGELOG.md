@@ -1,4 +1,12 @@
 
+09/23/2020 Li Aihong liaihong@trinity-tech.io
+
+**version 5.6.5**, main changes to previous version:
+
+```markdown
+- Adapt to versions after swift5.1
+```
+
 08/11/2020 Li Aihong liaihong@trinity-tech.io
 
 **version 5.6.4**, main changes to previous version:
