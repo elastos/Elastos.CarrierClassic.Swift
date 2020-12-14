@@ -23,7 +23,7 @@
 import Foundation
 
 @inline(__always) internal func getErrorCode() -> Int {
-    let error = ela_get_error()
+    let error = carrier_get_error()
     return Int(error & 0x7FFFFFFF)
 }
 
@@ -60,7 +60,7 @@ public class Carrier: NSObject {
     /// - Returns: The current carrier node version.
     @objc(getVersion)
     public static func getVersion() -> String {
-        return String(cString: ela_get_version())
+        return String(cString: carrier_get_version())
     }
     
     /// Check if the carrier address ID is valid.
@@ -116,7 +116,7 @@ public class Carrier: NSObject {
         var chandler = getNativeHandlers()
         let cctx = Unmanaged.passUnretained(carrier).toOpaque()
 
-        let ccarrier = ela_new(&copts, &chandler, cctx)
+        let ccarrier = carrier_new(&copts, &chandler, cctx)
         guard let _ = ccarrier else {
             let errno = getErrorCode()
             Log.e(TAG, "Create native carrier instance error: 0x%X", errno)
@@ -138,13 +138,13 @@ public class Carrier: NSObject {
         var _carrier = carrier
         let result = withUnsafeMutablePointer(to: &_carrier) { (ptr) -> Int32 in
             let cctxt = UnsafeMutableRawPointer(ptr)
-            return ela_get_groups(ccarrier, cb, cctxt)
+            return carrier_get_groups(ccarrier, cb, cctxt)
         }
 
         guard result >= 0 else {
             let errno: Int = getErrorCode()
             Log.e(Carrier.TAG, "Get current user's friends error: 0x%X", errno)
-            ela_kill(ccarrier)
+            carrier_kill(ccarrier)
             throw CarrierError.FromErrorCode(errno: errno)
         }
 
@@ -186,7 +186,7 @@ public class Carrier: NSObject {
         
         backgroundQueue.async {
             Log.i(Carrier.TAG, "Native carrier node started.")
-            _ = ela_run(weakSelf?.ccarrier, Int32(iterateInterval))
+            _ = carrier_run(weakSelf?.ccarrier, Int32(iterateInterval))
             Log.i(Carrier.TAG, "Native carrier node stopped.")
             
             DispatchQueue.global(qos: .background).async {
@@ -207,7 +207,7 @@ public class Carrier: NSObject {
         if (!didKill) {
             Log.d(Carrier.TAG, "Actively to kill native carrier node ...");
             
-            ela_kill(ccarrier)
+            carrier_kill(ccarrier)
             ccarrier = nil
             semaph.wait()
             delegate = nil
@@ -228,7 +228,7 @@ public class Carrier: NSObject {
         
         let address = data.withUnsafeMutableBytes() {
             (ptr: UnsafeMutablePointer<Int8>) -> String in
-            return String(cString: ela_get_address(ccarrier, ptr, len))
+            return String(cString: carrier_get_address(ccarrier, ptr, len))
         }
         
         Log.d(Carrier.TAG, "Current carrier address: \(address)")
@@ -245,7 +245,7 @@ public class Carrier: NSObject {
         
         let nodeId = data.withUnsafeMutableBytes() {
             (ptr: UnsafeMutablePointer<Int8>) -> String in
-            return String(cString: ela_get_nodeid(ccarrier, ptr, len))
+            return String(cString: carrier_get_nodeid(ccarrier, ptr, len))
         }
         
         Log.d(Carrier.TAG, "Current carrier NodeId: \(nodeId)")
@@ -262,7 +262,7 @@ public class Carrier: NSObject {
         
         let userId = data.withUnsafeMutableBytes() {
             (ptr: UnsafeMutablePointer<Int8>) -> String in
-            return String(cString: ela_get_userid(ccarrier, ptr, len))
+            return String(cString: carrier_get_userid(ccarrier, ptr, len))
         }
         
         Log.d(Carrier.TAG, "Current carrier UserId: \(userId)")
@@ -280,7 +280,7 @@ public class Carrier: NSObject {
     /// - Throws: CarrierError
     @objc(setSelfNospam:error:)
     public func setSelfNospam(_ newNospam: UInt32) throws {
-        let result = ela_set_self_nospam(ccarrier, newNospam)
+        let result = carrier_set_self_nospam(ccarrier, newNospam)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -302,7 +302,7 @@ public class Carrier: NSObject {
     /// - Throws: CarrierError
     public func getSelfNospam() throws -> UInt32 {
         var nospam: UInt32 = 0
-        let result = ela_get_self_nospam(ccarrier, &nospam)
+        let result = carrier_get_self_nospam(ccarrier, &nospam)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -337,7 +337,7 @@ public class Carrier: NSObject {
     @objc(setSelfUserInfo:error:)
     public func setSelfUserInfo(_ newUserInfo: CarrierUserInfo) throws {
         var cinfo = convertCarrierUserInfoToCUserInfo(newUserInfo)
-        let result = ela_set_self_info(ccarrier, &cinfo)
+        let result = carrier_set_self_info(ccarrier, &cinfo)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -356,7 +356,7 @@ public class Carrier: NSObject {
     @objc(getSelfUserInfo:)
     public func getSelfUserInfo() throws -> CarrierUserInfo {
         var cinfo = CUserInfo()
-        let result = ela_get_self_info(ccarrier, &cinfo)
+        let result = carrier_get_self_info(ccarrier, &cinfo)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -377,7 +377,7 @@ public class Carrier: NSObject {
     @objc(setSelfPresence:error:)
     public func setSelfPresence(_ newPresence: CarrierPresenceStatus) throws {
         let presence = convertCarrierPresenceStatusToCPresenceStatus(newPresence)
-        let result = ela_set_self_presence(ccarrier, presence)
+        let result = carrier_set_self_presence(ccarrier, presence)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -395,7 +395,7 @@ public class Carrier: NSObject {
     /// - Throws: CarrierError
     public func getSelfPresence() throws -> CarrierPresenceStatus {
         var cpresence = CPresenceStatus_None
-        let result = ela_get_self_presence(ccarrier, &cpresence)
+        let result = carrier_get_self_presence(ccarrier, &cpresence)
         
         guard result >= 0 else {
             let errno: Int = getErrorCode()
@@ -424,7 +424,7 @@ public class Carrier: NSObject {
     /// - Returns: true if the carrier node instance is ready, or false if not
     @objc(isReady)
     public func isReady() -> Bool {
-        return ela_is_ready(ccarrier)
+        return carrier_is_ready(ccarrier)
     }
     
     /// Get current user's friend list
@@ -448,7 +448,7 @@ public class Carrier: NSObject {
         var friends = [CarrierFriendInfo]()
         let result = withUnsafeMutablePointer(to: &friends) { (ptr) -> Int32 in
             let cctxt = UnsafeMutableRawPointer(ptr)
-            return ela_get_friends(ccarrier, cb, cctxt)
+            return carrier_get_friends(ccarrier, cb, cctxt)
         }
         
         guard result >= 0 else {
@@ -477,7 +477,7 @@ public class Carrier: NSObject {
     public func getFriendInfo(_ friendId: String) throws ->CarrierFriendInfo {
         var cinfo = CFriendInfo()
         let result = friendId.withCString { (cfriendId) -> Int32 in
-            return ela_get_friend_info(ccarrier, cfriendId, &cinfo)
+            return carrier_get_friend_info(ccarrier, cfriendId, &cinfo)
         }
         
         guard result >= 0 else {
@@ -507,7 +507,7 @@ public class Carrier: NSObject {
         
         let result = friendId.withCString { (cfriendId) in
             return newLabel.withCString { (clabel) in
-                return ela_set_friend_label(ccarrier, cfriendId, clabel);
+                return carrier_set_friend_label(ccarrier, cfriendId, clabel);
             }
         }
         
@@ -528,7 +528,7 @@ public class Carrier: NSObject {
     @objc(isFriendWithUser:)
     public func isFriend(with userId: String) -> Bool {
         return userId.withCString { (ptr) -> Bool in
-            return Bool(ela_is_friend(ccarrier, ptr))
+            return Bool(carrier_is_friend(ccarrier, ptr))
         }
     }
     
@@ -552,7 +552,7 @@ public class Carrier: NSObject {
         
         let result = userId.withCString { (cuserId) in
             return hello.withCString { (chello) in
-                return ela_add_friend(ccarrier, cuserId, chello)
+                return carrier_add_friend(ccarrier, cuserId, chello)
             }
         }
         
@@ -578,7 +578,7 @@ public class Carrier: NSObject {
     public func acceptFriend(with userId: String) throws {
         
         let result = userId.withCString { (cuserId) -> Int32 in
-            return ela_accept_friend(ccarrier, cuserId)
+            return carrier_accept_friend(ccarrier, cuserId)
         }
         
         guard result >= 0 else {
@@ -602,7 +602,7 @@ public class Carrier: NSObject {
     @objc(removeFriend:error:)
     public func removeFriend(_ friendId: String) throws {
         let result = friendId.withCString { (cfriendId) -> Int32 in
-            return ela_remove_friend(ccarrier, cfriendId)
+            return carrier_remove_friend(ccarrier, cfriendId)
         }
         
         guard result >= 0 else {
@@ -656,7 +656,7 @@ public class Carrier: NSObject {
         var isOffline: CBool = false
         let result = target.withCString { cto in
             return withData.withUnsafeBytes{ cdata -> Int32 in
-                return ela_send_friend_message(ccarrier, cto, cdata, withData.count, &isOffline)
+                return carrier_send_friend_message(ccarrier, cto, cdata, withData.count, &isOffline)
             }
         }
 
@@ -712,7 +712,7 @@ public class Carrier: NSObject {
         var isOffline: CBool = false
         let result = target.withCString { cto in
             return data.withUnsafeBytes{ cdata -> Int32 in
-                return ela_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
+                return carrier_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
             }
         }
 
@@ -770,7 +770,7 @@ public class Carrier: NSObject {
         var isOffline: CBool = false
         let result = target.withCString { cto in
             return data.withUnsafeBytes { cdata -> Int32 in
-                return ela_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
+                return carrier_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
             }
         }
         
@@ -835,7 +835,7 @@ public class Carrier: NSObject {
         let result = target.withCString { (cto) -> Int32 in
             return data.withCString { (cdata) -> Int32 in
                 let len = data.utf8CString.count
-                return ela_invite_friend(ccarrier, cto, nil, cdata, len, cb, cctxt)
+                return carrier_invite_friend(ccarrier, cto, nil, cdata, len, cb, cctxt)
             }
         }
         
@@ -849,6 +849,7 @@ public class Carrier: NSObject {
         Log.d(Carrier.TAG, "Sended friend invite request to \(target).")
     }
     
+    /*
     /// Send a message to a friend with receipt.
     ///
     /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
@@ -891,7 +892,7 @@ public class Carrier: NSObject {
         let result = target.withCString { (cto) -> Int32 in
             return msg.withCString { (cdata) -> Int32 in
                 let len = msg.utf8CString.count
-                return ela_send_message_with_receipt(ccarrier, cto, cdata, len, cb, cctxt)
+                return carrier_send_message_with_receipt(ccarrier, cto, cdata, len, cb, cctxt)
             }
         }
 
@@ -947,7 +948,7 @@ public class Carrier: NSObject {
 
         let result = target.withCString { (cto) -> Int32 in
             return msg.withUnsafeBytes { (cdata) -> Int32 in
-                return ela_send_message_with_receipt(ccarrier, cto, cdata, msg.count, cb, cctxt)
+                return carrier_send_message_with_receipt(ccarrier, cto, cdata, msg.count, cb, cctxt)
             }
         }
 
@@ -961,7 +962,8 @@ public class Carrier: NSObject {
         Log.d(Carrier.TAG, "send message with receipt to \(target).")
         return Int64(result)
     }
-
+*/
+    
     /// Reply the friend invite request.
     ///
     /// This function will send a invite response to friend.
@@ -1023,7 +1025,7 @@ public class Carrier: NSObject {
                 }
             }
             
-            return ela_reply_friend_invite(ccarrier, cto, nil, CInt(status),
+            return carrier_reply_friend_invite(ccarrier, cto, nil, CInt(status),
                                            creason, cdata, len)
         }
         
@@ -1054,7 +1056,7 @@ public class Carrier: NSObject {
         
         let result = data.withUnsafeMutableBytes() {
             (ptr: UnsafeMutablePointer<Int8>) -> Int32 in
-            return ela_new_group(ccarrier, ptr, len)
+            return carrier_new_group(ccarrier, ptr, len)
         }
         
         guard result >= 0 else {
@@ -1099,7 +1101,7 @@ public class Carrier: NSObject {
             return cookie.withUnsafeBytes { (ccookie: UnsafePointer<Int8>) -> Int32 in
                 return data.withUnsafeMutableBytes()  {
                     (cdata: UnsafeMutablePointer<Int8>) -> Int32 in
-                    return ela_group_join(ccarrier, cfriendid, ccookie,
+                    return carrier_group_join(ccarrier, cfriendid, ccookie,
                                           cookie.count, cdata, len)
                 }
             }
@@ -1134,7 +1136,7 @@ public class Carrier: NSObject {
         let groupid = group.getId()
         
         let result = groupid.withCString() { (ptr) in
-            return ela_leave_group(ccarrier, ptr)
+            return carrier_leave_group(ccarrier, ptr)
         }
         
         guard result >= 0 else {

@@ -174,7 +174,7 @@ public class CarrierFileTransferManager: NSObject {
 
         Log.d(TAG(), "Begin to initialize filetransfer manager ...")
 
-        let result = ela_filetransfer_init(carrier.ccarrier, nil, nil)
+        let result = carrier_filetransfer_init(carrier.ccarrier, nil, nil)
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Initialize filetransfer manager error:0x%X", errno)
@@ -222,7 +222,7 @@ public class CarrierFileTransferManager: NSObject {
         filetransferManager.handler = handler
         let cctxt = Unmanaged.passUnretained(filetransferManager).toOpaque()
 
-        let result = ela_filetransfer_init(carrier.ccarrier, cb, cctxt)
+        let result = carrier_filetransfer_init(carrier.ccarrier, cb, cctxt)
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Initialize filetransfer manager error:0x%X", errno)
@@ -254,7 +254,7 @@ public class CarrierFileTransferManager: NSObject {
         if !didCleanup {
             Log.d(TAG(), "Begin clean up native carrier session manager ...")
 
-            ela_filetransfer_cleanup(carrier!.ccarrier)
+            carrier_filetransfer_cleanup(carrier!.ccarrier)
             carrier = nil
             didCleanup = true
 
@@ -304,9 +304,9 @@ public class CarrierFileTransferManager: NSObject {
 
         let cFileTransfer = address.withCString() { (ptr) -> OpaquePointer? in
             if cFileInfo != nil {
-                return ela_filetransfer_new(carrier?.ccarrier, ptr, &cFileInfo!, callbacks, cctxt)
+                return carrier_filetransfer_new(carrier?.ccarrier, ptr, &cFileInfo!, callbacks, cctxt)
             } else {
-                return ela_filetransfer_new(carrier?.ccarrier, ptr, nil, callbacks, cctxt)
+                return carrier_filetransfer_new(carrier?.ccarrier, ptr, nil, callbacks, cctxt)
             }
         }
 

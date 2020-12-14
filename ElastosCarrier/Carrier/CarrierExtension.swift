@@ -30,7 +30,7 @@ open class CarrierExtension: NSObject {
     @objc (turnServerInfo:)
     public func turnServerInfo() throws -> TurnServerInfo {
         var cinfo = CTurnServer()
-        let result = ela_get_turn_server(carrier!.ccarrier!, &cinfo)
+        let result = carrier_get_turn_server(carrier!.ccarrier!, &cinfo)
         guard result >= 0 else {
             let errno: Int = getErrorCode()
             Log.e(TAG, "Get turn server error: 0x%X", errno)
@@ -96,10 +96,10 @@ open class CarrierExtension: NSObject {
             throw CarrierError.InvalidArgument
         }
         if status == 0 {
-            Log.d(TAG, "Attempt to confirm friend invite to " + target + "with data \(data)")
+            Log.d(TAG, "Attempt to confirm friend invite to " + target + "with data \(String(describing: data))")
         }
         else {
-            Log.d(TAG, "Attempt to confirm friend invite to " + target + "with status \(data)" + "and reason \(reason)")
+            Log.d(TAG, "Attempt to confirm friend invite to " + target + "with status \(data)" + "and reason \(String(describing: reason))")
         }
 
         var creason: UnsafeMutablePointer<Int8>?
@@ -135,10 +135,10 @@ open class CarrierExtension: NSObject {
         }
 
         if status == 0 {
-            Log.d(TAG, "Confirmed friend invite to " + target + "with data \(data)")
+            Log.d(TAG, "Confirmed friend invite to " + target + "with data \(String(describing: data))")
         }
         else {
-            Log.d(TAG, "Refused friend invite to " + target + "with status \(data)" + "and reason \(reason)")
+            Log.d(TAG, "Refused friend invite to " + target + "with status \(String(describing: data))" + "and reason \(reason)")
         }
     }
 

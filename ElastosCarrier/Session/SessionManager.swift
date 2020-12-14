@@ -49,7 +49,7 @@ public class CarrierSessionManager: NSObject {
     public static func createInstance(carrier: Carrier) throws -> CarrierSessionManager {
         Log.d(TAG(), "Begin to initialize native carrier session manager...")
 
-        var result = ela_session_init(carrier.ccarrier)
+        var result = carrier_session_init(carrier.ccarrier)
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Initialize native session manager error:0x%X", errno)
@@ -58,11 +58,11 @@ public class CarrierSessionManager: NSObject {
 
         Log.d(TAG(), "The native carrier session manager initialized.")
 
-        result = ela_session_set_callback(carrier.ccarrier, nil, nil, nil)
+        result = carrier_session_set_callback(carrier.ccarrier, nil, nil, nil)
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Set session callback error: 0x%x", errno)
-            ela_session_cleanup(carrier.ccarrier)
+            carrier_session_cleanup(carrier.ccarrier)
             throw CarrierError.FromErrorCode(errno: errno)
         }
 
@@ -93,7 +93,7 @@ public class CarrierSessionManager: NSObject {
         let sessionManager = CarrierSessionManager(carrier)
         sessionManager.handler = handler
 
-        var result = ela_session_init(carrier.ccarrier)
+        var result = carrier_session_init(carrier.ccarrier)
 
         guard result >= 0 else {
             let errno = getErrorCode()
@@ -116,11 +116,11 @@ public class CarrierSessionManager: NSObject {
         }
         let cctxt = Unmanaged.passUnretained(sessionManager).toOpaque()
 
-        result = ela_session_set_callback(carrier.ccarrier, nil, cb, cctxt);
+        result = carrier_session_set_callback(carrier.ccarrier, nil, cb, cctxt);
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Set session callback error: 0x%X", errno)
-            ela_session_cleanup(carrier.ccarrier)
+            carrier_session_cleanup(carrier.ccarrier)
             throw CarrierError.FromErrorCode(errno: errno)
         }
 
@@ -151,7 +151,7 @@ public class CarrierSessionManager: NSObject {
         if !didCleanup {
             Log.d(TAG(), "Begin clean up native carrier session manager ...")
 
-            ela_session_cleanup(carrier!.ccarrier)
+            carrier_session_cleanup(carrier!.ccarrier)
             carrier = nil
             didCleanup = true
 
@@ -175,7 +175,7 @@ public class CarrierSessionManager: NSObject {
         throws -> CarrierSession {
 
         let ctmp = target.withCString { (ptr) -> OpaquePointer? in
-            return ela_session_new(carrier!.ccarrier, ptr)
+            return carrier_session_new(carrier!.ccarrier, ptr)
         }
 
         guard ctmp != nil else {

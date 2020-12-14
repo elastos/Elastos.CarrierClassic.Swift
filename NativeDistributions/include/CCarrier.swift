@@ -194,8 +194,8 @@ internal struct COptions {
  * \~English
  * Get the current version of Carrier node.
  */
-@_silgen_name("ela_get_version")
-internal func ela_get_version() -> UnsafePointer<Int8>!
+@_silgen_name("carrier_get_version")
+internal func carrier_get_version() -> UnsafePointer<Int8>!
 
 /**
  * \~English
@@ -818,8 +818,8 @@ internal struct CCallbacks {
  * @param
  *      log_printer [in] the user defined log printer. can be NULL.
  */
-@_silgen_name("ela_log_init")
-internal func ela_log_init(_ level: CLogLevel,
+@_silgen_name("carrier_log_init")
+internal func carrier_log_init(_ level: CLogLevel,
                            _ log_file: UnsafePointer<Int8>!,
                            _ log_printer: (/*@convention(c)*/ (UnsafePointer<Int8>?, CVaListPointer?) -> Swift.Void)!)
 
@@ -833,8 +833,8 @@ internal func ela_log_init(_ level: CLogLevel,
  * @return
  *      true if address is valid, or false if address is not valid.
  */
-@_silgen_name("ela_address_is_valid")
-internal func ela_address_is_valid(_ address: UnsafePointer<Int8>!) ->Bool
+@_silgen_name("carrier_address_is_valid")
+internal func carrier_address_is_valid(_ address: UnsafePointer<Int8>!) ->Bool
 
 /**
  * \~English
@@ -846,8 +846,8 @@ internal func ela_address_is_valid(_ address: UnsafePointer<Int8>!) ->Bool
  * @return
  *      true if id is valid, or false if id is not valid.
  */
-@_silgen_name("ela_id_is_valid")
-internal func ela_id_is_valid(_ id: UnsafePointer<Int8>!) -> Bool
+@_silgen_name("carrier_id_is_valid")
+internal func carrier_id_is_valid(_ id: UnsafePointer<Int8>!) -> Bool
 
 
 /**
@@ -867,8 +867,8 @@ internal func ela_id_is_valid(_ id: UnsafePointer<Int8>!) -> Bool
  *      Otherwise, return NULL, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_new")
-internal func ela_new(_ options: UnsafePointer<COptions>!,
+@_silgen_name("carrier_new")
+internal func carrier_new(_ options: UnsafePointer<COptions>!,
                       _ callbacks: UnsafeMutablePointer<CCallbacks>!,
                       _ context: UnsafeMutableRawPointer!) -> OpaquePointer!
 
@@ -884,8 +884,8 @@ internal func ela_new(_ options: UnsafePointer<COptions>!,
  *      carrier     [in] A handle identifying the Carrier node instance
  *                       to kill.
  */
-@_silgen_name("ela_kill")
-internal func ela_kill(_ carrier: OpaquePointer!)
+@_silgen_name("carrier_kill")
+internal func carrier_kill(_ carrier: OpaquePointer!)
 
 // MARK: - Connection & event loop
 
@@ -906,8 +906,8 @@ internal func ela_kill(_ carrier: OpaquePointer!)
  *      event loop. Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_run")
-internal func ela_run(_ carrier: OpaquePointer!, _ interval: Int32) -> Int32
+@_silgen_name("carrier_run")
+internal func carrier_run(_ carrier: OpaquePointer!, _ interval: Int32) -> Int32
 
 // MARK: - Internal node information
 
@@ -927,8 +927,8 @@ internal func ela_run(_ carrier: OpaquePointer!, _ interval: Int32) -> Int32
  * @return
  *      The address string pointer, or NULL if buffer is too small.
  */
-@_silgen_name("ela_get_address")
-internal func ela_get_address(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_address")
+internal func carrier_get_address(_ carrier: OpaquePointer!,
                               _ address: UnsafeMutablePointer<Int8>!,
                               _ len: Int) -> UnsafeMutablePointer<Int8>!
 
@@ -948,8 +948,8 @@ internal func ela_get_address(_ carrier: OpaquePointer!,
  * @return
  *      The nodeId string pointer, or NULL if buffer is too small.
  */
-@_silgen_name("ela_get_nodeid")
-internal func ela_get_nodeid(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_nodeid")
+internal func carrier_get_nodeid(_ carrier: OpaquePointer!,
                              _ nodeid: UnsafeMutablePointer<Int8>!,
                              _ len: Int) -> UnsafeMutablePointer<Int8>!
 
@@ -969,8 +969,8 @@ internal func ela_get_nodeid(_ carrier: OpaquePointer!,
  * @return
  *      The userId string pointer, or NULL if buffer is too small.
  */
-@_silgen_name("ela_get_userid")
-internal func ela_get_userid(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_userid")
+internal func carrier_get_userid(_ carrier: OpaquePointer!,
                              _ userid: UnsafeMutablePointer<Int8>!,
                              _ len: Int) -> UnsafeMutablePointer<Int8>!
 
@@ -993,8 +993,8 @@ internal func ela_get_userid(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_set_self_nospam")
-internal func ela_set_self_nospam(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_set_self_nospam")
+internal func carrier_set_self_nospam(_ carrier: OpaquePointer!,
                                   _ nospam: UInt32) -> Int32
 
 /**
@@ -1013,8 +1013,8 @@ internal func ela_set_self_nospam(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_self_nospam")
-internal func ela_get_self_nospam(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_self_nospam")
+internal func carrier_get_self_nospam(_ carrier: OpaquePointer!,
                                   _ nospam: UnsafeMutablePointer<UInt32>!) -> Int32
 /**
  * \~English
@@ -1033,8 +1033,8 @@ internal func ela_get_self_nospam(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_set_self_info")
-internal func ela_set_self_info(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_set_self_info")
+internal func carrier_set_self_info(_ carrier: OpaquePointer!,
                                 _ info: UnsafePointer<CUserInfo>!) -> Int32
 /**
  * \~English
@@ -1049,8 +1049,8 @@ internal func ela_set_self_info(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_self_info")
-internal func ela_get_self_info(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_self_info")
+internal func carrier_get_self_info(_ carrier: OpaquePointer!,
                                 _ info: UnsafeMutablePointer<CUserInfo>!) -> Int32
 
 /**
@@ -1066,8 +1066,8 @@ internal func ela_get_self_info(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_set_self_presence")
-internal func ela_set_self_presence(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_set_self_presence")
+internal func carrier_set_self_presence(_ carrier: OpaquePointer!,
                                     _ status: CPresenceStatus) -> Int32
 /**
  * \~English
@@ -1082,8 +1082,8 @@ internal func ela_set_self_presence(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_self_presence")
-internal func ela_get_self_presence(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_self_presence")
+internal func carrier_get_self_presence(_ carrier: OpaquePointer!,
                                     _ status: UnsafeMutablePointer<CPresenceStatus>) -> Int32
 
 /**
@@ -1099,8 +1099,8 @@ internal func ela_get_self_presence(_ carrier: OpaquePointer!,
  * @return
  *      true if the carrier node instance is ready, or false if not.
  */
-@_silgen_name("ela_is_ready")
-internal func  ela_is_ready(_ carrier: OpaquePointer!) -> Bool
+@_silgen_name("carrier_is_ready")
+internal func  carrier_is_ready(_ carrier: OpaquePointer!) -> Bool
 
 
 // MARK: - Friend information
@@ -1140,8 +1140,8 @@ internal typealias CFriendsIterateCallback = @convention(c)
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_friends")
-internal func ela_get_friends(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_friends")
+internal func carrier_get_friends(_ carrier: OpaquePointer!,
                               _ callback: CFriendsIterateCallback!,
                               _ context: UnsafeMutableRawPointer!) -> Int32
 
@@ -1161,8 +1161,8 @@ internal func ela_get_friends(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_friend_info")
-internal func ela_get_friend_info(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_friend_info")
+internal func carrier_get_friend_info(_ carrier: OpaquePointer!,
                                   _ friendid: UnsafePointer<Int8>!,
                                   _ info: UnsafeMutablePointer<CFriendInfo>!) -> Int32
 
@@ -1187,8 +1187,8 @@ internal func ela_get_friend_info(_ carrier: OpaquePointer!,
  *      The label of a friend is a private alias named by yourself. It can be
  *      seen by yourself only, and has no impact to the target friend.
  */
-@_silgen_name("ela_set_friend_label")
-internal func ela_set_friend_label(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_set_friend_label")
+internal func carrier_set_friend_label(_ carrier: OpaquePointer!,
                                    _ friendid: UnsafePointer<Int8>!,
                                    _ label: UnsafePointer<Int8>!) -> Int32
 
@@ -1204,8 +1204,8 @@ internal func ela_set_friend_label(_ carrier: OpaquePointer!,
  * @return
  *      true if the user id is friend, or false if not;
  */
-@_silgen_name("ela_is_friend")
-internal func ela_is_friend(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_is_friend")
+internal func carrier_is_friend(_ carrier: OpaquePointer!,
                             _ userid: UnsafePointer<Int8>!) -> Bool
 
 
@@ -1230,8 +1230,8 @@ internal func ela_is_friend(_ carrier: OpaquePointer!,
  *      0 if adding friend is successful. Otherwise, return -1, and a specific
  *      error code can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_add_friend")
-internal func ela_add_friend(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_add_friend")
+internal func carrier_add_friend(_ carrier: OpaquePointer!,
                              _ userid: UnsafePointer<Int8>!,
                              _ hello: UnsafePointer<Int8>!) -> Int32
 
@@ -1251,8 +1251,8 @@ internal func ela_add_friend(_ carrier: OpaquePointer!,
  *      Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_accept_friend")
-internal func ela_accept_friend(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_accept_friend")
+internal func carrier_accept_friend(_ carrier: OpaquePointer!,
                                 _ userid: UnsafePointer<Int8>!) -> Int32
 
 /**
@@ -1274,8 +1274,8 @@ internal func ela_accept_friend(_ carrier: OpaquePointer!,
  *      Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_remove_friend")
-internal func ela_remove_friend(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_remove_friend")
+internal func carrier_remove_friend(_ carrier: OpaquePointer!,
                                 _ friendid: UnsafePointer<Int8>!) -> Int32
 
 
@@ -1309,8 +1309,8 @@ internal func ela_remove_friend(_ carrier: OpaquePointer!,
  *      Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_send_friend_message")
-internal func ela_send_friend_message(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_send_friend_message")
+internal func carrier_send_friend_message(_ carrier: OpaquePointer!,
                                       _ to: UnsafePointer<Int8>!,
                                       _ msg: UnsafePointer<Int8>!,
                                       _ len: Int,
@@ -1361,7 +1361,7 @@ internal typealias CFriendInviteResponseCallback = @convention(c)
 *      false to stop iterate.
 */
 internal typealias CFriendMessageReceiptCallback = @convention(c) (Int64, Int32, UnsafeMutableRawPointer?) -> Swift.Void
-
+/*
 /**
  * \~English
  * Send a message to a friend with receipt.
@@ -1391,13 +1391,15 @@ internal typealias CFriendMessageReceiptCallback = @convention(c) (Int64, Int32,
  *      retrieved by calling ela_get_error().
  */
 
-@_silgen_name("ela_send_message_with_receipt")
-internal func ela_send_message_with_receipt(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_send_message_with_receipt")
+internal func carrier_send_message_with_receipt(_ carrier: OpaquePointer!,
                                 _ to: UnsafePointer<Int8>!,
                                 _ message: UnsafePointer<Int8>!,
                                 _ len: Int,
                                 _ callback: CFriendMessageReceiptCallback!,
                                 _ context: UnsafeMutableRawPointer!) -> Int32
+*/
+
 /*
  internal func ela_invite_friend
  */
@@ -1430,8 +1432,8 @@ internal func ela_send_message_with_receipt(_ carrier: OpaquePointer!,
  *      Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_invite_friend")
-internal func ela_invite_friend(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_invite_friend")
+internal func carrier_invite_friend(_ carrier: OpaquePointer!,
                                 _ to: UnsafePointer<Int8>!,
                                 _ bundle: UnsafePointer<Int8>?,
                                 _ data: UnsafePointer<Int8>!,
@@ -1469,8 +1471,8 @@ internal func ela_invite_friend(_ carrier: OpaquePointer!,
  *      Otherwise, return -1, and a specific error code can be
  *      retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_reply_friend_invite")
-internal func ela_reply_friend_invite(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_reply_friend_invite")
+internal func carrier_reply_friend_invite(_ carrier: OpaquePointer!,
                                       _ to: UnsafePointer<Int8>!,
                                       _ bundle: UnsafePointer<Int8>?,
                                       _ status: Int32,
@@ -1495,8 +1497,8 @@ internal func ela_reply_friend_invite(_ carrier: OpaquePointer!,
  *      0 if creating group in success, Otherwise, return -1, and a specific
  *      error code can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_new_group")
-internal func ela_new_group(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_new_group")
+internal func carrier_new_group(_ carrier: OpaquePointer!,
                             _ groupid: UnsafeMutablePointer<Int8>!,
                             _ len: Int) -> Int32
 
@@ -1513,8 +1515,8 @@ internal func ela_new_group(_ carrier: OpaquePointer!,
  *      0 if leaving from group in success, Otherwise, return -1, and a specific
  *      error code can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_leave_group")
-internal func ela_leave_group(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_leave_group")
+internal func carrier_leave_group(_ carrier: OpaquePointer!,
                               _ groupid: UnsafePointer<Int8>!) -> Int32
 
 // MARK: - Carrier group invite & join.
@@ -1534,8 +1536,8 @@ internal func ela_leave_group(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred, and a specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_invite")
-internal func ela_group_invite(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_invite")
+internal func carrier_group_invite(_ carrier: OpaquePointer!,
                                _ groupid: UnsafePointer<Int8>!,
                                _ friendid: UnsafePointer<Int8>!) -> Int32
 
@@ -1563,8 +1565,8 @@ internal func ela_group_invite(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred, and a specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_join")
-internal func ela_group_join(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_join")
+internal func carrier_group_join(_ carrier: OpaquePointer!,
                              _ friendid: UnsafePointer<Int8>!,
                              _ cookie: UnsafePointer<Int8>!,
                              _ cookie_len: Int,
@@ -1595,8 +1597,8 @@ internal func ela_group_join(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred, and a specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_send_message")
-internal func ela_group_send_message(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_send_message")
+internal func carrier_group_send_message(_ carrier: OpaquePointer!,
                                      _ groupid: UnsafePointer<Int8>!,
                                      _ message: UnsafePointer<Int8>!,
                                      _ length: Int) -> Int32
@@ -1620,8 +1622,8 @@ internal func ela_group_send_message(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred, and a specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_get_title")
-internal func ela_group_get_title(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_get_title")
+internal func carrier_group_get_title(_ carrier: OpaquePointer!,
                                   _ groupid: UnsafePointer<Int8>!,
                                   _ title: UnsafeMutablePointer<Int8>!,
                                   _ length: Int) -> Int32
@@ -1642,8 +1644,8 @@ internal func ela_group_get_title(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred, and a specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_set_title")
-internal func ela_group_set_title(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_set_title")
+internal func carrier_group_set_title(_ carrier: OpaquePointer!,
                                   _ groupid: UnsafePointer<Int8>!,
                                   _ title: UnsafePointer<Int8>!) -> Int32
 
@@ -1686,8 +1688,8 @@ internal typealias CGroupPeersIterateCallback = @convention(c)
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_get_peers")
-internal func ela_group_get_peers(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_get_peers")
+internal func carrier_group_get_peers(_ carrier: OpaquePointer!,
                                   _ groupid: UnsafePointer<Int8>!,
                                   _ callback: CGroupPeersIterateCallback,
                                   _ context: UnsafeMutableRawPointer) -> Int32
@@ -1710,8 +1712,8 @@ internal func ela_group_get_peers(_ carrier: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_group_get_peer")
-internal func ela_group_get_peer(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_group_get_peer")
+internal func carrier_group_get_peer(_ carrier: OpaquePointer!,
                                  _ groupid: UnsafePointer<Int8>!,
                                  _ peerid: UnsafePointer<Int8>!,
                                  _ peer: UnsafePointer<CGroupPeer>) -> Int32
@@ -1753,8 +1755,8 @@ internal typealias CGroupsIterateCallback = @convention(c)
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_get_groups")
-internal func ela_get_groups(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_get_groups")
+internal func carrier_get_groups(_ carrier: OpaquePointer!,
                              _ callback: CGroupsIterateCallback,
                              _ context: UnsafeMutableRawPointer) -> Int32
 
@@ -1769,21 +1771,21 @@ internal func ela_get_groups(_ carrier: OpaquePointer!,
  * @return
  *      The return value is the last-error code.
  */
-@_silgen_name("ela_get_error")
-internal func ela_get_error() -> Int32
+@_silgen_name("carrier_get_error")
+internal func carrier_get_error() -> Int32
 
 /**
  * \~English
  * Clear the last-error code of a Carrier instance.
  */
-@_silgen_name("ela_clear_error")
-internal func ela_clear_error()
+@_silgen_name("carrier_clear_error")
+internal func carrier_clear_error()
 
 /**
  * \~English
  * Get string description to error code.
  */
-@_silgen_name("ela_get_strerror")
-internal func ela_get_strerror(_ errnum: Int,
+@_silgen_name("carrier_get_strerror")
+internal func carrier_get_strerror(_ errnum: Int,
                                _ buf: UnsafeMutablePointer<Int8>!,
                                _ len: Int) -> UnsafeMutablePointer<Int8>?

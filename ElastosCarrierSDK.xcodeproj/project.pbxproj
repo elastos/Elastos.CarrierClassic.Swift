@@ -21,24 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		11496C4B251AFEA0002DE4F0 /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3922587E7900D0108E /* libcrystal.a */; };
-		11496C4C251AFEA0002DE4F0 /* libelacarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D8BBAC225887E000FE2962 /* libelacarrier.a */; };
-		11496C4D251AFEA1002DE4F0 /* libelafiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D8BBAB225887DF00FE2962 /* libelafiletrans.a */; };
-		11496C4E251AFEA1002DE4F0 /* libelasession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D8BBAD225887E000FE2962 /* libelasession.a */; };
-		11496C4F251AFEA1002DE4F0 /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D4422587EA000D0108E /* libflatccrt.a */; };
-		11496C50251AFEA1002DE4F0 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3A22587E7900D0108E /* libpj.a */; };
-		11496C51251AFEA1002DE4F0 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3722587E7900D0108E /* libpjlib-util.a */; };
-		11496C52251AFEA1002DE4F0 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3B22587E7900D0108E /* libpjmedia.a */; };
-		11496C53251AFEA1002DE4F0 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3C22587E7900D0108E /* libpjnath.a */; };
-		11496C54251AFEA1002DE4F0 /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3822587E7900D0108E /* libsodium.a */; };
-		11496C55251AFEA1002DE4F0 /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3622587E7900D0108E /* libtoxcore.a */; };
-		11496C5D251AFF01002DE4F0 /* libcjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C5C251AFEA2002DE4F0 /* libcjson.a */; };
-		11496C5E251AFF14002DE4F0 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C5B251AFEA2002DE4F0 /* libcrypto.a */; };
-		11496C5F251AFF25002DE4F0 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C59251AFEA2002DE4F0 /* libcurl.a */; };
-		11496C60251AFF55002DE4F0 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C58251AFEA2002DE4F0 /* libsrtp.a */; };
-		11496C61251AFF63002DE4F0 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C56251AFEA2002DE4F0 /* libssl.a */; };
-		11496C62251AFF73002DE4F0 /* libtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C57251AFEA2002DE4F0 /* libtls.a */; };
-		11496C63251AFF80002DE4F0 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11496C5A251AFEA2002DE4F0 /* libz.a */; };
 		114A739B248F286400262228 /* libcjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 112CC120233469BB0018F76C /* libcjson.a */; };
 		114A739C248F286400262228 /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A4226F1C6300146D25 /* libcrystal.a */; };
 		114A739D248F286400262228 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 111E0C652302CB4300167953 /* libcurl.a */; };
@@ -55,7 +37,6 @@
 		114A73A8248F286500262228 /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A0226F1C6300146D25 /* libtoxcore.a */; };
 		114A73A9248F286500262228 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155A265230BE2C500381137 /* libz.a */; };
 		114A73AD248F287400262228 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 114A73AC248F286600262228 /* libssl.a */; };
-		114A73AE248F288A00262228 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D528F2489E26300E07564 /* extension.h */; };
 		114A73AF248F288E00262228 /* ela_turnserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D52932489E65800E07564 /* ela_turnserver.h */; };
 		114A73B0248F289700262228 /* CExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52912489E29400E07564 /* CExtension.swift */; };
 		114A73B1248F289A00262228 /* CTurnServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52972489E92200E07564 /* CTurnServer.swift */; };
@@ -100,19 +81,42 @@
 		11612D5D22F12984001179CD /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC5E22815C4E00F8E6A0 /* libc++.1.tbd */; };
 		11612D5E22F12984001179CD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC5F22815C4E00F8E6A0 /* libc++.tbd */; };
 		11612D5F22F12984001179CD /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155FC6022815C4E00F8E6A0 /* libc++abi.tbd */; };
-		11612D8922F1722D001179CD /* ela_carrier.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8622F1722D001179CD /* ela_carrier.h */; };
-		11612D8A22F1722D001179CD /* ela_carrier.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8622F1722D001179CD /* ela_carrier.h */; };
-		11612D8B22F1722D001179CD /* ela_session.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8722F1722D001179CD /* ela_session.h */; };
-		11612D8C22F1722D001179CD /* ela_session.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8722F1722D001179CD /* ela_session.h */; };
-		11612D8D22F1722D001179CD /* ela_filetransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8822F1722D001179CD /* ela_filetransfer.h */; };
-		11612D8E22F1722D001179CD /* ela_filetransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11612D8822F1722D001179CD /* ela_filetransfer.h */; };
+		118A85CF258726AE000A4CFC /* libcarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F889258345F000BC5A54 /* libcarrier.a */; };
+		118A85D0258726AE000A4CFC /* libcarrierfiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F88A258345F000BC5A54 /* libcarrierfiletrans.a */; };
+		118A85D1258726AE000A4CFC /* libcarriersession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F88B258345F000BC5A54 /* libcarriersession.a */; };
+		118A85D2258726AE000A4CFC /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3922587E7900D0108E /* libcrystal.a */; };
+		118A85D3258726AE000A4CFC /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D4422587EA000D0108E /* libflatccrt.a */; };
+		118A85D4258726AE000A4CFC /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3A22587E7900D0108E /* libpj.a */; };
+		118A85D5258726AE000A4CFC /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3722587E7900D0108E /* libpjlib-util.a */; };
+		118A85D6258726AE000A4CFC /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3B22587E7900D0108E /* libpjmedia.a */; };
+		118A85D7258726AE000A4CFC /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3C22587E7900D0108E /* libpjnath.a */; };
+		118A85D8258726AE000A4CFC /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3822587E7900D0108E /* libsodium.a */; };
+		118A85D9258726AE000A4CFC /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3622587E7900D0108E /* libtoxcore.a */; };
+		118A85E1258726EE000A4CFC /* libcjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DF258726AF000A4CFC /* libcjson.a */; };
+		118A85E2258726EE000A4CFC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DA258726AF000A4CFC /* libcrypto.a */; };
+		118A85E3258726EE000A4CFC /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DB258726AF000A4CFC /* libcurl.a */; };
+		118A85E4258726EE000A4CFC /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DE258726AF000A4CFC /* libsrtp.a */; };
+		118A85E5258726EE000A4CFC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85E0258726AF000A4CFC /* libssl.a */; };
+		118A85E6258726EE000A4CFC /* libtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DC258726AF000A4CFC /* libtls.a */; };
+		118A85E7258726EE000A4CFC /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DD258726AF000A4CFC /* libz.a */; };
 		118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		118B6F9B2489F94D00E0950F /* CarrierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F9A2489F94D00E0950F /* CarrierExtension.swift */; };
 		118B6F9C2489F94D00E0950F /* CarrierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F9A2489F94D00E0950F /* CarrierExtension.swift */; };
 		118B6F9E2489F96B00E0950F /* TurnServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F9D2489F96B00E0950F /* TurnServerInfo.swift */; };
 		118B6F9F2489F96B00E0950F /* TurnServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F9D2489F96B00E0950F /* TurnServerInfo.swift */; };
-		A30D52902489E26300E07564 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D528F2489E26300E07564 /* extension.h */; };
+		11D1F87B2583457A00BC5A54 /* carrier_filetransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8782583457900BC5A54 /* carrier_filetransfer.h */; };
+		11D1F87C2583457A00BC5A54 /* carrier_filetransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8782583457900BC5A54 /* carrier_filetransfer.h */; };
+		11D1F87D2583457A00BC5A54 /* carrier.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8792583457A00BC5A54 /* carrier.h */; };
+		11D1F87E2583457A00BC5A54 /* carrier.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8792583457A00BC5A54 /* carrier.h */; };
+		11D1F87F2583457A00BC5A54 /* carrier_session.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F87A2583457A00BC5A54 /* carrier_session.h */; };
+		11D1F8802583457A00BC5A54 /* carrier_session.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F87A2583457A00BC5A54 /* carrier_session.h */; };
+		11D1F8A02583512D00BC5A54 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F89E2583512D00BC5A54 /* extension.h */; };
+		11D1F8A12583512D00BC5A54 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F89E2583512D00BC5A54 /* extension.h */; };
+		11D1F8A22583512D00BC5A54 /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 11D1F89F2583512D00BC5A54 /* extension.c */; };
+		11D1F8A32583512D00BC5A54 /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 11D1F89F2583512D00BC5A54 /* extension.c */; };
+		11D1F8B82583523600BC5A54 /* carrier_ext.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8B72583523600BC5A54 /* carrier_ext.h */; };
+		11D1F8B92583523600BC5A54 /* carrier_ext.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D1F8B72583523600BC5A54 /* carrier_ext.h */; };
 		A30D52922489E29400E07564 /* CExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52912489E29400E07564 /* CExtension.swift */; };
 		A30D52942489E65800E07564 /* ela_turnserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D52932489E65800E07564 /* ela_turnserver.h */; };
 		A30D52982489E92200E07564 /* CTurnServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52972489E92200E07564 /* CTurnServer.swift */; };
@@ -186,13 +190,6 @@
 		112CC0FD233383770018F76C /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = "NativeDistributions/lib/-iphoneos/libcjson.a"; sourceTree = "<group>"; };
 		112CC0FE233383770018F76C /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "NativeDistributions/lib/-iphoneos/libpjlib-util.a"; sourceTree = "<group>"; };
 		112CC120233469BB0018F76C /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = NativeDistributions/lib/macosx/libcjson.a; sourceTree = "<group>"; };
-		11496C56251AFEA2002DE4F0 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = NativeDistributions/lib/libssl.a; sourceTree = "<group>"; };
-		11496C57251AFEA2002DE4F0 /* libtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtls.a; path = NativeDistributions/lib/libtls.a; sourceTree = "<group>"; };
-		11496C58251AFEA2002DE4F0 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = NativeDistributions/lib/libsrtp.a; sourceTree = "<group>"; };
-		11496C59251AFEA2002DE4F0 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = NativeDistributions/lib/libcurl.a; sourceTree = "<group>"; };
-		11496C5A251AFEA2002DE4F0 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = NativeDistributions/lib/libz.a; sourceTree = "<group>"; };
-		11496C5B251AFEA2002DE4F0 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = NativeDistributions/lib/libcrypto.a; sourceTree = "<group>"; };
-		11496C5C251AFEA2002DE4F0 /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = NativeDistributions/lib/libcjson.a; sourceTree = "<group>"; };
 		114A73AA248F286600262228 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = NativeDistributions/lib/macosx/libcrypto.a; sourceTree = "<group>"; };
 		114A73AB248F286600262228 /* libtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtls.a; path = NativeDistributions/lib/macosx/libtls.a; sourceTree = "<group>"; };
 		114A73AC248F286600262228 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = NativeDistributions/lib/macosx/libssl.a; sourceTree = "<group>"; };
@@ -227,16 +224,28 @@
 		11612D4A22F12978001179CD /* libtoxcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtoxcore.a; path = "NativeDistributions/lib/-iphonesimulator/libtoxcore.a"; sourceTree = "<group>"; };
 		11612D4B22F12978001179CD /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "NativeDistributions/lib/-iphonesimulator/libcurl.a"; sourceTree = "<group>"; };
 		11612D4C22F12978001179CD /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = "NativeDistributions/lib/-iphonesimulator/libpjnath.a"; sourceTree = "<group>"; };
-		11612D8622F1722D001179CD /* ela_carrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_carrier.h; path = NativeDistributions/include/ela_carrier.h; sourceTree = "<group>"; };
-		11612D8722F1722D001179CD /* ela_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_session.h; path = NativeDistributions/include/ela_session.h; sourceTree = "<group>"; };
-		11612D8822F1722D001179CD /* ela_filetransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_filetransfer.h; path = NativeDistributions/include/ela_filetransfer.h; sourceTree = "<group>"; };
+		118A85DA258726AF000A4CFC /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = NativeDistributions/lib/libcrypto.a; sourceTree = "<group>"; };
+		118A85DB258726AF000A4CFC /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = NativeDistributions/lib/libcurl.a; sourceTree = "<group>"; };
+		118A85DC258726AF000A4CFC /* libtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtls.a; path = NativeDistributions/lib/libtls.a; sourceTree = "<group>"; };
+		118A85DD258726AF000A4CFC /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = NativeDistributions/lib/libz.a; sourceTree = "<group>"; };
+		118A85DE258726AF000A4CFC /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = NativeDistributions/lib/libsrtp.a; sourceTree = "<group>"; };
+		118A85DF258726AF000A4CFC /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = NativeDistributions/lib/libcjson.a; sourceTree = "<group>"; };
+		118A85E0258726AF000A4CFC /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = NativeDistributions/lib/libssl.a; sourceTree = "<group>"; };
 		118B6E63247FB64100E0950F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "NativeDistributions/lib/-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		118B6E64247FB64100E0950F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "NativeDistributions/lib/-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
 		118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarrierReceiptState.swift; path = Carrier/CarrierReceiptState.swift; sourceTree = "<group>"; };
 		118B6F9A2489F94D00E0950F /* CarrierExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarrierExtension.swift; path = Carrier/CarrierExtension.swift; sourceTree = "<group>"; };
 		118B6F9D2489F96B00E0950F /* TurnServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TurnServerInfo.swift; path = Carrier/TurnServerInfo.swift; sourceTree = "<group>"; };
 		11A2088D247FB2900081A284 /* libcjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcjson.a; path = "NativeDistributions/lib/-iphonesimulator/libcjson.a"; sourceTree = "<group>"; };
-		A30D528F2489E26300E07564 /* extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = extension.h; path = NativeDistributions/include/extension.h; sourceTree = "<group>"; };
+		11D1F8782583457900BC5A54 /* carrier_filetransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrier_filetransfer.h; path = NativeDistributions/include/carrier_filetransfer.h; sourceTree = "<group>"; };
+		11D1F8792583457A00BC5A54 /* carrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrier.h; path = NativeDistributions/include/carrier.h; sourceTree = "<group>"; };
+		11D1F87A2583457A00BC5A54 /* carrier_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrier_session.h; path = NativeDistributions/include/carrier_session.h; sourceTree = "<group>"; };
+		11D1F889258345F000BC5A54 /* libcarrier.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcarrier.a; path = NativeDistributions/lib/libcarrier.a; sourceTree = "<group>"; };
+		11D1F88A258345F000BC5A54 /* libcarrierfiletrans.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcarrierfiletrans.a; path = NativeDistributions/lib/libcarrierfiletrans.a; sourceTree = "<group>"; };
+		11D1F88B258345F000BC5A54 /* libcarriersession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcarriersession.a; path = NativeDistributions/lib/libcarriersession.a; sourceTree = "<group>"; };
+		11D1F89E2583512D00BC5A54 /* extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = extension.h; path = NativeDistributions/include/extension.h; sourceTree = "<group>"; };
+		11D1F89F2583512D00BC5A54 /* extension.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = extension.c; path = NativeDistributions/include/extension.c; sourceTree = "<group>"; };
+		11D1F8B72583523600BC5A54 /* carrier_ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrier_ext.h; path = NativeDistributions/include/carrier_ext.h; sourceTree = "<group>"; };
 		A30D52912489E29400E07564 /* CExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CExtension.swift; path = NativeDistributions/include/CExtension.swift; sourceTree = "<group>"; };
 		A30D52932489E65800E07564 /* ela_turnserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ela_turnserver.h; path = NativeDistributions/include/ela_turnserver.h; sourceTree = "<group>"; };
 		A30D52972489E92200E07564 /* CTurnServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTurnServer.swift; path = NativeDistributions/include/CTurnServer.swift; sourceTree = "<group>"; };
@@ -347,27 +356,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11496C4B251AFEA0002DE4F0 /* libcrystal.a in Frameworks */,
-				11496C5D251AFF01002DE4F0 /* libcjson.a in Frameworks */,
-				11496C60251AFF55002DE4F0 /* libsrtp.a in Frameworks */,
-				11496C5E251AFF14002DE4F0 /* libcrypto.a in Frameworks */,
-				11496C4E251AFEA1002DE4F0 /* libelasession.a in Frameworks */,
+				118A85D2258726AE000A4CFC /* libcrystal.a in Frameworks */,
+				118A85E1258726EE000A4CFC /* libcjson.a in Frameworks */,
+				118A85E4258726EE000A4CFC /* libsrtp.a in Frameworks */,
+				118A85E2258726EE000A4CFC /* libcrypto.a in Frameworks */,
 				11612D5D22F12984001179CD /* libc++.1.tbd in Frameworks */,
-				11496C54251AFEA1002DE4F0 /* libsodium.a in Frameworks */,
 				11612D5E22F12984001179CD /* libc++.tbd in Frameworks */,
-				11496C4D251AFEA1002DE4F0 /* libelafiletrans.a in Frameworks */,
-				11496C62251AFF73002DE4F0 /* libtls.a in Frameworks */,
-				11496C55251AFEA1002DE4F0 /* libtoxcore.a in Frameworks */,
-				11496C52251AFEA1002DE4F0 /* libpjmedia.a in Frameworks */,
-				11496C63251AFF80002DE4F0 /* libz.a in Frameworks */,
-				11496C5F251AFF25002DE4F0 /* libcurl.a in Frameworks */,
-				11496C4C251AFEA0002DE4F0 /* libelacarrier.a in Frameworks */,
-				11496C50251AFEA1002DE4F0 /* libpj.a in Frameworks */,
-				11496C4F251AFEA1002DE4F0 /* libflatccrt.a in Frameworks */,
+				118A85D8258726AE000A4CFC /* libsodium.a in Frameworks */,
+				118A85CF258726AE000A4CFC /* libcarrier.a in Frameworks */,
+				118A85D1258726AE000A4CFC /* libcarriersession.a in Frameworks */,
+				118A85E6258726EE000A4CFC /* libtls.a in Frameworks */,
+				118A85D9258726AE000A4CFC /* libtoxcore.a in Frameworks */,
+				118A85D6258726AE000A4CFC /* libpjmedia.a in Frameworks */,
+				118A85E7258726EE000A4CFC /* libz.a in Frameworks */,
+				118A85E3258726EE000A4CFC /* libcurl.a in Frameworks */,
 				11612D5F22F12984001179CD /* libc++abi.tbd in Frameworks */,
-				11496C53251AFEA1002DE4F0 /* libpjnath.a in Frameworks */,
-				11496C61251AFF63002DE4F0 /* libssl.a in Frameworks */,
-				11496C51251AFEA1002DE4F0 /* libpjlib-util.a in Frameworks */,
+				118A85D4258726AE000A4CFC /* libpj.a in Frameworks */,
+				118A85D3258726AE000A4CFC /* libflatccrt.a in Frameworks */,
+				118A85D0258726AE000A4CFC /* libcarrierfiletrans.a in Frameworks */,
+				118A85D7258726AE000A4CFC /* libpjnath.a in Frameworks */,
+				118A85E5258726EE000A4CFC /* libssl.a in Frameworks */,
+				118A85D5258726AE000A4CFC /* libpjlib-util.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,11 +415,17 @@
 		A38A7CC0214B6A9D0010D5EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11496C5C251AFEA2002DE4F0 /* libcjson.a */,
+				118A85DF258726AF000A4CFC /* libcjson.a */,
+				118A85DA258726AF000A4CFC /* libcrypto.a */,
+				118A85DB258726AF000A4CFC /* libcurl.a */,
+				118A85DE258726AF000A4CFC /* libsrtp.a */,
+				118A85E0258726AF000A4CFC /* libssl.a */,
+				118A85DC258726AF000A4CFC /* libtls.a */,
+				118A85DD258726AF000A4CFC /* libz.a */,
+				11D1F889258345F000BC5A54 /* libcarrier.a */,
+				11D1F88A258345F000BC5A54 /* libcarrierfiletrans.a */,
+				11D1F88B258345F000BC5A54 /* libcarriersession.a */,
 				118B6E64247FB64100E0950F /* libcrypto.a */,
-				11496C5B251AFEA2002DE4F0 /* libcrypto.a */,
-				11496C59251AFEA2002DE4F0 /* libcurl.a */,
-				11496C58251AFEA2002DE4F0 /* libsrtp.a */,
 				118B6E63247FB64100E0950F /* libssl.a */,
 				114A73AA248F286600262228 /* libcrypto.a */,
 				114A73AC248F286600262228 /* libssl.a */,
@@ -418,9 +433,6 @@
 				112CC0FD233383770018F76C /* libcjson.a */,
 				112CC120233469BB0018F76C /* libcjson.a */,
 				11A2088D247FB2900081A284 /* libcjson.a */,
-				11496C56251AFEA2002DE4F0 /* libssl.a */,
-				11496C57251AFEA2002DE4F0 /* libtls.a */,
-				11496C5A251AFEA2002DE4F0 /* libz.a */,
 				112CC0F6233383760018F76C /* libcrystal.a */,
 				112CC0F1233383760018F76C /* libcurl.a */,
 				112CC0F3233383760018F76C /* libelacarrier.a */,
@@ -559,11 +571,13 @@
 		A3B497D42003757A00420421 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				A30D528F2489E26300E07564 /* extension.h */,
+				11D1F8B72583523600BC5A54 /* carrier_ext.h */,
+				11D1F89E2583512D00BC5A54 /* extension.h */,
+				11D1F89F2583512D00BC5A54 /* extension.c */,
+				11D1F8782583457900BC5A54 /* carrier_filetransfer.h */,
+				11D1F87A2583457A00BC5A54 /* carrier_session.h */,
+				11D1F8792583457A00BC5A54 /* carrier.h */,
 				A30D52932489E65800E07564 /* ela_turnserver.h */,
-				11612D8622F1722D001179CD /* ela_carrier.h */,
-				11612D8822F1722D001179CD /* ela_filetransfer.h */,
-				11612D8722F1722D001179CD /* ela_session.h */,
 				A35CE15B21BD43CF00AF4FE3 /* CFileTransfer.swift */,
 				A3B497F32003779300420421 /* CCarrier.swift */,
 				A3B497F22003779300420421 /* CSession.swift */,
@@ -639,12 +653,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11612D8A22F1722D001179CD /* ela_carrier.h in Headers */,
-				114A73AE248F288A00262228 /* extension.h in Headers */,
+				11D1F87C2583457A00BC5A54 /* carrier_filetransfer.h in Headers */,
 				116061DB2268AB4A00BDCB9F /* ElastosCarrierSDK_macOS.h in Headers */,
 				114A73AF248F288E00262228 /* ela_turnserver.h in Headers */,
-				11612D8E22F1722D001179CD /* ela_filetransfer.h in Headers */,
-				11612D8C22F1722D001179CD /* ela_session.h in Headers */,
+				11D1F8B92583523600BC5A54 /* carrier_ext.h in Headers */,
+				11D1F8A12583512D00BC5A54 /* extension.h in Headers */,
+				11D1F8802583457A00BC5A54 /* carrier_session.h in Headers */,
+				11D1F87E2583457A00BC5A54 /* carrier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,12 +667,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11612D8922F1722D001179CD /* ela_carrier.h in Headers */,
-				A30D52902489E26300E07564 /* extension.h in Headers */,
+				11D1F87B2583457A00BC5A54 /* carrier_filetransfer.h in Headers */,
 				A3B497C82003736300420421 /* ElastosCarrierSDK.h in Headers */,
 				A30D52942489E65800E07564 /* ela_turnserver.h in Headers */,
-				11612D8D22F1722D001179CD /* ela_filetransfer.h in Headers */,
-				11612D8B22F1722D001179CD /* ela_session.h in Headers */,
+				11D1F8B82583523600BC5A54 /* carrier_ext.h in Headers */,
+				11D1F8A02583512D00BC5A54 /* extension.h in Headers */,
+				11D1F87F2583457A00BC5A54 /* carrier_session.h in Headers */,
+				11D1F87D2583457A00BC5A54 /* carrier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +745,7 @@
 				TargetAttributes = {
 					116061D62268AB4A00BDCB9F = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 					};
 					11B4508C22657F35000ACB08 = {
@@ -737,7 +754,7 @@
 					};
 					A3B497B62003736200420421 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 					};
 					A3B497BF2003736300420421 = {
@@ -801,7 +818,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FMK_NAME=${PROJECT_NAME}\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Debug-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Debug-iphonesimulator/${FMK_NAME}.framework\nxcodebuild OTHER_CFLAGS=\"-fembed-bitcode\" -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphoneos -arch arm64 || exit 1\nxcodebuild OTHER_CFLAGS=\"-fembed-bitcode\" -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphonesimulator -arch x86_64 || exit 1\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\ncp -R \"${SIMULATOR_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\" \"${INSTALL_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\"\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${SRCROOT}/Products/\"\n\n";
+			shellScript = "FMK_NAME=${PROJECT_NAME}\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Debug-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Debug-iphonesimulator/${FMK_NAME}.framework\nxcodebuild OTHER_CFLAGS=\"-fembed-bitcode\" -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphoneos -arch arm64 clean build -UseModernBuildSystem=NO || exit 1\nxcodebuild OTHER_CFLAGS=\"-fembed-bitcode\" -configuration \"Debug\" -target \"${FMK_NAME}\" -sdk iphonesimulator -arch x86_64 clean build -UseModernBuildSystem=NO || exit 1\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\ncp -R \"${SIMULATOR_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\" \"${INSTALL_DIR}/Modules/ElastosCarrierSDK.swiftmodule/\"\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -823,6 +840,7 @@
 				118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */,
 				116061F42268ABD000BDCB9F /* CloseReason.swift in Sources */,
 				116061F22268ABC600BDCB9F /* CarrierOptions.swift in Sources */,
+				11D1F8A32583512D00BC5A54 /* extension.c in Sources */,
 				116061EE2268ABB400BDCB9F /* LogLevel.swift in Sources */,
 				118B6F9C2489F94D00E0950F /* CarrierExtension.swift in Sources */,
 				116061FA2268ABF300BDCB9F /* StreamDelegate.swift in Sources */,
@@ -871,6 +889,7 @@
 				118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */,
 				A35CE15821BD428B00AF4FE3 /* FileTransferManager.swift in Sources */,
 				A3B497EC2003763600420421 /* Callbacks.swift in Sources */,
+				11D1F8A22583512D00BC5A54 /* extension.c in Sources */,
 				A30D52922489E29400E07564 /* CExtension.swift in Sources */,
 				118B6F9B2489F94D00E0950F /* CarrierExtension.swift in Sources */,
 				A35CE16221BE41E500AF4FE3 /* FileTransferDelegate.swift in Sources */,
@@ -924,6 +943,7 @@
 		116061DC2268AB4A00BDCB9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -946,6 +966,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 			};
@@ -954,6 +975,7 @@
 		116061DD2268AB4A00BDCB9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1125,7 +1147,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1134,7 +1155,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ElastosCarrier/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1149,6 +1169,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1160,7 +1181,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1169,7 +1189,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ElastosCarrier/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1184,6 +1203,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 x86_64";

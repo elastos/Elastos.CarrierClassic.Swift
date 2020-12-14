@@ -55,7 +55,7 @@ public class CarrierFileTransfer: NSObject {
         if !didClose {
             Log.d(TAG(), "Begin to close filetransfer instance ...")
 
-            ela_filetransfer_close(cfiletransfer)
+            carrier_filetransfer_close(cfiletransfer)
             didClose = true
 
             Log.d(TAG(), "Native filetransfer instance closed nicely")
@@ -79,7 +79,7 @@ public class CarrierFileTransfer: NSObject {
     class public func acquireFileId() throws -> String {
         let len  = CarrierFileTransfer.MAX_FILE_ID_LEN + 1
         let fileId = UnsafeMutablePointer<Int8>.allocate(capacity: len)
-        let cfileId = ela_filetransfer_fileid(fileId, len)
+        let cfileId = carrier_filetransfer_fileid(fileId, len)
         guard cfileId != nil else {
             let errno = getErrorCode()
             Log.e(TAG(), "Generate fileId error:0x%X", errno)
@@ -102,7 +102,7 @@ public class CarrierFileTransfer: NSObject {
             (cfileName) -> UnsafePointer<Int8>? in
             return data.withUnsafeMutableBytes() {
                 (ptr: UnsafeMutablePointer<Int8>) -> UnsafePointer<Int8>? in
-                return ela_filetransfer_get_fileid(cfiletransfer, cfileName, ptr, len)
+                return carrier_filetransfer_get_fileid(cfiletransfer, cfileName, ptr, len)
             }
         }
 
@@ -129,7 +129,7 @@ public class CarrierFileTransfer: NSObject {
             (cfileId) -> UnsafePointer<Int8>? in
             return data.withUnsafeMutableBytes() {
                 (ptr: UnsafeMutablePointer<Int8>) -> UnsafePointer<Int8>? in
-                return ela_filetransfer_get_filename(cfiletransfer, cfileId, ptr, len)
+                return carrier_filetransfer_get_filename(cfiletransfer, cfileId, ptr, len)
             }
         }
 
@@ -148,7 +148,7 @@ public class CarrierFileTransfer: NSObject {
     ///
     @objc(sendConnectionRequest:)
     public func sendConnectionRequest() throws {
-        let result = ela_filetransfer_connect(cfiletransfer)
+        let result = carrier_filetransfer_connect(cfiletransfer)
 
         guard result >= 0 else {
             let errno = getErrorCode()
@@ -165,7 +165,7 @@ public class CarrierFileTransfer: NSObject {
     ///
     @objc(acceptConnectionRequest:)
     public func acceptConnectionRequest() throws {
-        let result = ela_filetransfer_accept_connect(cfiletransfer)
+        let result = carrier_filetransfer_accept_connect(cfiletransfer)
 
         guard result >= 0 else {
             let errno = getErrorCode()
@@ -187,7 +187,7 @@ public class CarrierFileTransfer: NSObject {
     public func addFile(_ fileInfo: CarrierFileTransferInfo) throws {
         var cfileInfo = convertCarrierFileTransferInfoToCFileTransferInfo(fileInfo)
 
-        let result = ela_filetransfer_add(cfiletransfer, &cfileInfo)
+        let result = carrier_filetransfer_add(cfiletransfer, &cfileInfo)
         guard result >= 0 else {
             let errno = getErrorCode()
             Log.e(TAG(), "Add a file to filetranasfer error: 0x%X", errno)
@@ -207,7 +207,7 @@ public class CarrierFileTransfer: NSObject {
     @objc(sendPullRequest:withOffset:error:)
     public func sendPullRequest(fileId: String, withOffset offset: UInt64) throws {
         let result = fileId.withCString() { (cfileId) -> Int32 in
-            return ela_filetransfer_pull(cfiletransfer, cfileId, offset)
+            return carrier_filetransfer_pull(cfiletransfer, cfileId, offset)
         }
 
         guard result >= 0 else {
@@ -230,7 +230,7 @@ public class CarrierFileTransfer: NSObject {
     public func sendData(fileId: String, withData data: Data) throws {
         let result = fileId.withCString() { (cfileId) -> Int32 in
             return data.withUnsafeBytes() { (cdata) -> Int32 in
-                return ela_filetransfer_send(cfiletransfer, cfileId, cdata, UInt32(data.count))
+                return carrier_filetransfer_send(cfiletransfer, cfileId, cdata, UInt32(data.count))
             }
         }
 
@@ -256,7 +256,7 @@ public class CarrierFileTransfer: NSObject {
                                   reason: String) throws {
         let result = fileId.withCString() { (cfileId) -> Int32 in
             return reason.withCString() { (creason) -> Int32 in
-                return ela_filetransfer_cancel(cfiletransfer, cfileId,
+                return carrier_filetransfer_cancel(cfiletransfer, cfileId,
                                                Int32(status), creason)
             }
         }
@@ -280,7 +280,7 @@ public class CarrierFileTransfer: NSObject {
     @objc(pendTransfering:error:)
     public func pendTransfering(fileId: String) throws {
         let result = fileId.withCString() { (cfileId) -> Int32 in
-            return ela_filetransfer_pend(cfiletransfer, cfileId)
+            return carrier_filetransfer_pend(cfiletransfer, cfileId)
         }
 
         guard result >= 0 else {
@@ -301,7 +301,7 @@ public class CarrierFileTransfer: NSObject {
     @objc(resumeTransfering:error:)
     public func resumeTransfering(fileId: String) throws {
         let result = fileId.withCString() { (cfileId) -> Int32 in
-            return ela_filetransfer_resume(cfiletransfer, cfileId)
+            return carrier_filetransfer_resume(cfiletransfer, cfileId)
         }
 
         guard result >= 0 else {

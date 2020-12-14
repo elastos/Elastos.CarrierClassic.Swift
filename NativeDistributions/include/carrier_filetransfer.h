@@ -20,13 +20,13 @@
  * SOFTWARE.
  */
 
-#ifndef __ELA_FILETRANSFER_H__
-#define __ELA_FILETRANSFER_H__
+#ifndef __ELASTOS_CARRIER_FILETRANSFER_H__
+#define __ELASTOS_CARRIER_FILETRANSFER_H__
 
 #include <stdbool.h>
 #include <stdint.h>
 #include <limits.h>
-#include <ela_carrier.h>
+#include <carrier.h>
 
 #if defined(__APPLE__)
 #pragma GCC diagnostic push
@@ -61,20 +61,20 @@ extern "C" {
  * \~English
  * Carrier transfer file name max length.
  */
-#define ELA_MAX_FILE_NAME_LEN   255
+#define CARRIER_MAX_FILE_NAME_LEN   255
 
 /**
  * \~English
  * Carrier transfer file ID max length.
  */
-#define ELA_MAX_FILE_ID_LEN     ELA_MAX_ID_LEN
+#define CARRIER_MAX_FILE_ID_LEN     CARRIER_MAX_ID_LEN
 
 /**
  * \~English
  * A defined type representing the transaction of file transfer between a friend
  * and us.
  */
-typedef struct ElaFileTransfer ElaFileTransfer;
+typedef struct CarrierFileTransfer CarrierFileTransfer;
 
 /**
  * \~English
@@ -82,19 +82,19 @@ typedef struct ElaFileTransfer ElaFileTransfer;
  *
  * Two peer carrier nodes use this structure to declare which file to transfer.
  */
-typedef struct ElaFileTransferInfo {
+typedef struct CarrierFileTransferInfo {
     /**
      * \~English
      * File name of file to transfer, without file path.
      */
-    char filename[ELA_MAX_FILE_NAME_LEN + 1];
+    char filename[CARRIER_MAX_FILE_NAME_LEN + 1];
 
     /**
      * \~English
      * Unique fileid of file to transfer, which is being unique in a file
      * transfer instance.
      */
-    char fileid[ELA_MAX_FILE_ID_LEN + 1];
+    char fileid[CARRIER_MAX_FILE_ID_LEN + 1];
 
     /**
      * \~English
@@ -107,7 +107,7 @@ typedef struct ElaFileTransferInfo {
      * The user defined data attached to this transfer.
      */
     void *userdata;
-} ElaFileTransferInfo;
+} CarrierFileTransferInfo;
 
 /**
  * \~English
@@ -134,7 +134,7 @@ typedef enum FileTransferConnection {
  * \~English
  * Carrier file transfer callbacks.
  */
-typedef struct ElaFileTransferCallbacks {
+typedef struct CarrierFileTransferCallbacks {
     /**
      * \~English
      * An application-defined function that handle the state changed event.
@@ -147,7 +147,7 @@ typedef struct ElaFileTransferCallbacks {
      *      context         [in] The application defined context data.
      *
      */
-    void (*state_changed)(ElaFileTransfer *filetransfer,
+    void (*state_changed)(CarrierFileTransfer *filetransfer,
                           FileTransferConnection state, void *context);
 
     /**
@@ -166,7 +166,7 @@ typedef struct ElaFileTransferCallbacks {
      * @param
      *      context         [in] The application defined context data.
      */
-    void (*file)(ElaFileTransfer *filetransfer, const char *fileid,
+    void (*file)(CarrierFileTransfer *filetransfer, const char *fileid,
                  const char *filename, uint64_t size, void *context);
     /**
      * \~English
@@ -183,7 +183,7 @@ typedef struct ElaFileTransferCallbacks {
      * @param
      *      context         [in] The application defined context data.
      */
-     void (*pull)(ElaFileTransfer *filetransfer, const char *fileid,
+     void (*pull)(CarrierFileTransfer *filetransfer, const char *fileid,
                   uint64_t offset, void *context);
 
     /**
@@ -205,7 +205,7 @@ typedef struct ElaFileTransferCallbacks {
      * @return
      *      Return false if you require no more data, otherwise return true.
      */
-    bool (*data)(ElaFileTransfer *filetransfer, const char *fileid,
+    bool (*data)(CarrierFileTransfer *filetransfer, const char *fileid,
                  const uint8_t *data, size_t length, void *context);
 
     /**
@@ -220,7 +220,7 @@ typedef struct ElaFileTransferCallbacks {
      * @param
      *      context         [in] The application defined context data.
      */
-    void (*pending)(ElaFileTransfer *filetransfer, const char *fileid,
+    void (*pending)(CarrierFileTransfer *filetransfer, const char *fileid,
                    void *context);
 
     /**
@@ -235,7 +235,7 @@ typedef struct ElaFileTransferCallbacks {
      * @param
      *      context         [in] The application defined context data.
      */
-    void (*resume)(ElaFileTransfer *filetransfer, const char *fileid,
+    void (*resume)(CarrierFileTransfer *filetransfer, const char *fileid,
                    void *context);
 
     /**
@@ -254,10 +254,10 @@ typedef struct ElaFileTransferCallbacks {
      * @param
      *      context         [in] The application defined context data.
      */
-    void (*cancel)(ElaFileTransfer *filetransfer, const char *fileid,
+    void (*cancel)(CarrierFileTransfer *filetransfer, const char *fileid,
                    int status, const char *reason, void *context);
 
-} ElaFileTransferCallbacks;
+} CarrierFileTransferCallbacks;
 
 /**
  * \~English
@@ -275,7 +275,7 @@ typedef struct ElaFileTransferCallbacks {
  *      The generated unique file identifier.
  */
 CARRIER_API
-char *ela_filetransfer_fileid(char *fileid, size_t length);
+char *carrier_filetransfer_fileid(char *fileid, size_t length);
 
 /**
  * \~English
@@ -291,8 +291,8 @@ char *ela_filetransfer_fileid(char *fileid, size_t length);
  * @param
  *      context         [in] The application defined context data.
  */
-typedef void ElaFileTransferConnectCallback(ElaCarrier *carrier,
-                    const char *address, const ElaFileTransferInfo *fileinfo,
+typedef void CarrierFileTransferConnectCallback(Carrier *carrier,
+                    const char *address, const CarrierFileTransferInfo *fileinfo,
                     void *context);
 
 /**
@@ -311,24 +311,24 @@ typedef void ElaFileTransferConnectCallback(ElaCarrier *carrier,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_init(ElaCarrier *carrier,
-                          ElaFileTransferConnectCallback *callback,
+int carrier_filetransfer_init(Carrier *carrier,
+                          CarrierFileTransferConnectCallback *callback,
                           void *context);
 
 /**
  * \~English
  * Clean up Carrier file transfer extension.
  *
- * The application should call ela_file_transfer_cleanup before quit,
+ * The application should call carrier_file_transfer_cleanup before quit,
  * to clean up the resources associated with the extension.
  *
  * If the extension is not initialized, this function has no effect.
  */
 CARRIER_API
-void ela_filetransfer_cleanup(ElaCarrier *carrier);
+void carrier_filetransfer_cleanup(Carrier *carrier);
 
 /**
  * \~English
@@ -349,20 +349,20 @@ void ela_filetransfer_cleanup(ElaCarrier *carrier);
  * @param
  *      fileinfo        [in] The information of file to transfer, could be NULL.
  * @param
- *      callbacks       [in] A pointer to ElaFileTransferCallbacks to handle
+ *      callbacks       [in] A pointer to CarrierFileTransferCallbacks to handle
  *                           all events related to new file transfer instance.
  * @param
  *      context         [in] The application defined context data.
  *
  * @return
- *      Return an ElaFileTransfer instance on success, NULL otherwise(The
- *      specific error code can be retrieved by calling ela_get_error()).
+ *      Return an CarrierFileTransfer instance on success, NULL otherwise(The
+ *      specific error code can be retrieved by calling carrier_get_error()).
  */
 CARRIER_API
-ElaFileTransfer *ela_filetransfer_new(ElaCarrier *carrier,
+CarrierFileTransfer *carrier_filetransfer_new(Carrier *carrier,
                                       const char *address,
-                                      const ElaFileTransferInfo *fileinfo,
-                                      ElaFileTransferCallbacks *callbacks,
+                                      const CarrierFileTransferInfo *fileinfo,
+                                      CarrierFileTransferCallbacks *callbacks,
                                       void *context);
 
 /**
@@ -373,7 +373,7 @@ ElaFileTransfer *ela_filetransfer_new(ElaCarrier *carrier,
  *      filetransfer    [in] A handle to the Carrier file transfer instance.
  */
 CARRIER_API
-void ela_filetransfer_close(ElaFileTransfer *filetransfer);
+void carrier_filetransfer_close(CarrierFileTransfer *filetransfer);
 
 /**
  * \~English
@@ -393,10 +393,10 @@ void ela_filetransfer_close(ElaFileTransfer *filetransfer);
  * @return
  *      Fileid is returned if filetransfer instance has file info of filename,
  *      otherwise, NULL value is returned. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-char *ela_filetransfer_get_fileid(ElaFileTransfer *filetransfer,
+char *carrier_filetransfer_get_fileid(CarrierFileTransfer *filetransfer,
                                   const char *filename,
                                   char *fileid, size_t length);
 
@@ -418,10 +418,10 @@ char *ela_filetransfer_get_fileid(ElaFileTransfer *filetransfer,
  * @return
  *      File name is returned if filetransfer instance has fileid specified,
  *      otherwise, NULL value is returned. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-char *ela_filetransfer_get_filename(ElaFileTransfer *filetransfer,
+char *carrier_filetransfer_get_filename(CarrierFileTransfer *filetransfer,
                                     const char *fileid,
                                     char *filename, size_t length);
 
@@ -434,10 +434,10 @@ char *ela_filetransfer_get_filename(ElaFileTransfer *filetransfer,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_connect(ElaFileTransfer *filetransfer);
+int carrier_filetransfer_connect(CarrierFileTransfer *filetransfer);
 
 /**
  * \~English
@@ -448,10 +448,10 @@ int ela_filetransfer_connect(ElaFileTransfer *filetransfer);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_accept_connect(ElaFileTransfer *filetransfer);
+int carrier_filetransfer_accept_connect(CarrierFileTransfer *filetransfer);
 
 /**
  * \~English
@@ -464,11 +464,11 @@ int ela_filetransfer_accept_connect(ElaFileTransfer *filetransfer);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_add(ElaFileTransfer *filetransfer,
-                         const ElaFileTransferInfo *fileinfo);
+int carrier_filetransfer_add(CarrierFileTransfer *filetransfer,
+                         const CarrierFileTransferInfo *fileinfo);
 
 /**
  * \~English
@@ -483,10 +483,10 @@ int ela_filetransfer_add(ElaFileTransfer *filetransfer,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_pull(ElaFileTransfer *filetransfer, const char *fileid,
+int carrier_filetransfer_pull(CarrierFileTransfer *filetransfer, const char *fileid,
                           uint64_t offset);
 
 /**
@@ -503,15 +503,15 @@ int ela_filetransfer_pull(ElaFileTransfer *filetransfer, const char *fileid,
  * @param
  *      length          [in] The length of data to transfer for file
  *                           (COULD be zero. In that case, the receiver will
- *                            get ElaFileTransferCallbacks::data callback with
+ *                            get CarrierFileTransferCallbacks::data callback with
  *                            argument @length being zero).
  *
  * @return
  *      Sent bytes on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-ssize_t ela_filetransfer_send(ElaFileTransfer *filetransfer, const char *fileid,
+ssize_t carrier_filetransfer_send(CarrierFileTransfer *filetransfer, const char *fileid,
                           const uint8_t *data, size_t length);
 
 /**
@@ -529,10 +529,10 @@ ssize_t ela_filetransfer_send(ElaFileTransfer *filetransfer, const char *fileid,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_cancel(ElaFileTransfer *filetransfer, const char *fileid,
+int carrier_filetransfer_cancel(CarrierFileTransfer *filetransfer, const char *fileid,
                             int status, const char *reason);
 
 /**
@@ -546,10 +546,10 @@ int ela_filetransfer_cancel(ElaFileTransfer *filetransfer, const char *fileid,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_pend(ElaFileTransfer *filetransfer, const char *fileid);
+int carrier_filetransfer_pend(CarrierFileTransfer *filetransfer, const char *fileid);
 
 /**
  * \~English
@@ -562,10 +562,10 @@ int ela_filetransfer_pend(ElaFileTransfer *filetransfer, const char *fileid);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_resume(ElaFileTransfer *filetransfer, const char *fileid);
+int carrier_filetransfer_resume(CarrierFileTransfer *filetransfer, const char *fileid);
 
 
 /**
@@ -581,10 +581,10 @@ int ela_filetransfer_resume(ElaFileTransfer *filetransfer, const char *fileid);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_filetransfer_set_userdata(ElaFileTransfer *filetransfer,
+int carrier_filetransfer_set_userdata(CarrierFileTransfer *filetransfer,
                                   const char *fileid, void *userdata);
 
 /**
@@ -598,17 +598,19 @@ int ela_filetransfer_set_userdata(ElaFileTransfer *filetransfer,
  *
  * @return
  *      userdata on success, or NULL if an error occurred. The specific error
- *      code can be retrieved by calling ela_get_error().
+ *      code can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-void *ela_filetransfer_get_userdata(ElaFileTransfer *ft, const char *fileid);
+void *carrier_filetransfer_get_userdata(CarrierFileTransfer *ft, const char *fileid);
 
 #ifdef __cplusplus
 }
 #endif
 
+#include <carrier_filetransfer_deprecated.h>
+
 #if defined(__APPLE__)
 #pragma GCC diagnostic pop
 #endif
 
-#endif /* __ELA_FILETRANSFER_H__ */
+#endif /* __ELASTOS_CARRIER_FILETRANSFER_H__ */

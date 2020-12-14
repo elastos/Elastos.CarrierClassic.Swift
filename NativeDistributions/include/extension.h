@@ -27,67 +27,26 @@
 #include <stdbool.h>
 #include <sys/types.h>
 
-#include <ela_carrier.h>
+#include <carrier.h>
 
-#if defined(__APPLE__)
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdocumentation"
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#if defined(CARRIER_STATIC)
-#define CARRIER_API
-#elif defined(CARRIER_DYNAMIC)
-  #ifdef CARRIER_BUILD
-    #if defined(_WIN32) || defined(_WIN64)
-      #define CARRIER_API        __declspec(dllexport)
-    #else
-      #define CARRIER_API        __attribute__((visibility("default")))
-    #endif
-  #else
-    #if defined(_WIN32) || defined(_WIN64)
-      #define CARRIER_API        __declspec(dllimport)
-    #else
-      #define CARRIER_API        __attribute__((visibility("default")))
-    #endif
-  #endif
-#else
-#define CARRIER_API
-#endif
-
-typedef void ExtensionInviteCallback(ElaCarrier *carrier, const char *from,
+typedef void ExtensionInviteCallback(Carrier *carrier, const char *from,
                                      const void *data, size_t len, void *context);
 
-CARRIER_API
-int extension_init(ElaCarrier *carrier, ExtensionInviteCallback *callback, void *context);
+int extension_init(Carrier *carrier, ExtensionInviteCallback *callback, void *context);
 
-CARRIER_API
-void extension_cleanup(ElaCarrier *carrier);
+void extension_cleanup(Carrier *carrier);
 
-typedef void ExtensionInviteReplyCallback(ElaCarrier *carrier, const char *from,
+typedef void ExtensionInviteReplyCallback(Carrier *carrier, const char *from,
                                           int status, const char *reason,
                                           const void *data, size_t len, void *context);
 
-CARRIER_API
-int extension_invite_friend(ElaCarrier *carrier, const char *to,
+int extension_invite_friend(Carrier *carrier, const char *to,
                             const void *data, size_t len,
                             ExtensionInviteReplyCallback *callback,
                             void *context);
 
-CARRIER_API
-int extension_reply_friend_invite(ElaCarrier *carrier, const char *to,
+int extension_reply_friend_invite(Carrier *carrier, const char *to,
                                   int status, const char *reason,
                                   const void *data, size_t len);
-
-#ifdef __cplusplus
-}
-#endif
-
-#if defined(__APPLE__)
-#pragma GCC diagnostic pop
-#endif
-
+void LogD();
 #endif /* __EXTENSION_H__ */

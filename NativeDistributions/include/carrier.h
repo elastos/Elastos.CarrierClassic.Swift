@@ -20,8 +20,8 @@
  * SOFTWARE.
  */
 
-#ifndef __ELA_CARRIER_H__
-#define __ELA_CARRIER_H__
+#ifndef __ELASTOS_CARRIER_H__
+#define __ELASTOS_CARRIER_H__
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -61,164 +61,164 @@ extern "C" {
  * \~English
  * Carrier User address max length.
  */
-#define ELA_MAX_ADDRESS_LEN             52
+#define CARRIER_MAX_ADDRESS_LEN             52
 
 /**
  * \~English
  * Carrier Node/User ID max length.
  */
-#define ELA_MAX_ID_LEN                  45
+#define CARRIER_MAX_ID_LEN                  45
 
 /**
  * \~English
  * Carrier user name max length.
  */
-#define ELA_MAX_USER_NAME_LEN           63
+#define CARRIER_MAX_USER_NAME_LEN           63
 
 /**
  * \~English
  * Carrier user description max length.
  */
-#define ELA_MAX_USER_DESCRIPTION_LEN    127
+#define CARRIER_MAX_USER_DESCRIPTION_LEN    127
 
 /**
  * \~English
  * Carrier user phone number max length.
  */
-#define ELA_MAX_PHONE_LEN               31
+#define CARRIER_MAX_PHONE_LEN               31
 
 /**
  * \~English
  * Carrier user email address max length.
  */
-#define ELA_MAX_EMAIL_LEN               127
+#define CARRIER_MAX_EMAIL_LEN               127
 
 /**
  * \~English
  * Carrier user region max length.
  */
-#define ELA_MAX_REGION_LEN              127
+#define CARRIER_MAX_REGION_LEN              127
 
 /**
  * \~English
  * Carrier user gender max length.
  */
-#define ELA_MAX_GENDER_LEN              31
+#define CARRIER_MAX_GENDER_LEN              31
 
 /**
  * \~English
  * Carrier node name max length.
  */
-#define ELA_MAX_NODE_NAME_LEN           63
+#define CARRIER_MAX_NODE_NAME_LEN           63
 
 /**
  * \~English
  * Carrier node description max length.
  */
-#define ELA_MAX_NODE_DESCRIPTION_LEN    127
+#define CARRIER_MAX_NODE_DESCRIPTION_LEN    127
 
 /**
  * \~English
  * Carrier App message max length.
  */
-#define ELA_MAX_APP_MESSAGE_LEN         1024
+#define CARRIER_MAX_APP_MESSAGE_LEN         1024
 
 /**
  * \~English
  * Carrier App max bulk message length.
  */
-#define ELA_MAX_APP_BULKMSG_LEN        (5 * 1024 * 1024)
+#define CARRIER_MAX_APP_BULKMSG_LEN        (5 * 1024 * 1024)
 
 /**
  * \~English
  * System reserved reply reason.
  */
-#define ELA_STATUS_TIMEOUT              1
+#define CARRIER_STATUS_TIMEOUT              1
 
 /**
  * \~English
  * Carrier invite/reply max data length.
  */
-#define ELA_MAX_INVITE_DATA_LEN         8192
+#define CARRIER_MAX_INVITE_DATA_LEN         8192
 
 /**
  * \~English
  * Carrier invite/reply max bundle length.
  */
-#define ELA_MAX_BUNDLE_LEN              511
+#define CARRIER_MAX_BUNDLE_LEN              511
 
 /**
  * \~English
  * Carrier invite reply max reason length.
  */
-#define ELA_MAX_INVITE_REPLY_REASON_LEN 255
+#define CARRIER_MAX_INVITE_REPLY_REASON_LEN 255
 
 /**
  * \~English
  * Carrier group title max length.
  */
-#define ELA_MAX_GROUP_TITLE_LEN         127
+#define CARRIER_MAX_GROUP_TITLE_LEN         127
 
 /**
  * \~English
- * ElaCarrier representing carrier node singleton instance.
+ * Carrier representing carrier node singleton instance.
  */
-typedef struct ElaCarrier ElaCarrier;
+typedef struct Carrier Carrier;
 
 /**
  * \~English
  * Carrier log level to control or filter log output.
  */
-typedef enum ElaLogLevel {
+typedef enum CarrierLogLevel {
     /**
      * \~English
      * Log level None
      * Indicate disable log output.
      */
-    ElaLogLevel_None = 0,
+    CarrierLogLevel_None = 0,
     /**
      * \~English
      * Log level fatal.
      * Indicate output log with level 'Fatal' only.
      */
-    ElaLogLevel_Fatal = 1,
+    CarrierLogLevel_Fatal = 1,
     /**
      * \~English
      * Log level error.
      * Indicate output log above 'Error' level.
      */
-    ElaLogLevel_Error = 2,
+    CarrierLogLevel_Error = 2,
     /**
      * \~English
      * Log level warning.
      * Indicate output log above 'Warning' level.
      */
-    ElaLogLevel_Warning = 3,
+    CarrierLogLevel_Warning = 3,
     /**
      * \~English
      * Log level info.
      * Indicate output log above 'Info' level.
      */
-    ElaLogLevel_Info = 4,
+    CarrierLogLevel_Info = 4,
     /*
      * \~English
      * Log level debug.
      * Indicate output log above 'Debug' level.
      */
-    ElaLogLevel_Debug = 5,
+    CarrierLogLevel_Debug = 5,
     /*
      * \~English
      * Log level trace.
      * Indicate output log above 'Trace' level.
      */
-    ElaLogLevel_Trace = 6,
+    CarrierLogLevel_Trace = 6,
     /*
      * \~English
      * Log level verbose.
      * Indicate output log above 'Verbose' level.
      */
-    ElaLogLevel_Verbose = 7
-} ElaLogLevel;
+    CarrierLogLevel_Verbose = 7
+} CarrierLogLevel;
 
 /******************************************************************************
  * Creation & destruction
@@ -306,7 +306,7 @@ typedef struct ExpressNode {
  *      initialization (in compliant compilers) sets all values to 0 (NULL
  *      for pointers).
  */
-typedef struct ElaOptions {
+typedef struct CarrierOptions {
     /**
      * \~English
      * The application defined persistent data location.
@@ -335,7 +335,7 @@ typedef struct ElaOptions {
      * \~English
      * Set the log level for Carrier logging output.
      */
-    ElaLogLevel log_level;
+    CarrierLogLevel log_level;
 
     /**
      * \~English
@@ -379,58 +379,58 @@ typedef struct ElaOptions {
      * The array of Express nodes.
      */
     ExpressNode *express_nodes;
-} ElaOptions;
+} CarrierOptions;
 
 /**
  * \~English
  * Get the current version of Carrier node.
  */
 CARRIER_API
-const char *ela_get_version(void);
+const char *carrier_get_version(void);
 
 /**
  * \~English
  * Carrier node connection status to Carrier network.
  */
-typedef enum ElaConnectionStatus {
+typedef enum CarrierConnectionStatus {
     /**
      * \~English
      * Carrier node connected to Carrier network.
      * Indicate the Carrier node is online.
      */
-    ElaConnectionStatus_Connected,
+    CarrierConnectionStatus_Connected,
     /**
      * \~English
      * There is no connection to Carrier network.
      * Indicate the Carrier node is offline.
      */
-    ElaConnectionStatus_Disconnected,
-} ElaConnectionStatus;
+    CarrierConnectionStatus_Disconnected,
+} CarrierConnectionStatus;
 
 /**
  * \~English
  * Carrier node presence status to Carrier network.
  */
-typedef enum ElaPresenceStatus {
+typedef enum CarrierPresenceStatus {
     /**
      * \~English
      * Carrier node is online and available.
      */
-    ElaPresenceStatus_None,
+    CarrierPresenceStatus_None,
     /**
      * \~English
      * Carrier node is being away.
      * Carrier node can set this value with an user defined inactivity time.
      */
-    ElaPresenceStatus_Away,
+    CarrierPresenceStatus_Away,
     /**
      * \~English
      * Carrier node is being busy.
      * Carrier node can set this value to tell friends that it can not
      * currently wish to commincate.
      */
-    ElaPresenceStatus_Busy,
-} ElaPresenceStatus;
+    CarrierPresenceStatus_Busy,
+} CarrierPresenceStatus;
 
 /**
  * \~English
@@ -439,22 +439,22 @@ typedef enum ElaPresenceStatus {
  * In Carrier SDK, self and all friends are carrier user, and have
  * same user attributes.
  */
-typedef struct ElaUserInfo {
+typedef struct CarrierUserInfo {
     /**
      * \~English
      * User ID. Read only to application.
      */
-    char userid[ELA_MAX_ID_LEN+1];
+    char userid[CARRIER_MAX_ID_LEN+1];
     /**
      * \~English
      * Nickname, also known as display name.
      */
-    char name[ELA_MAX_USER_NAME_LEN+1];
+    char name[CARRIER_MAX_USER_NAME_LEN+1];
     /**
      * \~English
      * User's description, also known as what's up.
      */
-    char description[ELA_MAX_USER_DESCRIPTION_LEN+1];
+    char description[CARRIER_MAX_USER_DESCRIPTION_LEN+1];
     /**
      * \~English
      * If user has an avatar.
@@ -464,23 +464,23 @@ typedef struct ElaUserInfo {
      * \~English
      * User's gender.
      */
-    char gender[ELA_MAX_GENDER_LEN+1];
+    char gender[CARRIER_MAX_GENDER_LEN+1];
     /**
      * \~English
      * User's phone number.
      */
-    char phone[ELA_MAX_PHONE_LEN+1];
+    char phone[CARRIER_MAX_PHONE_LEN+1];
     /**
      * \~English
      * User's email address.
      */
-    char email[ELA_MAX_EMAIL_LEN+1];
+    char email[CARRIER_MAX_EMAIL_LEN+1];
     /**
      * \~English
      * User's region information.
      */
-    char region[ELA_MAX_REGION_LEN+1];
-} ElaUserInfo;
+    char region[CARRIER_MAX_REGION_LEN+1];
+} CarrierUserInfo;
 
 /**
  * \~English
@@ -488,28 +488,28 @@ typedef struct ElaUserInfo {
  *
  * Include the basic user information and the extra friend information.
  */
-typedef struct ElaFriendInfo {
+typedef struct CarrierFriendInfo {
     /**
      * \~English
      * Friend's user information.
      */
-    ElaUserInfo user_info;
+    CarrierUserInfo user_info;
     /**
      * \~English
      * Your label for the friend.
      */
-    char label[ELA_MAX_USER_NAME_LEN+1];
+    char label[CARRIER_MAX_USER_NAME_LEN+1];
     /**
      * \~English
      * Friend's connection status.
      */
-    ElaConnectionStatus status;
+    CarrierConnectionStatus status;
     /**
      * \~English
      * Friend's presence status.
      */
-    ElaPresenceStatus presence;
-} ElaFriendInfo;
+    CarrierPresenceStatus presence;
+} CarrierFriendInfo;
 
 /**
  * \~English
@@ -517,25 +517,25 @@ typedef struct ElaFriendInfo {
  *
  * Include the basic peer information.
  */
-typedef struct ElaGroupPeer {
+typedef struct CarrierGroupPeer {
     /**
      * \~English
      * Peer's Carrier user name.
      */
-    char name[ELA_MAX_USER_NAME_LEN + 1];
+    char name[CARRIER_MAX_USER_NAME_LEN + 1];
 
     /**
      * \~English
      * Peer's userid.
      */
-    char userid[ELA_MAX_ID_LEN + 1];
-} ElaGroupPeer;
+    char userid[CARRIER_MAX_ID_LEN + 1];
+} CarrierGroupPeer;
 
 /**
  * \~English
  * Carrier group callbacks, include all global group callbacks for Carrier.
  */
-typedef struct ElaGroupCallbacks {
+typedef struct CarrierGroupCallbacks {
     /**
      * \~English
      * An application-defined function that process event to be connected to
@@ -548,7 +548,7 @@ typedef struct ElaGroupCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*group_connected)(ElaCarrier *carrier, const char *groupid, void *context);
+    void (*group_connected)(Carrier *carrier, const char *groupid, void *context);
 
     /**
      * \~English
@@ -567,7 +567,7 @@ typedef struct ElaGroupCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*group_message)(ElaCarrier *carrier, const char *groupid,
+    void (*group_message)(Carrier *carrier, const char *groupid,
                           const char *from, const void *message, size_t length,
                           void *context);
 
@@ -587,7 +587,7 @@ typedef struct ElaGroupCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*group_title)(ElaCarrier *carrier, const char *groupid,
+    void (*group_title)(Carrier *carrier, const char *groupid,
                         const char *from, const char *title, void *context);
 
     /**
@@ -606,7 +606,7 @@ typedef struct ElaGroupCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*peer_name)(ElaCarrier *carrier, const char *groupid,
+    void (*peer_name)(Carrier *carrier, const char *groupid,
                       const char *peerid, const char *peer_name,
                       void *context);
 
@@ -622,15 +622,15 @@ typedef struct ElaGroupCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*peer_list_changed)(ElaCarrier *carrier, const char *groupid,
+    void (*peer_list_changed)(Carrier *carrier, const char *groupid,
                               void *context);
-} ElaGroupCallbacks;
+} CarrierGroupCallbacks;
 
 /**
  * \~English
  * Carrier callbacks, include all global callbacks for Carrier.
  */
-typedef struct ElaCallbacks {
+typedef struct CarrierCallbacks {
     /**
      * \~English
      * An application-defined function that perform idle work.
@@ -640,7 +640,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*idle)(ElaCarrier *carrier, void *context);
+    void (*idle)(Carrier *carrier, void *context);
 
     /**
      * \~English
@@ -653,8 +653,8 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*connection_status)(ElaCarrier *carrier,
-                              ElaConnectionStatus status, void *context);
+    void (*connection_status)(Carrier *carrier,
+                              CarrierConnectionStatus status, void *context);
 
     /**
      * \~English
@@ -667,7 +667,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*ready)(ElaCarrier *carrier, void *context);
+    void (*ready)(Carrier *carrier, void *context);
 
     /**
      * \~English
@@ -681,7 +681,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*self_info)(ElaCarrier *carrier, const ElaUserInfo *info, void *context);
+    void (*self_info)(Carrier *carrier, const CarrierUserInfo *info, void *context);
 
     /**
      * \~English
@@ -700,7 +700,7 @@ typedef struct ElaCallbacks {
      *      Return true to continue iterate next friend user info,
      *      false to stop iterate.
      */
-    bool (*friend_list)(ElaCarrier *carrier, const ElaFriendInfo* info,
+    bool (*friend_list)(Carrier *carrier, const CarrierFriendInfo* info,
                         void* context);
 
     /**
@@ -717,8 +717,8 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_connection)(ElaCarrier *carrier,const char *friendid,
-                              ElaConnectionStatus status, void *context);
+    void (*friend_connection)(Carrier *carrier,const char *friendid,
+                              CarrierConnectionStatus status, void *context);
 
     /**
      * \~English
@@ -734,8 +734,8 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_info)(ElaCarrier *carrier, const char *friendid,
-                        const ElaFriendInfo *info, void *context);
+    void (*friend_info)(Carrier *carrier, const char *friendid,
+                        const CarrierFriendInfo *info, void *context);
 
     /**
      * \~English
@@ -751,8 +751,8 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_presence)(ElaCarrier *carrier, const char *friendid,
-                            ElaPresenceStatus presence, void *context);
+    void (*friend_presence)(Carrier *carrier, const char *friendid,
+                            CarrierPresenceStatus presence, void *context);
 
     /**
      * \~English
@@ -770,8 +770,8 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_request)(ElaCarrier *carrier, const char *userid,
-                           const ElaUserInfo *info,
+    void (*friend_request)(Carrier *carrier, const char *userid,
+                           const CarrierUserInfo *info,
                            const char *hello, void *context);
 
     /**
@@ -786,7 +786,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_added)(ElaCarrier *carrier, const ElaFriendInfo *info,
+    void (*friend_added)(Carrier *carrier, const CarrierFriendInfo *info,
                          void *context);
 
     /**
@@ -801,7 +801,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_removed)(ElaCarrier *carrier, const char *friendid,
+    void (*friend_removed)(Carrier *carrier, const char *friendid,
                            void *context);
 
     /**
@@ -827,7 +827,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_message)(ElaCarrier *carrier, const char *from,
+    void (*friend_message)(Carrier *carrier, const char *from,
                            const void *msg, size_t len,
                            int64_t timestamp, bool offline,
                            void *context);
@@ -849,7 +849,7 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*friend_invite)(ElaCarrier *carrier, const char *from,
+    void (*friend_invite)(Carrier *carrier, const char *from,
                           const char *bundle,
                           const void *data, size_t len, void *context);
 
@@ -868,15 +868,15 @@ typedef struct ElaCallbacks {
      * @param
      *      context     [in] The application defined context data.
      */
-    void (*group_invite)(ElaCarrier *w, const char *from,
+    void (*group_invite)(Carrier *w, const char *from,
                          const void *cookie, size_t len, void *context);
 
     /**
      * \~English
      * Group related callbacks.
      */
-    ElaGroupCallbacks group_callbacks;
-} ElaCallbacks;
+    CarrierGroupCallbacks group_callbacks;
+} CarrierCallbacks;
 
 /**
  * \~English
@@ -889,7 +889,7 @@ typedef struct ElaCallbacks {
  *      true if address is valid, or false if address is not valid.
  */
 CARRIER_API
-bool ela_address_is_valid(const char *address);
+bool carrier_address_is_valid(const char *address);
 
 /**
  * \~English
@@ -902,7 +902,7 @@ bool ela_address_is_valid(const char *address);
  *      true if id is valid, or false if id is not valid.
  */
 CARRIER_API
-bool ela_id_is_valid(const char *id);
+bool carrier_id_is_valid(const char *id);
 
 /**
  * \~English
@@ -918,10 +918,10 @@ bool ela_id_is_valid(const char *id);
  * @return
  *      If no error occurs, return the pointer of extraced userid.
  *      Otherwise, return NULL, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-char *ela_get_id_by_address(const char *address, char *userid, size_t len);
+char *carrier_get_id_by_address(const char *address, char *userid, size_t len);
 
 /**
  * \~English
@@ -938,10 +938,10 @@ char *ela_get_id_by_address(const char *address, char *userid, size_t len);
  * @return
  *      If no error occurs, return the pointer of Carrier node instance.
  *      Otherwise, return NULL, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-ElaCarrier *ela_new(const ElaOptions *options, ElaCallbacks *callbacks,
+Carrier *carrier_new(const CarrierOptions *options, CarrierCallbacks *callbacks,
                     void *context);
 
 /**
@@ -957,7 +957,7 @@ ElaCarrier *ela_new(const ElaOptions *options, ElaCallbacks *callbacks,
  *                       to kill.
  */
 CARRIER_API
-void ela_kill(ElaCarrier *carrier);
+void carrier_kill(Carrier *carrier);
 
 /******************************************************************************
  * \~English
@@ -968,7 +968,7 @@ void ela_kill(ElaCarrier *carrier);
  * Attempts to connect the node to Carrier network. If the node successfully
  * connects to Carrier network, then it starts the node's main event loop.
  * The connect options was specified by previously create options.
- * @see ela_new().
+ * @see carrier_new().
  *
  * @param
  *      carrier     [in] A handle identifying the Carrier node instance.
@@ -978,10 +978,10 @@ void ela_kill(ElaCarrier *carrier);
  * @return
  *      0 if the client successfully connected to Carrier network and start the
  *      event loop. Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_run(ElaCarrier *carrier, int interval);
+int carrier_run(Carrier *carrier, int interval);
 
 /******************************************************************************
  * Internal node information
@@ -996,7 +996,7 @@ int ela_run(ElaCarrier *carrier, int interval);
  * @param
  *      address     [out] The buffer that will receive the address.
  *                        The buffer size should at least
- *                        (ELA_MAX_ADDRESS_LEN + 1) bytes.
+ *                        (CARRIER_MAX_ADDRESS_LEN + 1) bytes.
  * @param
  *      len         [in] The buffer size of address.
  *
@@ -1004,7 +1004,7 @@ int ela_run(ElaCarrier *carrier, int interval);
  *      The address string pointer, or NULL if buffer is too small.
  */
 CARRIER_API
-char *ela_get_address(ElaCarrier *carrier, char *address, size_t len);
+char *carrier_get_address(Carrier *carrier, char *address, size_t len);
 
 /**
  * \~English
@@ -1015,7 +1015,7 @@ char *ela_get_address(ElaCarrier *carrier, char *address, size_t len);
  * @param
  *      nodeid      [out] The buffer that will receive the identifier.
  *                        The buffer size should at least
- *                        (ELA_MAX_ID_LEN + 1) bytes.
+ *                        (CARRIER_MAX_ID_LEN + 1) bytes.
  * @param
  *      len         [in] The buffer size of nodeid.
  *
@@ -1023,7 +1023,7 @@ char *ela_get_address(ElaCarrier *carrier, char *address, size_t len);
  *      The nodeId string pointer, or NULL if buffer is too small.
  */
 CARRIER_API
-char *ela_get_nodeid(ElaCarrier *carrier, char *nodeid, size_t len);
+char *carrier_get_nodeid(Carrier *carrier, char *nodeid, size_t len);
 
 /**
  * \~English
@@ -1034,7 +1034,7 @@ char *ela_get_nodeid(ElaCarrier *carrier, char *nodeid, size_t len);
  * @param
  *      userid      [out] The buffer that will receive the identifier.
  *                        The buffer size should at least
- *                        (ELA_MAX_ID_LEN + 1) bytes.
+ *                        (CARRIER_MAX_ID_LEN + 1) bytes.
  * @param
  *      len         [in] The buffer size of userid.
  *
@@ -1042,7 +1042,7 @@ char *ela_get_nodeid(ElaCarrier *carrier, char *nodeid, size_t len);
  *      The userId string pointer, or NULL if buffer is too small.
  */
 CARRIER_API
-char *ela_get_userid(ElaCarrier *carrier, char *userid, size_t len);
+char *carrier_get_userid(Carrier *carrier, char *userid, size_t len);
 
 /******************************************************************************
  * Client information
@@ -1063,10 +1063,10 @@ char *ela_get_userid(ElaCarrier *carrier, char *userid, size_t len);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_set_self_nospam(ElaCarrier *carrier, uint32_t nospam);
+int carrier_set_self_nospam(Carrier *carrier, uint32_t nospam);
 
 /**
  * \~Egnlish
@@ -1082,10 +1082,10 @@ int ela_set_self_nospam(ElaCarrier *carrier, uint32_t nospam);
  *      nospam      [in] An unsigned integer pointer to receive nospam value.
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_self_nospam(ElaCarrier *carrier, uint32_t *nospam);
+int carrier_get_self_nospam(Carrier *carrier, uint32_t *nospam);
 
 /**
  * \~English
@@ -1102,10 +1102,10 @@ int ela_get_self_nospam(ElaCarrier *carrier, uint32_t *nospam);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_set_self_info(ElaCarrier *carrier, const ElaUserInfo *info);
+int carrier_set_self_info(Carrier *carrier, const CarrierUserInfo *info);
 
 /**
  * \~English
@@ -1118,10 +1118,10 @@ int ela_set_self_info(ElaCarrier *carrier, const ElaUserInfo *info);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_self_info(ElaCarrier *carrier, ElaUserInfo *info);
+int carrier_get_self_info(Carrier *carrier, CarrierUserInfo *info);
 
 /**
  * \~English
@@ -1134,10 +1134,10 @@ int ela_get_self_info(ElaCarrier *carrier, ElaUserInfo *info);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_set_self_presence(ElaCarrier *carrier, ElaPresenceStatus presence);
+int carrier_set_self_presence(Carrier *carrier, CarrierPresenceStatus presence);
 
 /**
  * \~English
@@ -1150,10 +1150,10 @@ int ela_set_self_presence(ElaCarrier *carrier, ElaPresenceStatus presence);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_self_presence(ElaCarrier *carrier, ElaPresenceStatus *presence);
+int carrier_get_self_presence(Carrier *carrier, CarrierPresenceStatus *presence);
 
 /**
  * \~English
@@ -1169,7 +1169,7 @@ int ela_get_self_presence(ElaCarrier *carrier, ElaPresenceStatus *presence);
  *      true if the carrier node instance is ready, or false if not.
  */
 CARRIER_API
-bool ela_is_ready(ElaCarrier *carrier);
+bool carrier_is_ready(Carrier *carrier);
 
 /******************************************************************************
  * Friend information
@@ -1192,8 +1192,8 @@ bool ela_is_ready(ElaCarrier *carrier);
  *      Return true to continue iterate next friend user info,
  *      false to stop iterate.
  */
-typedef bool ElaFriendsIterateCallback(const ElaFriendInfo *info,
-                                       void *context);
+typedef bool CarrierFriendsIterateCallback(const CarrierFriendInfo *info,
+                                           void *context);
 /**
  * \~English
  * Get friends list. For each friend will call the application defined
@@ -1208,11 +1208,11 @@ typedef bool ElaFriendsIterateCallback(const ElaFriendInfo *info,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_friends(ElaCarrier *carrier,
-                    ElaFriendsIterateCallback *callback, void *context);
+int carrier_get_friends(Carrier *carrier,
+                        CarrierFriendsIterateCallback *callback, void *context);
 
 /**
  * \~English
@@ -1228,11 +1228,11 @@ int ela_get_friends(ElaCarrier *carrier,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_friend_info(ElaCarrier *carrier, const char *friendid,
-                        ElaFriendInfo *info);
+int carrier_get_friend_info(Carrier *carrier, const char *friendid,
+                            CarrierFriendInfo *info);
 
 /**
  * \~English
@@ -1249,15 +1249,15 @@ int ela_get_friend_info(ElaCarrier *carrier, const char *friendid,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  *
  * @remarks
  *      The label of a friend is a private alias named by yourself. It can be
  *      seen by yourself only, and has no impact to the target friend.
  */
 CARRIER_API
-int ela_set_friend_label(ElaCarrier *carrier,
-                         const char *friendid, const char *label);
+int carrier_set_friend_label(Carrier *carrier,
+                             const char *friendid, const char *label);
 
 /**
  * \~English
@@ -1272,7 +1272,7 @@ int ela_set_friend_label(ElaCarrier *carrier,
  *      true if the user id is friend, or false if not;
  */
 CARRIER_API
-bool ela_is_friend(ElaCarrier* carrier, const char* userid);
+bool carrier_is_friend(Carrier* carrier, const char* userid);
 
 /******************************************************************************
  * Friend add & remove
@@ -1295,10 +1295,10 @@ bool ela_is_friend(ElaCarrier* carrier, const char* userid);
  *
  * @return
  *      0 if adding friend is successful. Otherwise, return -1, and a specific
- *      error code can be retrieved by calling ela_get_error().
+ *      error code can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_add_friend(ElaCarrier *carrier, const char *address, const char *hello);
+int carrier_add_friend(Carrier *carrier, const char *address, const char *hello);
 
 /**
  * \~English
@@ -1314,10 +1314,10 @@ int ela_add_friend(ElaCarrier *carrier, const char *address, const char *hello);
  * @return
  *      0 if adding friend successfully.
  *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_accept_friend(ElaCarrier *carrier, const char *userid);
+int carrier_accept_friend(Carrier *carrier, const char *userid);
 
 /**
  * \~English
@@ -1336,10 +1336,10 @@ int ela_accept_friend(ElaCarrier *carrier, const char *userid);
  * @return
  *      0 if the indicator successfully sent.
  *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_remove_friend(ElaCarrier *carrier, const char *userid);
+int carrier_remove_friend(Carrier *carrier, const char *userid);
 
 /******************************************************************************
  * Application transactions between friends
@@ -1347,61 +1347,27 @@ int ela_remove_friend(ElaCarrier *carrier, const char *userid);
 
 /**
  * \~English
- * DISCARDED!
- * Send a message to a friend.
- *
- * The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
- * must be split by application and sent as separate fragments. Other carrier
- * nodes can reassemble the fragments.
- *
- * Message may not be empty or NULL.
- * @param
- *      carrier     [in] A handle to the Carrier node instance.
- * @param
- *      to          [in] The target userid.
- * @param
- *      message     [in] The message content defined by application.
- * @param
- *      len         [in] The message length in bytes.
- * @param
- *      offline     [out] The pointer to store the value that the message was
- *                        sent as offline message or online message. The value
- *                        of true means the message was sent as offline
- *                        message, otherwise, the message was sent as online
- *                        message. This pointer also can be set as NULL.
- *
- * @return
- *      0 if the text message successfully sent.
- *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
- */
-CARRIER_API
-int ela_send_friend_message(ElaCarrier *carrier, const char *to,
-                            const void *message, size_t len, bool *offline);
-
-/**
- * \~English
  * Carrier message receipt status to Carrier network.
  */
-typedef enum ElaReceiptState {
+typedef enum CarrierReceiptState {
     /**
      * \~English
      * Message has been accepted by remote friend via carrier network.
      */
-    ElaReceipt_ByFriend,
+    CarrierReceipt_ByFriend,
     /**
      * \~English
      * Message has been delivered to offline message store.
      */
-    ElaReceipt_Offline,
+    CarrierReceipt_Offline,
     /**
      * \~English
      * Message sent before not
      * Message send unsuccessfully. A specific error code can be
-     * retrieved by calling ela_get_error().
+     * retrieved by calling carrier_get_error().
      */
-    ElaReceipt_Error,
-} ElaReceiptState;
+    CarrierReceipt_Error,
+} CarrierReceiptState;
 
 /**
  * \~English
@@ -1420,15 +1386,15 @@ typedef enum ElaReceiptState {
  *      Return true to continue iterate next friend user info,
  *      false to stop iterate.
  */
-typedef void ElaFriendMessageReceiptCallback(int64_t msgid,
-                                             ElaReceiptState state,
+typedef void CarrierFriendMessageReceiptCallback(uint32_t msgid,
+                                             CarrierReceiptState state,
                                              void *context);
 
 /**
  * \~English
  * Send a message to a friend with receipt.
  *
- * The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
+ * The message length may not exceed CARRIER_MAX_BULK_MESSAGE_LEN. Larger messages
  * must be split by application and sent as separate fragments. Other carrier
  * nodes can reassemble the fragments.
  *
@@ -1442,21 +1408,23 @@ typedef void ElaFriendMessageReceiptCallback(int64_t msgid,
  * @param
  *      len         [in] The message length in bytes.
  * @param
+ *      msgid       [out] The message ID.
+ * @param
  *      cb          [in] The pointer to callback which will be called when the
  *                        receipt is received or failed to send message.
  * @param
  *      content     [in] The user context in callback.
  *
  * @return
- *      > 0 message id if the text message successfully add to send task list.
- *      Otherwise, return <0, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      0 if the text message successfully sent.
+ *      Otherwise, return -1, and a specific error code can be
+ *      retrieved by calling carrier_get_error().
  */
-CARRIER_API
-int64_t ela_send_message_with_receipt(ElaCarrier *carrier, const char *to,
-                                      const void *message, size_t len,
-                                      ElaFriendMessageReceiptCallback *cb,
-                                      void *context);
+ CARRIER_API
+int carrier_send_friend_message(Carrier *carrier, const char *to,
+                            const void *message, size_t len,
+                            uint32_t *msgid,
+                            CarrierFriendMessageReceiptCallback *cb, void *context);
 
 /**
  * \~English
@@ -1482,7 +1450,7 @@ int64_t ela_send_message_with_receipt(ElaCarrier *carrier, const char *to,
  * @param
  *      context      [in] The application defined context data.
  */
-typedef void ElaFriendInviteResponseCallback(ElaCarrier *carrier,
+typedef void CarrierFriendInviteResponseCallback(Carrier *carrier,
                                              const char *from,
                                              const char *bundle,
                                              int status, const char *reason,
@@ -1515,13 +1483,13 @@ typedef void ElaFriendInviteResponseCallback(ElaCarrier *carrier,
  * @return
  *      0 if the invite request successfully send to the friend.
  *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_invite_friend(ElaCarrier *carrier, const char *to, const char *bundle,
-                      const void *data, size_t len,
-                      ElaFriendInviteResponseCallback *callback,
-                      void *context);
+int carrier_invite_friend(Carrier *carrier, const char *to, const char *bundle,
+                          const void *data, size_t len,
+                          CarrierFriendInviteResponseCallback *callback,
+                          void *context);
 
 /**
  * \~English
@@ -1551,13 +1519,13 @@ int ela_invite_friend(ElaCarrier *carrier, const char *to, const char *bundle,
  * @return
  *      0 if the invite response successfully send to the friend.
  *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_reply_friend_invite(ElaCarrier *carrier, const char *to,
-                            const char *bundle,
-                            int status, const char *reason,
-                            const void *data, size_t len);
+int carrier_reply_friend_invite(Carrier *carrier, const char *to,
+                                const char *bundle,
+                                int status, const char *reason,
+                                const void *data, size_t len);
 
 /******************************************************************************
  * Group lifecycle and messaging.
@@ -1575,10 +1543,10 @@ int ela_reply_friend_invite(ElaCarrier *carrier, const char *to,
  *
  * @return
  *      0 if creating group in success, Otherwise, return -1, and a specific
- *      error code can be retrieved by calling ela_get_error().
+ *      error code can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_new_group(ElaCarrier *carrier, char *groupid, size_t length);
+int carrier_new_group(Carrier *carrier, char *groupid, size_t length);
 
 /**
  * \~English
@@ -1591,10 +1559,10 @@ int ela_new_group(ElaCarrier *carrier, char *groupid, size_t length);
  *
  * @return
  *      0 if leaving from group in success, Otherwise, return -1, and a specific
- *      error code can be retrieved by calling ela_get_error().
+ *      error code can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_leave_group(ElaCarrier *carrier, const char *groupid);
+int carrier_leave_group(Carrier *carrier, const char *groupid);
 
 /**
  * \~English
@@ -1609,10 +1577,10 @@ int ela_leave_group(ElaCarrier *carrier, const char *groupid);
  *
  * @return
  *      0 on success, or -1 if an error occurred, and a specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_invite(ElaCarrier *carrier, const char *groupid, const char *friendid);
+int carrier_group_invite(Carrier *carrier, const char *groupid, const char *friendid);
 
 /**
  * \~English
@@ -1636,17 +1604,17 @@ int ela_group_invite(ElaCarrier *carrier, const char *groupid, const char *frien
  *
  * @return
  *      0 on success, or -1 if an error occurred, and a specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_join(ElaCarrier *carrier, const char *friendid, const void *cookie,
+int carrier_group_join(Carrier *carrier, const char *friendid, const void *cookie,
                    size_t cookie_len, char *groupId, size_t group_len);
 
 /**
  * \~English
  * Send a message to a group.
  *
- * The message length may not exceed ELA_MAX_APP_MESSAGE_LEN. Larger messages
+ * The message length may not exceed CARRIER_MAX_APP_MESSAGE_LEN. Larger messages
  * must be split by application and sent as separate fragments. Other carrier
  * nodes can reassemble the fragments.
  *
@@ -1662,11 +1630,11 @@ int ela_group_join(ElaCarrier *carrier, const char *friendid, const void *cookie
  *
  * @return
  *      0 on success, or -1 if an error occurred, and a specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_send_message(ElaCarrier *carrier, const char *groupid,
-                           const void *message, size_t length);
+int carrier_group_send_message(Carrier *carrier, const char *groupid,
+                               const void *message, size_t length);
 
 /**
  * \~English
@@ -1683,11 +1651,11 @@ int ela_group_send_message(ElaCarrier *carrier, const char *groupid,
  *
  * @return
  *      0 on success, or -1 if an error occurred, and a specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_get_title(ElaCarrier *carrier, const char *groupid, char *title,
-                        size_t length);
+int carrier_group_get_title(Carrier *carrier, const char *groupid, char *title,
+                            size_t length);
 
 /**
  * \~English
@@ -1699,14 +1667,14 @@ int ela_group_get_title(ElaCarrier *carrier, const char *groupid, char *title,
  *      groupid     [in] The target group.
  * @param
  *      title       [in] The title name to set(should be no
- *                       longer than ELA_MAX_GROUP_TITLE_LEN).
+ *                       longer than CARRIER_MAX_GROUP_TITLE_LEN).
  *
  * @return
  *      0 on success, or -1 if an error occurred, and a specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_set_title(ElaCarrier *carrier, const char *groupid, const char *title);
+int carrier_group_set_title(Carrier *carrier, const char *groupid, const char *title);
 
 /**
  * \~English
@@ -1726,8 +1694,8 @@ int ela_group_set_title(ElaCarrier *carrier, const char *groupid, const char *ti
  *      Return true to continue iterate next group peer, false to stop
  *      iteration.
  */
-typedef bool ElaGroupPeersIterateCallback(const ElaGroupPeer *peer,
-                                          void *context);
+typedef bool CarrierGroupPeersIterateCallback(const CarrierGroupPeer *peer,
+                                              void *context);
 /**
  * \~English
  * Get group peer list. For each peer will call the application defined
@@ -1744,12 +1712,12 @@ typedef bool ElaGroupPeersIterateCallback(const ElaGroupPeer *peer,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_get_peers(ElaCarrier *carrier, const char *groupid,
-                        ElaGroupPeersIterateCallback *callback,
-                        void *context);
+int carrier_group_get_peers(Carrier *carrier, const char *groupid,
+                            CarrierGroupPeersIterateCallback *callback,
+                            void *context);
 
 /**
  * \~English
@@ -1767,11 +1735,11 @@ int ela_group_get_peers(ElaCarrier *carrier, const char *groupid,
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_group_get_peer(ElaCarrier *carrier, const char *groupid,
-                       const char *peerId, ElaGroupPeer *peer);
+int carrier_group_get_peer(Carrier *carrier, const char *groupid,
+                           const char *peerId, CarrierGroupPeer *peer);
 
 /**
  * \~English
@@ -1789,7 +1757,7 @@ int ela_group_get_peer(ElaCarrier *carrier, const char *groupid,
  *      Return true to continue iterate next group peer, false to stop
  *      iteration.
  */
-typedef bool ElaIterateGroupCallback(const char *groupid, void *context);
+typedef bool CarrierIterateGroupCallback(const char *groupid, void *context);
 
 /**
  * \~English
@@ -1805,251 +1773,251 @@ typedef bool ElaIterateGroupCallback(const char *groupid, void *context);
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
 CARRIER_API
-int ela_get_groups(ElaCarrier *carrier, ElaIterateGroupCallback *callback,
-                   void *context);
+int carrier_get_groups(Carrier *carrier, CarrierIterateGroupCallback *callback,
+                       void *context);
 
 /******************************************************************************
  * Error handling
  *****************************************************************************/
 
-#define ELASUCCESS                                  0
+#define CARRIER_SUCCESS                                  0
 
 // Facility code
-#define ELAF_GENERAL                                0x01
-#define ELAF_SYS                                    0x02
-#define ELAF_RESERVED1                              0x03
-#define ELAF_RESERVED2                              0x04
-#define ELAF_ICE                                    0x05
-#define ELAF_DHT                                    0x06
-#define ELAF_EXPRESS                                0x07
+#define FACILITY_GENERAL                                0x01
+#define FACILITY_SYS                                    0x02
+#define FACILITY_RESERVED1                              0x03
+#define FACILITY_RESERVED2                              0x04
+#define FACILITY_ICE                                    0x05
+#define FACILITY_DHT                                    0x06
+#define FACILITY_EXPRESS                                0x07
 
 /**
  * \~English
  * Argument(s) is(are) invalid.
  */
-#define ELAERR_INVALID_ARGS                         0x01
+#define ERROR_INVALID_ARGS                         0x01
 
 /**
  * \~English
  * Runs out of memory.
  */
-#define ELAERR_OUT_OF_MEMORY                        0x02
+#define ERROR_OUT_OF_MEMORY                        0x02
 
 /**
  * \~English
  * Buffer size is too small.
  */
-#define ELAERR_BUFFER_TOO_SMALL                     0x03
+#define ERROR_BUFFER_TOO_SMALL                     0x03
 
 /**
  * \~English
  * Persistent data is corrupted.
  */
-#define ELAERR_BAD_PERSISTENT_DATA                  0x04
+#define ERROR_BAD_PERSISTENT_DATA                  0x04
 
 /**
  * \~English
  * Persistent file is invalid.
  */
-#define ELAERR_INVALID_PERSISTENCE_FILE             0x05
+#define ERROR_INVALID_PERSISTENCE_FILE             0x05
 
 /**
  * \~English
  * Control packet is invalid.
  */
-#define ELAERR_INVALID_CONTROL_PACKET               0x06
+#define ERROR_INVALID_CONTROL_PACKET               0x06
 
 /**
  * \~English
  * Credential is invalid.
  */
-#define ELAERR_INVALID_CREDENTIAL                   0x07
+#define ERROR_INVALID_CREDENTIAL                   0x07
 
 /**
  * \~English
  * Carrier ran already.
  */
-#define ELAERR_ALREADY_RUN                          0x08
+#define ERROR_ALREADY_RUN                          0x08
 
 /**
  * \~English
  * Carrier not ready.
  */
-#define ELAERR_NOT_READY                            0x09
+#define ERROR_NOT_BEING_READY                      0x09
 
 /**
  * \~English
  * The requested entity does not exist.
  */
-#define ELAERR_NOT_EXIST                            0x0A
+#define ERROR_NOT_EXIST                            0x0A
 
 /**
  * \~English
  * The entity exists already.
  */
-#define ELAERR_ALREADY_EXIST                        0x0B
+#define ERROR_ALREADY_EXIST                        0x0B
 
 /**
  * \~English
  * There are no matched requests.
  */
-#define ELAERR_NO_MATCHED_REQUEST                   0x0C
+#define ERROR_NO_MATCHED_REQUEST                   0x0C
 
 /**
  * \~English
  * User ID is invalid.
  */
-#define ELAERR_INVALID_USERID                       0x0D
+#define ERROR_INVALID_USERID                       0x0D
 
 /**
  * \~English
  * Node ID is invalid.
  */
-#define ELAERR_INVALID_NODEID                       0x0E
+#define ERROR_INVALID_NODEID                       0x0E
 
 /**
  * \~English
  * Failed because wrong state.
  */
-#define ELAERR_WRONG_STATE                          0x0F
+#define ERROR_WRONG_STATE                          0x0F
 
 /**
  * \~English
  * Stream busy.
  */
-#define ELAERR_BUSY                                 0x10
+#define ERROR_BEING_BUSY                           0x10
 
 /**
  * \~English
  * Language binding error.
  */
-#define ELAERR_LANGUAGE_BINDING                     0x11
+#define ERROR_LANGUAGE_BINDING                     0x11
 
 /**
  * \~English
  * Encryption failed.
  */
-#define ELAERR_ENCRYPT                              0x12
+#define ERROR_ENCRYPT                              0x12
 
 /**
  * \~English
  * The content size of SDP is too long.
  */
-#define ELAERR_SDP_TOO_LONG                         0x13
+#define ERROR_SDP_TOO_LONG                         0x13
 
 /**
  * \~English
  * Bad SDP information format.
  */
-#define ELAERR_INVALID_SDP                          0x14
+#define ERROR_INVALID_SDP                          0x14
 
 /**
  * \~English
  * Not implemented yet.
  */
-#define ELAERR_NOT_IMPLEMENTED                      0x15
+#define ERROR_NOT_IMPLEMENTED                      0x15
 
 /**
  * \~English
  * Limits are exceeded.
  */
-#define ELAERR_LIMIT_EXCEEDED                       0x16
+#define ERROR_LIMIT_EXCEEDED                       0x16
 
 /**
  * \~English
  * Allocate port unsuccessfully.
  */
-#define ELAERR_PORT_ALLOC                           0x17
+#define ERROR_PORT_ALLOC                           0x17
 
 /**
  * \~English
  * Invalid proxy type.
  */
-#define ELAERR_BAD_PROXY_TYPE                       0x18
+#define ERROR_BAD_PROXY_TYPE                       0x18
 
 /**
  * \~English
  * Invalid proxy host.
  */
-#define ELAERR_BAD_PROXY_HOST                       0x19
+#define ERROR_BAD_PROXY_HOST                       0x19
 
 /**
  * \~English
  * Invalid proxy port.
  */
-#define ELAERR_BAD_PROXY_PORT                       0x1A
+#define ERROR_BAD_PROXY_PORT                       0x1A
 
 /**
  * \~English
  * Proxy is not available.
  */
-#define ELAERR_PROXY_NOT_AVAILABLE                  0x1B
+#define ERROR_PROXY_NOT_AVAILABLE                  0x1B
 
 /**
  * \~English
  * Persistent data is encrypted, load failed.
  */
-#define ELAERR_ENCRYPTED_PERSISTENT_DATA            0x1C
+#define ERROR_ENCRYPTED_PERSISTENT_DATA            0x1C
 
 /**
  * \~English
  * Invalid bootstrap host.
  */
-#define ELAERR_BAD_BOOTSTRAP_HOST                   0x1D
+#define ERROR_BAD_BOOTSTRAP_HOST                   0x1D
 
 /**
  * \~English
  * Invalid bootstrap port.
  */
-#define ELAERR_BAD_BOOTSTRAP_PORT                   0x1E
+#define ERROR_BAD_BOOTSTRAP_PORT                   0x1E
 
 /**
  * \~English
  * Data is too long.
  */
-#define ELAERR_TOO_LONG                             0x1F
+#define ERROR_TOO_LONG                             0x1F
 
 /**
  * \~English
  * Could not friend yourself.
  */
-#define ELAERR_ADD_SELF                             0x20
+#define ERROR_ADD_SELF                             0x20
 
 /**
  * \~English
  * Invalid address.
  */
-#define ELAERR_BAD_ADDRESS                          0x21
+#define ERROR_BAD_ADDRESS                          0x21
 
 /**
  * \~English
  * Friend is offline.
  */
-#define ELAERR_FRIEND_OFFLINE                       0x22
+#define ERROR_FRIEND_OFFLINE                       0x22
 
 /**
  * \~English
  * Bad flat buffer.
  */
-#define ELAERR_BAD_FLATBUFFER                       0x23
+#define ERROR_BAD_FLATBUFFER                       0x23
 
 /**
  * \~English
  * Unknown error.
  */
-#define ELAERR_UNKNOWN                              0xFF
+#define ERROR_UNKNOWN                              0xFF
 
-#define ELA_MK_ERROR(facility, code)  (0x80000000 | ((facility) << 24) | \
-                    ((((code) & 0x80000000) >> 8) | ((code) & 0x7FFFFFFF)))
+#define CARRIER_MK_ERROR(facility, code)  (0x80000000 | ((facility) << 24) | \
+                        ((((code) & 0x80000000) >> 8) | ((code) & 0x7FFFFFFF)))
 
-#define ELA_GENERAL_ERROR(code)       ELA_MK_ERROR(ELAF_GENERAL, code)
-#define ELA_SYS_ERROR(code)           ELA_MK_ERROR(ELAF_SYS, code)
-#define ELA_ICE_ERROR(code)           ELA_MK_ERROR(ELAF_ICE, code)
-#define ELA_DHT_ERROR(code)           ELA_MK_ERROR(ELAF_DHT, code)
-#define ELA_EXPRESS_ERROR(code)       ELA_MK_ERROR(ELAF_EXPRESS, code)
+#define CARRIER_GENERAL_ERROR(code)       CARRIER_MK_ERROR(FACILITY_GENERAL, code)
+#define CARRIER_SYS_ERROR(code)           CARRIER_MK_ERROR(FACILITY_SYS, code)
+#define CARRIER_ICE_ERROR(code)           CARRIER_MK_ERROR(FACILITY_ICE, code)
+#define CARRIER_DHT_ERROR(code)           CARRIER_MK_ERROR(FACILITY_DHT, code)
+#define CARRIER_EXPRESS_ERROR(code)       CARRIER_MK_ERROR(FACILITY_EXPRESS, code)
 
 /*
  * \~English
@@ -2061,28 +2029,30 @@ int ela_get_groups(ElaCarrier *carrier, ElaIterateGroupCallback *callback,
  *      The return value is the last-error code.
  */
 CARRIER_API
-int ela_get_error(void);
+int carrier_get_error(void);
 
 /**
  * \~English
  * Clear the last-error code of a Carrier instance.
  */
 CARRIER_API
-void ela_clear_error(void);
+void carrier_clear_error(void);
 
 /**
  * \~English
  * Get string description to error code.
  */
 CARRIER_API
-char *ela_get_strerror(int errnum, char *buf, size_t len);
+char *carrier_get_strerror(int errnum, char *buf, size_t len);
 
 #ifdef __cplusplus
 }
 #endif
 
+//#include <carrier_deprecated.h>
+
 #if defined(__APPLE__)
 #pragma GCC diagnostic pop
 #endif
 
-#endif /* __ELA_CARRIER_H_ */
+#endif /* __ELASTOS_CARRIER_H__ */
