@@ -21,26 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		114A739B248F286400262228 /* libcjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 112CC120233469BB0018F76C /* libcjson.a */; };
-		114A739C248F286400262228 /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A4226F1C6300146D25 /* libcrystal.a */; };
-		114A739D248F286400262228 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 111E0C652302CB4300167953 /* libcurl.a */; };
-		114A739E248F286400262228 /* libelacarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A5226F1C6300146D25 /* libelacarrier.a */; };
-		114A739F248F286400262228 /* libelafiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A1226F1C6300146D25 /* libelafiletrans.a */; };
-		114A73A0248F286400262228 /* libelasession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A2226F1C6300146D25 /* libelasession.a */; };
-		114A73A1248F286400262228 /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A09F226F1C6300146D25 /* libflatccrt.a */; };
-		114A73A2248F286400262228 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A7226F1C6300146D25 /* libpj.a */; };
-		114A73A3248F286400262228 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A6226F1C6300146D25 /* libpjlib-util.a */; };
-		114A73A4248F286500262228 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A09E226F1C6300146D25 /* libpjmedia.a */; };
-		114A73A5248F286500262228 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A8226F1C6300146D25 /* libpjnath.a */; };
-		114A73A6248F286500262228 /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A3226F1C6300146D25 /* libsodium.a */; };
-		114A73A7248F286500262228 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0B4226F1CFD00146D25 /* libsrtp.a */; };
-		114A73A8248F286500262228 /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F4A0A0226F1C6300146D25 /* libtoxcore.a */; };
-		114A73A9248F286500262228 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1155A265230BE2C500381137 /* libz.a */; };
-		114A73AD248F287400262228 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 114A73AC248F286600262228 /* libssl.a */; };
 		114A73AF248F288E00262228 /* ela_turnserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A30D52932489E65800E07564 /* ela_turnserver.h */; };
 		114A73B0248F289700262228 /* CExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52912489E29400E07564 /* CExtension.swift */; };
 		114A73B1248F289A00262228 /* CTurnServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52972489E92200E07564 /* CTurnServer.swift */; };
-		114A73B2248F28DB00262228 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 114A73AA248F286600262228 /* libcrypto.a */; };
 		116061DB2268AB4A00BDCB9F /* ElastosCarrierSDK_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 116061D92268AB4A00BDCB9F /* ElastosCarrierSDK_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		116061DF2268AB6900BDCB9F /* CFileTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE15B21BD43CF00AF4FE3 /* CFileTransfer.swift */; };
 		116061E02268AB6E00BDCB9F /* CCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B497F32003779300420421 /* CCarrier.swift */; };
@@ -99,6 +82,24 @@
 		118A85E5258726EE000A4CFC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85E0258726AF000A4CFC /* libssl.a */; };
 		118A85E6258726EE000A4CFC /* libtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DC258726AF000A4CFC /* libtls.a */; };
 		118A85E7258726EE000A4CFC /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DD258726AF000A4CFC /* libz.a */; };
+		118A862C25886692000A4CFC /* libcarrier.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F889258345F000BC5A54 /* libcarrier.a */; };
+		118A862D25886692000A4CFC /* libcarrierfiletrans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F88A258345F000BC5A54 /* libcarrierfiletrans.a */; };
+		118A862E25886692000A4CFC /* libcarriersession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D1F88B258345F000BC5A54 /* libcarriersession.a */; };
+		118A862F25886692000A4CFC /* libcjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DF258726AF000A4CFC /* libcjson.a */; };
+		118A863025886692000A4CFC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DA258726AF000A4CFC /* libcrypto.a */; };
+		118A863125886692000A4CFC /* libcrystal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3922587E7900D0108E /* libcrystal.a */; };
+		118A863225886692000A4CFC /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DB258726AF000A4CFC /* libcurl.a */; };
+		118A863325886692000A4CFC /* libflatccrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D4422587EA000D0108E /* libflatccrt.a */; };
+		118A863425886692000A4CFC /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3A22587E7900D0108E /* libpj.a */; };
+		118A863525886692000A4CFC /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3722587E7900D0108E /* libpjlib-util.a */; };
+		118A863625886692000A4CFC /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3B22587E7900D0108E /* libpjmedia.a */; };
+		118A863725886692000A4CFC /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3C22587E7900D0108E /* libpjnath.a */; };
+		118A863825886693000A4CFC /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3822587E7900D0108E /* libsodium.a */; };
+		118A863925886693000A4CFC /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DE258726AF000A4CFC /* libsrtp.a */; };
+		118A863A25886693000A4CFC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85E0258726AF000A4CFC /* libssl.a */; };
+		118A863B25886693000A4CFC /* libtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DC258726AF000A4CFC /* libtls.a */; };
+		118A863C25886693000A4CFC /* libtoxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3925D3622587E7900D0108E /* libtoxcore.a */; };
+		118A863D25886693000A4CFC /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A85DD258726AF000A4CFC /* libz.a */; };
 		118B6F5B2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		118B6F5C2480B90A00E0950F /* CarrierReceiptState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F5A2480B90A00E0950F /* CarrierReceiptState.swift */; };
 		118B6F9B2489F94D00E0950F /* CarrierExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B6F9A2489F94D00E0950F /* CarrierExtension.swift */; };
@@ -332,23 +333,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114A73AD248F287400262228 /* libssl.a in Frameworks */,
-				114A73A9248F286500262228 /* libz.a in Frameworks */,
-				114A739F248F286400262228 /* libelafiletrans.a in Frameworks */,
-				114A73A0248F286400262228 /* libelasession.a in Frameworks */,
-				114A73B2248F28DB00262228 /* libcrypto.a in Frameworks */,
-				114A73A7248F286500262228 /* libsrtp.a in Frameworks */,
-				114A739C248F286400262228 /* libcrystal.a in Frameworks */,
-				114A73A3248F286400262228 /* libpjlib-util.a in Frameworks */,
-				114A739B248F286400262228 /* libcjson.a in Frameworks */,
-				114A73A8248F286500262228 /* libtoxcore.a in Frameworks */,
-				114A739D248F286400262228 /* libcurl.a in Frameworks */,
-				114A73A6248F286500262228 /* libsodium.a in Frameworks */,
-				114A73A1248F286400262228 /* libflatccrt.a in Frameworks */,
-				114A73A5248F286500262228 /* libpjnath.a in Frameworks */,
-				114A739E248F286400262228 /* libelacarrier.a in Frameworks */,
-				114A73A4248F286500262228 /* libpjmedia.a in Frameworks */,
-				114A73A2248F286400262228 /* libpj.a in Frameworks */,
+				118A863D25886693000A4CFC /* libz.a in Frameworks */,
+				118A863125886692000A4CFC /* libcrystal.a in Frameworks */,
+				118A863B25886693000A4CFC /* libtls.a in Frameworks */,
+				118A863225886692000A4CFC /* libcurl.a in Frameworks */,
+				118A862E25886692000A4CFC /* libcarriersession.a in Frameworks */,
+				118A863825886693000A4CFC /* libsodium.a in Frameworks */,
+				118A863025886692000A4CFC /* libcrypto.a in Frameworks */,
+				118A863A25886693000A4CFC /* libssl.a in Frameworks */,
+				118A862F25886692000A4CFC /* libcjson.a in Frameworks */,
+				118A863625886692000A4CFC /* libpjmedia.a in Frameworks */,
+				118A862C25886692000A4CFC /* libcarrier.a in Frameworks */,
+				118A863425886692000A4CFC /* libpj.a in Frameworks */,
+				118A863325886692000A4CFC /* libflatccrt.a in Frameworks */,
+				118A862D25886692000A4CFC /* libcarrierfiletrans.a in Frameworks */,
+				118A863C25886693000A4CFC /* libtoxcore.a in Frameworks */,
+				118A863725886692000A4CFC /* libpjnath.a in Frameworks */,
+				118A863925886693000A4CFC /* libsrtp.a in Frameworks */,
+				118A863525886692000A4CFC /* libpjlib-util.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,7 +959,10 @@
 				INFOPLIST_FILE = ElastosCarrierSDK_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NativeDistributions/lib/macosx";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/NativeDistributions/lib/macosx",
+					"$(PROJECT_DIR)/NativeDistributions/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -989,7 +994,10 @@
 				INFOPLIST_FILE = ElastosCarrierSDK_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/NativeDistributions/lib/macosx";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/NativeDistributions/lib/macosx",
+					"$(PROJECT_DIR)/NativeDistributions/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "elastos.ElastosCarrierSDK-macOS";
