@@ -219,8 +219,8 @@ internal struct CFileTransferCallbacks {
  * @return
  *      The generated unique file identifier.
  */
-@_silgen_name("ela_filetransfer_fileid")
-internal func ela_filetransfer_fileid(_ fileid: UnsafeMutablePointer<Int8>?,
+@_silgen_name("carrier_filetransfer_fileid")
+internal func carrier_filetransfer_fileid(_ fileid: UnsafeMutablePointer<Int8>?,
                                       _ length: Int) -> UnsafePointer<Int8>?
 
 /**
@@ -256,10 +256,10 @@ internal typealias CFileTransferConnectCallback = @convention(c)
  *
  * @return
  *      0 on success, or -1 if an error occurred. The specific error code
- *      can be retrieved by calling ela_get_error().
+ *      can be retrieved by calling carrier_get_error().
  */
-@_silgen_name("ela_filetransfer_init")
-internal func ela_filetransfer_init(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_init")
+internal func carrier_filetransfer_init(_ carrier: OpaquePointer!,
                                     _ callback: CFileTransferConnectCallback?,
                                     _ context: UnsafeMutableRawPointer?) -> Int32
 
@@ -272,8 +272,8 @@ internal func ela_filetransfer_init(_ carrier: OpaquePointer!,
  *
  * If the extension is not initialized, this function has no effect.
  */
-@_silgen_name("ela_session_cleanup")
-internal func ela_filetransfer_cleanup(_ carrier: OpaquePointer!)
+@_silgen_name("carrier_session_cleanup")
+internal func carrier_filetransfer_cleanup(_ carrier: OpaquePointer!)
 
 /**
  * \~English
@@ -303,8 +303,8 @@ internal func ela_filetransfer_cleanup(_ carrier: OpaquePointer!)
  *      Return an ElaFileTransfer instance on success, NULL otherwise(The
  *      specific error code can be retrieved by calling ela_get_error()).
  */
-@_silgen_name("ela_filetransfer_new")
-internal func ela_filetransfer_new(_ carrier: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_new")
+internal func carrier_filetransfer_new(_ carrier: OpaquePointer!,
                                    _ address: UnsafePointer<Int8>!,
                                    _ fileinfo: UnsafePointer<CFileTransferInfo>?,
                                    _ callbacks: CFileTransferCallbacks!,
@@ -316,8 +316,8 @@ internal func ela_filetransfer_new(_ carrier: OpaquePointer!,
  * @param
  *      filetransfer    [in] A handle to the Carrier file transfer instance.
  */
-@_silgen_name("ela_filetransfer_close")
-internal func ela_filetransfer_close(_ filetransfer: OpaquePointer!)
+@_silgen_name("carrier_filetransfer_close")
+internal func carrier_filetransfer_close(_ filetransfer: OpaquePointer!)
 
 /**
  * \~English
@@ -339,8 +339,8 @@ internal func ela_filetransfer_close(_ filetransfer: OpaquePointer!)
  *      otherwise, NULL value is returned. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_get_fileid")
-internal func ela_filetransfer_get_fileid(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_get_fileid")
+internal func carrier_filetransfer_get_fileid(_ filetransfer: OpaquePointer!,
                                           _ filename: UnsafePointer<Int8>!,
                                           _ fileid: UnsafeMutablePointer<Int8>!,
                                           _ length: Int) -> UnsafePointer<Int8>?
@@ -365,8 +365,8 @@ internal func ela_filetransfer_get_fileid(_ filetransfer: OpaquePointer!,
  *      otherwise, NULL value is returned. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_get_filename")
-internal func ela_filetransfer_get_filename(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_get_filename")
+internal func carrier_filetransfer_get_filename(_ filetransfer: OpaquePointer!,
                                             _ fileid: UnsafePointer<Int8>!,
                                             _ filename: UnsafeMutablePointer<Int8>!,
                                             _ length: Int) -> UnsafePointer<Int8>?
@@ -381,8 +381,8 @@ internal func ela_filetransfer_get_filename(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_connect")
-internal func ela_filetransfer_connect(_ filetransfer: OpaquePointer!) -> Int32
+@_silgen_name("carrier_filetransfer_connect")
+internal func carrier_filetransfer_connect(_ filetransfer: OpaquePointer!) -> Int32
 
 /**
  * \~English
@@ -395,8 +395,8 @@ internal func ela_filetransfer_connect(_ filetransfer: OpaquePointer!) -> Int32
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_accept_connect")
-internal func ela_filetransfer_accept_connect(_ filetransfer: OpaquePointer!) -> Int32
+@_silgen_name("carrier_filetransfer_accept_connect")
+internal func carrier_filetransfer_accept_connect(_ filetransfer: OpaquePointer!) -> Int32
 
 /**
  * \~English
@@ -411,8 +411,8 @@ internal func ela_filetransfer_accept_connect(_ filetransfer: OpaquePointer!) ->
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_add")
-internal func ela_filetransfer_add(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_add")
+internal func carrier_filetransfer_add(_ filetransfer: OpaquePointer!,
                                    _ fileinfo: UnsafePointer<CFileTransferInfo>!) -> Int32
 
 /**
@@ -430,8 +430,8 @@ internal func ela_filetransfer_add(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_pull")
-internal func ela_filetransfer_pull(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_pull")
+internal func carrier_filetransfer_pull(_ filetransfer: OpaquePointer!,
                                     _ fileid: UnsafePointer<Int8>!,
                                     _ offset: UInt64) -> Int32
 
@@ -452,8 +452,8 @@ internal func ela_filetransfer_pull(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_send")
-internal func ela_filetransfer_send(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_send")
+internal func carrier_filetransfer_send(_ filetransfer: OpaquePointer!,
                                     _ fileid: UnsafePointer<Int8>!,
                                     _ cdata: UnsafePointer<Int8>!,
                                     _ length: UInt32) -> Int32
@@ -471,8 +471,8 @@ internal func ela_filetransfer_send(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_cancel")
-internal func ela_filetransfer_cancel(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_cancel")
+internal func carrier_filetransfer_cancel(_ filetransfer: OpaquePointer!,
                                       _ fileid: UnsafePointer<Int8>!,
                                       _ status: Int32,
                                       _ reason: UnsafePointer<Int8>!) -> Int32
@@ -490,8 +490,8 @@ internal func ela_filetransfer_cancel(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_pend")
-internal func ela_filetransfer_pend(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_pend")
+internal func carrier_filetransfer_pend(_ filetransfer: OpaquePointer!,
                                     _ fileid: UnsafePointer<Int8>!) -> Int32
 
 /**
@@ -507,8 +507,8 @@ internal func ela_filetransfer_pend(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_resume")
-internal func ela_filetransfer_resume(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_resume")
+internal func carrier_filetransfer_resume(_ filetransfer: OpaquePointer!,
                                       _ fileid: UnsafePointer<Int8>!) -> Int32
 
 /**
@@ -526,8 +526,8 @@ internal func ela_filetransfer_resume(_ filetransfer: OpaquePointer!,
  *      0 on success, or -1 if an error occurred. The specific error code
  *      can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_set_userdata")
-internal func ela_filetransfer_set_userdata(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_set_userdata")
+internal func carrier_filetransfer_set_userdata(_ filetransfer: OpaquePointer!,
                                             _ fileid: UnsafePointer<Int8>!,
                                             _ userdata: UnsafeMutableRawPointer?) -> Int32
 
@@ -544,6 +544,6 @@ internal func ela_filetransfer_set_userdata(_ filetransfer: OpaquePointer!,
  *      userdata on success, or NULL if an error occurred. The specific error
  *      code can be retrieved by calling ela_get_error().
  */
-@_silgen_name("ela_filetransfer_set_userdata")
-internal func ela_filetransfer_set_userdata(_ filetransfer: OpaquePointer!,
+@_silgen_name("carrier_filetransfer_set_userdata")
+internal func carrier_filetransfer_set_userdata(_ filetransfer: OpaquePointer!,
                                             _ fileid: UnsafePointer<Int8>!) -> UnsafeMutableRawPointer?

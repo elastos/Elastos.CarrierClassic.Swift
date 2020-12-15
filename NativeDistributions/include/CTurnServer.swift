@@ -36,6 +36,6 @@ internal struct CTurnServer {
     init() {}
 }
 
-@_silgen_name("ela_get_turn_server")
-internal func ela_get_turn_server(_ carrier: OpaquePointer,
+@_silgen_name("carrier_get_turn_server")
+internal func carrier_get_turn_server(_ carrier: OpaquePointer,
                                   _ turn_server: UnsafeMutablePointer<CTurnServer>) -> Swift.Int32

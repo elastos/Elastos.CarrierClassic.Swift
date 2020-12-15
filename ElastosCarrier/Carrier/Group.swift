@@ -90,7 +90,7 @@ public class CarrierGroup: NSObject {
     public func inviteFriend(_ friendId: String) throws {
         let result = groupid.withCString{ (cgroupid) -> Int32 in
             return friendId.withCString { (cfriendid) -> Int32 in
-                return ela_group_invite(ccarrier, cgroupid, cfriendid)
+                return carrier_group_invite(ccarrier, cgroupid, cfriendid)
             }
         }
         
@@ -119,7 +119,7 @@ public class CarrierGroup: NSObject {
     public func sendMessage(_ data: Data) throws {
         let result = groupid.withCString{ (cgroupid) -> Int32 in
             return data.withUnsafeBytes{ (cdata) -> Int32 in
-                return ela_group_send_message(ccarrier, cgroupid, cdata, data.count)
+                return carrier_group_send_message(ccarrier, cgroupid, cdata, data.count)
             }
         }
         
@@ -148,7 +148,7 @@ public class CarrierGroup: NSObject {
         let title = groupid.withCString{ (cgroupid) -> String? in
             return data.withUnsafeMutableBytes() {
                 (ptr: UnsafeMutablePointer<Int8>) -> String? in
-                let result = ela_group_get_title(ccarrier, cgroupid, ptr, len)
+                let result = carrier_group_get_title(ccarrier, cgroupid, ptr, len)
                 return result >= 0 ? String(cString: ptr) : nil
             }
         }
@@ -175,7 +175,7 @@ public class CarrierGroup: NSObject {
     public func setTitle(_ newTitle: String) throws {
         let result = groupid.withCString{ (cgroupid) -> Int32 in
             return newTitle.withCString{ (ctitle) -> Int32 in
-                return ela_group_set_title(ccarrier, cgroupid, ctitle)
+                return carrier_group_set_title(ccarrier, cgroupid, ctitle)
             }
         }
         
@@ -210,7 +210,7 @@ public class CarrierGroup: NSObject {
         let result = withUnsafeMutablePointer(to: &peers) { (ptr) -> Int32 in
             return groupid.withCString{ (cgroupid) -> Int32 in
                 let cctxt = UnsafeMutablePointer(ptr)
-                return ela_group_get_peers(ccarrier, cgroupid, cb, cctxt)
+                return carrier_group_get_peers(ccarrier, cgroupid, cb, cctxt)
             }
         }
         
@@ -243,7 +243,7 @@ public class CarrierGroup: NSObject {
         
         let result = peerId.withCString { (cpeerid) -> Int32 in
             return groupid.withCString{ (cgroupid) -> Int32 in
-                return ela_group_get_peer(ccarrier, cgroupid, cpeerid, &cpeer)
+                return carrier_group_get_peer(ccarrier, cgroupid, cpeerid, &cpeer)
             }
         }
         

@@ -57,3 +57,9 @@ public class Log {
         }
     }
 }
+
+@_cdecl("LogD")
+internal func d(arg: UnsafePointer<CChar>) {
+   let tag  = "extension"
+    Log.d(tag, String(cString: arg))
+}

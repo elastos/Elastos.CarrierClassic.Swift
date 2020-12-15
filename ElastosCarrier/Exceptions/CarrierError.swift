@@ -37,7 +37,7 @@ public enum CarrierError: Error {
 
     let errstr = data.withUnsafeMutableBytes() {
         (ptr: UnsafeMutablePointer<Int8>) -> String in
-        let err: UnsafeMutablePointer  = ela_get_strerror(errno, ptr, 1024) ?? UnsafeMutablePointer<Int8>(mutating: ("unkonw error" as NSString).utf8String!)
+        let err: UnsafeMutablePointer  = carrier_get_strerror(errno, ptr, 1024) ?? UnsafeMutablePointer<Int8>(mutating: ("unkonw error" as NSString).utf8String!)
         return String(cString: err)
     }
     return errstr
