@@ -26,7 +26,7 @@
 
 #include <carrier.h>
 
-#include "carrier_ext.h"
+#include "carrier_extension.h"
 #include "extension.h"
 
 typedef struct Extension {
