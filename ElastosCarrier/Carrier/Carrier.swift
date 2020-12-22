@@ -36,7 +36,7 @@ public class Carrier: NSObject {
         _ data: String?) -> Void
 
     public typealias CarrierFriendMessageReceiptResponseHandler =
-        (_ msgid: Int64, _ status: CarrierReceiptState) -> Void
+        (_ msgid: UInt32, _ status: CarrierReceiptState) -> Void
 
     /// Carrier node App message max length.
     @objc public static let MAX_APP_MESSAGE_LEN: Int = 2048
@@ -614,176 +614,160 @@ public class Carrier: NSObject {
         Log.d(Carrier.TAG, "Friend \(friendId) was removed")
     }
 
- /* /// Send a message to target friend without intent to know whether the message
-    /// was sent as online message or offline message.
+    /// Send a message to a friend with receipt.
     ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble
-    /// the fragments.
+    /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
+    /// must be split by application and sent as separate fragments. Other carrier
+    /// nodes can reassemble the fragments.
     ///
     /// - Parameters:
     ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
+    ///   - msg: The message content defined by application.
+    ///   - responseHandler: The user context in callback.
     ///
+    /// - returns: Return the message identifier which would be used for handler to  invoke receipt notification.
     /// - Throws: CarrierError
-    @objc(sendFriendMessage:withMessage:error:)
-    public func sendFriendMessage(to target: String, _ withMessage: String) throws {
+    public func sendFriendMessage(to target: String,
+                                        withMessage msg: String,
+                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> UInt32 {
+        var msgid: UInt32 = 0
 
-        let msgData = withMessage.data(using: .utf8)
-        try sendFriendMessage(to: target, msgData!)
+        guard msg.count < ELA_MAX_APP_BULKMSG_LEN else {
+            throw CarrierError.InvalidArgument
+        }
+        let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
+
+            let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
+                .takeRetainedValue() as! [AnyObject?]
+
+            let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
+
+            let msgid = UInt32(cmsgid)
+            var status = Int(Int64(cstatus))
+
+            if status == 2 {
+                status = getErrorCode()
+            }
+            let receipt = CarrierReceiptState(rawValue: status)!
+            handler(msgid, receipt)
+        }
+
+        let econtext: [AnyObject?] = [self, responseHandler as AnyObject]
+        let unmanaged = Unmanaged.passRetained(econtext as AnyObject)
+        let cctxt = unmanaged.toOpaque()
+
+        Log.d(Carrier.TAG, "\(target) send message with receipt with")
+
+        let result = target.withCString { (cto) -> Int32 in
+            return msg.withCString { (cdata) -> Int32 in
+                let len = msg.utf8CString.count
+                return carrier_send_friend_message(ccarrier, cto, cdata, len, &msgid, cb, cctxt)
+            }
+        }
+
+        guard result >= 0 else {
+            unmanaged.release()
+            let errno = getErrorCode()
+            Log.e(Carrier.TAG, "send message with receipt to \(target) error: 0x%X", errno)
+            throw CarrierError.FromErrorCode(errno: errno)
+        }
+
+        Log.d(Carrier.TAG, "send message with receipt to \(target).")
+        return msgid
     }
 
-    /// Send a message to target friend without intent to know whether the message
-    /// was sent as online message or offline message.
+    /// Send a message to a friend with receipt.
     ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble
-    /// the fragments.
+    /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
+    /// must be split by application and sent as separate fragments. Other carrier
+    /// nodes can reassemble the fragments.
     ///
     /// - Parameters:
     ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
+    ///   - msg: The message content defined by application.
+    ///   - responseHandler: The user context in callback.
     ///
+    /// - returns: Return the message identifier which would be used for handler to  invoke receipt notification.
     /// - Throws: CarrierError
-    @objc(sendFriendMessage:withData:error:)
-    public func sendFriendMessage(to target: String, _ withData: Data) throws {
+    public func sendFriendMessage(to target: String,
+                                        withMessage msg: Data,
+                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> UInt32 {
+        var msgid: UInt32 = 0
 
-        guard withData.count < ELA_MAX_APP_BULKMSG_LEN else {
+        guard msg.count < ELA_MAX_APP_BULKMSG_LEN else {
             throw CarrierError.InvalidArgument
         }
-        var isOffline: CBool = false
-        let result = target.withCString { cto in
-            return withData.withUnsafeBytes{ cdata -> Int32 in
-                return carrier_send_friend_message(ccarrier, cto, cdata, withData.count, &isOffline)
+        
+        let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
+
+            let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
+                .takeRetainedValue() as! [AnyObject?]
+
+            let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
+
+            let msgid = UInt32(cmsgid)
+
+            var status = Int(Int64(cstatus))
+            if status == 2 {
+                status = getErrorCode()
+            }
+            let receipt = CarrierReceiptState(rawValue: status)!
+            handler(msgid, receipt)
+        }
+
+        let econtext: [AnyObject?] = [self, responseHandler as AnyObject]
+        let unmanaged = Unmanaged.passRetained(econtext as AnyObject)
+        let cctxt = unmanaged.toOpaque()
+
+        Log.d(Carrier.TAG, "\(target) send message with receipt with")
+
+        let result = target.withCString { (cto) -> Int32 in
+            return msg.withUnsafeBytes { (cdata) -> Int32 in
+                return carrier_send_friend_message(ccarrier, cto, cdata, msg.count, &msgid, cb, cctxt)
             }
         }
 
         guard result >= 0 else {
-            let errno: Int = getErrorCode()
-            Log.e(Carrier.TAG, "Send message to \(target) error: 0x%X", errno)
-            throw CarrierError.FromErrorCode(errno: errno) as NSError
+            unmanaged.release()
+            let errno = getErrorCode()
+            Log.e(Carrier.TAG, "send message with receipt to \(target) error: 0x%X", errno)
+            throw CarrierError.FromErrorCode(errno: errno)
         }
 
-        Log.d(Carrier.TAG, "Sended message: \(withData) to \(target).")
-    }*/
-/*
-    /// Send a message to target friend with intent to konw whether the message
-    /// was sent as online message or offline message.
+        Log.d(Carrier.TAG, "send message with receipt to \(target).")
+        
+        return msgid
+    }
+    
+    /// Send a message to a friend with receipt.
     ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble
-    /// the fragments.
+    /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
+    /// must be split by application and sent as separate fragments. Other carrier
+    /// nodes can reassemble the fragments.
     ///
     /// - Parameters:
     ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
-    ///
+    ///   - msg: The message content defined by application.
+    ///   - responseHandler: The user context in callback.
+    /// - returns: Return the message identifier which would be used for handler to  invoke receipt notification.
     /// - Throws: CarrierError
-    /// - returns: The value of true means the message was sent as online message.
-    ///            Otherwise as offline message.
-    public func sendFriendMessage(to target: String, withMessage msg: String) throws -> Bool {
+    @objc(sendFriendMessage:messageString:responseHandler:error:)
+    public func sendFriendMessage(to target: String,
+                                  withMessage msg: String,
+                                  responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> NSNumber {
+        let msgid: UInt32 = try sendFriendMessage(to: target, withMessage: msg, responseHandler: responseHandler)
 
-        let msgData = msg.data(using: .utf8)
-        return try sendFriendMessage(to: target, withData: msgData!)
-    }*/
-/*
-    /// Send a message to target friend with intent to konw whether the message
-    /// was sent as online message or offline message.
-    ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble
-    /// the fragments.
-    ///
-    /// - Parameters:
-    ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
-    ///
-    /// - Throws: CarrierError
-    /// - returns: The value of true means the message was sent as online message.
-    ///            Otherwise as offline message.
-    public func sendFriendMessage(to target: String, withData data: Data) throws -> Bool {
-        guard data.count < ELA_MAX_APP_BULKMSG_LEN else {
-            throw CarrierError.InvalidArgument
-        }
-        var isOffline: CBool = false
-        let result = target.withCString { cto in
-            return data.withUnsafeBytes{ cdata -> Int32 in
-                return carrier_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
-            }
-        }
+        return NSNumber(value: msgid)
+    }
 
-        guard result >= 0 else {
-            let errno: Int = getErrorCode()
-            Log.e(Carrier.TAG, "Send message to \(target) error: 0x%X", errno)
-            throw CarrierError.FromErrorCode(errno: errno) as NSError
-        }
-
-        Log.d(Carrier.TAG, "Sended message: \(data) to \(target).")
-        return Bool(!isOffline)
-    } */
-/*
-    /// Send a message to target friend with intent to konw whether the message
-    /// was sent as online message or offline message.
-    ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble 
-    /// the fragments.
-    ///
-    /// - Parameters:
-    ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
-    ///   - error: [out] CarrierError
-    /// - returns: The value of true means the message was sent as online message.
-    ///            Otherwise as offline message.
-    @objc(sendFriendMessage:message:error:)
-    public func sendFriendMessage(to target: String, withMessage msg: String, error: NSErrorPointer) -> Bool {
+    @objc(sendFriendMessage:messageData:responseHandler:error:)
+    public func sendFriendMessage(to target: String,
+                                  withMessage msg: Data,
+                                  responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> NSNumber {
+        let msgid: UInt32 = try sendFriendMessage(to: target, withMessage: msg, responseHandler: responseHandler)
         
-        let msgData = msg.data(using: .utf8)
-      return sendFriendMessage(to: target, withData: msgData!, error: error)
-    }*/
-    /*
-    /// Send a message to target friend with intent to konw whether the message
-    /// was sent as online message or offline message.
-    ///
-    /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
-    /// itself should be text-formatted. Larger messages must be splitted by
-    /// application and sent as separate messages. Other nodes can reassemble
-    /// the fragments.
-    ///
-    /// - Parameters:
-    ///   - target: The target id
-    ///   - msg: The message content defined by application in string type.
-    ///   - error: [out] CarrierError
-    /// - returns: The value of true means the message was sent as online message.
-    ///            Otherwise as offline message.
-    @objc(sendFriendMessage:data:error:)
-    public func sendFriendMessage(to target: String, withData data: Data, error: NSErrorPointer) -> Bool {
-        guard data.count < ELA_MAX_APP_BULKMSG_LEN else {
-            error?.pointee = CarrierError.InvalidArgument as NSError
-            return false
-        }
-        var isOffline: CBool = false
-        let result = target.withCString { cto in
-            return data.withUnsafeBytes { cdata -> Int32 in
-                return carrier_send_friend_message(ccarrier, cto, cdata, data.count, &isOffline)
-            }
-        }
-        
-        guard result >= 0 else {
-            let errno: Int = getErrorCode()
-            Log.e(Carrier.TAG, "Send message to \(target) error: 0x%X", errno)
-            error?.pointee = CarrierError.FromErrorCode(errno: errno) as NSError
-            return Bool(false)
-        }
-        
-        Log.d(Carrier.TAG, "Sended message: \(data) to \(target).")
-        return Bool(!isOffline)
-    }*/
+        return NSNumber(value: msgid)
+    }
     
     /// Send invite request to the specified friend
     ///
@@ -848,122 +832,7 @@ public class Carrier: NSObject {
         
         Log.d(Carrier.TAG, "Sended friend invite request to \(target).")
     }
-    
-    /// Send a message to a friend with receipt.
-    ///
-    /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
-    /// must be split by application and sent as separate fragments. Other carrier
-    /// nodes can reassemble the fragments.
-    ///
-    /// - Parameters:
-    ///   - target: The target id
-    ///   - msg: The message content defined by application.
-    ///   - responseHandler: The user context in callback.
-    ///
-    /// - Throws: CarrierError
-    @objc(sendMessageWithReceipt:messageString:responseHandler:error:)
-    public func sendMessageWithReceipt(to target: String,
-                                        withMessage msg: String,
-                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws {
-        var msgid: UInt32 = 0
 
-        let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
-
-            let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
-                .takeRetainedValue() as! [AnyObject?]
-
-            let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
-
-            let msgid = Int64(cmsgid)
-            var status = Int(Int64(cstatus))
-
-            if status == 2 {
-                status = getErrorCode()
-            }
-            let receipt = CarrierReceiptState(rawValue: status)!
-            handler(msgid, receipt)
-        }
-
-        let econtext: [AnyObject?] = [self, responseHandler as AnyObject]
-        let unmanaged = Unmanaged.passRetained(econtext as AnyObject)
-        let cctxt = unmanaged.toOpaque()
-
-        Log.d(Carrier.TAG, "\(target) send message with receipt with")
-
-        let result = target.withCString { (cto) -> Int32 in
-            return msg.withCString { (cdata) -> Int32 in
-                let len = msg.utf8CString.count
-                return carrier_send_friend_message(ccarrier, cto, cdata, len, &msgid, cb, cctxt)
-            }
-        }
-
-        guard result >= 0 else {
-            unmanaged.release()
-            let errno = getErrorCode()
-            Log.e(Carrier.TAG, "send message with receipt to \(target) error: 0x%X", errno)
-            throw CarrierError.FromErrorCode(errno: errno)
-        }
-
-        Log.d(Carrier.TAG, "send message with receipt to \(target).")
-    }
-
-    /// Send a message to a friend with receipt.
-    ///
-    /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
-    /// must be split by application and sent as separate fragments. Other carrier
-    /// nodes can reassemble the fragments.
-    ///
-    /// - Parameters:
-    ///   - target: The target id
-    ///   - msg: The message content defined by application.
-    ///   - responseHandler: The user context in callback.
-    ///
-    /// - Throws: CarrierError
-    @objc(sendMessageWithReceipt:messageData:responseHandler:error:)
-    public func sendMessageWithReceipt(to target: String,
-                                        withMessage msg: Data,
-                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws {
-        var msgid: UInt32 = 0
-
-        let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
-
-            let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
-                .takeRetainedValue() as! [AnyObject?]
-
-            let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
-
-            let msgid = Int64(cmsgid)
-
-            var status = Int(cstatus)
-            if status == 2 {
-                status = getErrorCode()
-            }
-            let receipt = CarrierReceiptState(rawValue: status)!
-            handler(msgid, receipt)
-        }
-
-        let econtext: [AnyObject?] = [self, responseHandler as AnyObject]
-        let unmanaged = Unmanaged.passRetained(econtext as AnyObject)
-        let cctxt = unmanaged.toOpaque()
-
-        Log.d(Carrier.TAG, "\(target) send message with receipt with")
-
-        let result = target.withCString { (cto) -> Int32 in
-            return msg.withUnsafeBytes { (cdata) -> Int32 in
-                return carrier_send_friend_message(ccarrier, cto, cdata, msg.count, &msgid, cb, cctxt)
-            }
-        }
-
-        guard result >= 0 else {
-            unmanaged.release()
-            let errno = getErrorCode()
-            Log.e(Carrier.TAG, "send message with receipt to \(target) error: 0x%X", errno)
-            throw CarrierError.FromErrorCode(errno: errno)
-        }
-
-        Log.d(Carrier.TAG, "send message with receipt to \(target).")
-    }
-    
     /// Reply the friend invite request.
     ///
     /// This function will send a invite response to friend.
