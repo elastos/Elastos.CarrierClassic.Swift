@@ -614,7 +614,7 @@ public class Carrier: NSObject {
         Log.d(Carrier.TAG, "Friend \(friendId) was removed")
     }
 
-    /// Send a message to target friend without intent to know whether the message
+ /* /// Send a message to target friend without intent to know whether the message
     /// was sent as online message or offline message.
     ///
     /// The message length may not exceed `ELA_MAX_APP_BULKMSG_LEN`, and message
@@ -667,8 +667,8 @@ public class Carrier: NSObject {
         }
 
         Log.d(Carrier.TAG, "Sended message: \(withData) to \(target).")
-    }
-
+    }*/
+/*
     /// Send a message to target friend with intent to konw whether the message
     /// was sent as online message or offline message.
     ///
@@ -688,8 +688,8 @@ public class Carrier: NSObject {
 
         let msgData = msg.data(using: .utf8)
         return try sendFriendMessage(to: target, withData: msgData!)
-    }
-
+    }*/
+/*
     /// Send a message to target friend with intent to konw whether the message
     /// was sent as online message or offline message.
     ///
@@ -724,8 +724,8 @@ public class Carrier: NSObject {
 
         Log.d(Carrier.TAG, "Sended message: \(data) to \(target).")
         return Bool(!isOffline)
-    }
-
+    } */
+/*
     /// Send a message to target friend with intent to konw whether the message
     /// was sent as online message or offline message.
     ///
@@ -745,8 +745,8 @@ public class Carrier: NSObject {
         
         let msgData = msg.data(using: .utf8)
       return sendFriendMessage(to: target, withData: msgData!, error: error)
-    }
-    
+    }*/
+    /*
     /// Send a message to target friend with intent to konw whether the message
     /// was sent as online message or offline message.
     ///
@@ -783,7 +783,7 @@ public class Carrier: NSObject {
         
         Log.d(Carrier.TAG, "Sended message: \(data) to \(target).")
         return Bool(!isOffline)
-    }
+    }*/
     
     /// Send invite request to the specified friend
     ///
@@ -849,7 +849,6 @@ public class Carrier: NSObject {
         Log.d(Carrier.TAG, "Sended friend invite request to \(target).")
     }
     
-    /*
     /// Send a message to a friend with receipt.
     ///
     /// The message length may not exceed ELA_MAX_BULK_MESSAGE_LEN. Larger messages
@@ -860,12 +859,14 @@ public class Carrier: NSObject {
     ///   - target: The target id
     ///   - msg: The message content defined by application.
     ///   - responseHandler: The user context in callback.
-    /// - returns: Return the message identifier which would be used for handler to  invoke receipt notification.
     ///
     /// - Throws: CarrierError
+    @objc(sendMessageWithReceipt:messageString:responseHandler:error:)
     public func sendMessageWithReceipt(to target: String,
                                         withMessage msg: String,
-                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> Int64 {
+                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws {
+        var msgid: UInt32 = 0
+
         let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
 
             let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
@@ -892,7 +893,7 @@ public class Carrier: NSObject {
         let result = target.withCString { (cto) -> Int32 in
             return msg.withCString { (cdata) -> Int32 in
                 let len = msg.utf8CString.count
-                return carrier_send_message_with_receipt(ccarrier, cto, cdata, len, cb, cctxt)
+                return carrier_send_friend_message(ccarrier, cto, cdata, len, &msgid, cb, cctxt)
             }
         }
 
@@ -904,7 +905,6 @@ public class Carrier: NSObject {
         }
 
         Log.d(Carrier.TAG, "send message with receipt to \(target).")
-        return Int64(result)
     }
 
     /// Send a message to a friend with receipt.
@@ -917,12 +917,14 @@ public class Carrier: NSObject {
     ///   - target: The target id
     ///   - msg: The message content defined by application.
     ///   - responseHandler: The user context in callback.
-    /// - returns: Return the message identifier which would be used for handler to  invoke receipt notification.
     ///
     /// - Throws: CarrierError
+    @objc(sendMessageWithReceipt:messageData:responseHandler:error:)
     public func sendMessageWithReceipt(to target: String,
                                         withMessage msg: Data,
-                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws -> Int64 {
+                                        responseHandler: @escaping CarrierFriendMessageReceiptResponseHandler) throws {
+        var msgid: UInt32 = 0
+
         let cb: CFriendMessageReceiptCallback = { (cmsgid, cstatus, cctxt) in
 
             let ectxt = Unmanaged<AnyObject>.fromOpaque(cctxt!)
@@ -948,7 +950,7 @@ public class Carrier: NSObject {
 
         let result = target.withCString { (cto) -> Int32 in
             return msg.withUnsafeBytes { (cdata) -> Int32 in
-                return carrier_send_message_with_receipt(ccarrier, cto, cdata, msg.count, cb, cctxt)
+                return carrier_send_friend_message(ccarrier, cto, cdata, msg.count, &msgid, cb, cctxt)
             }
         }
 
@@ -960,9 +962,7 @@ public class Carrier: NSObject {
         }
 
         Log.d(Carrier.TAG, "send message with receipt to \(target).")
-        return Int64(result)
     }
-*/
     
     /// Reply the friend invite request.
     ///

@@ -1283,12 +1283,11 @@ internal func carrier_remove_friend(_ carrier: OpaquePointer!,
 
 /**
  * \~English
- * Send a message to a friend.
+ * Send a message to a friend with receipt.
  *
- * The message length may not exceed ELA_MAX_APP_BULKMSG_LEN, and message
- * itself should be text-formatted. Larger messages must be split by application
- * and sent as separate messages. Other carrier nodes can reassemble the
- * fragments.
+ * The message length may not exceed CARRIER_MAX_BULK_MESSAGE_LEN. Larger messages
+ * must be split by application and sent as separate fragments. Other carrier
+ * nodes can reassemble the fragments.
  *
  * Message may not be empty or NULL.
  * @param
@@ -1296,25 +1295,30 @@ internal func carrier_remove_friend(_ carrier: OpaquePointer!,
  * @param
  *      to          [in] The target userid.
  * @param
- *      msg         [in] The message content defined by application.
+ *      message     [in] The message content defined by application.
  * @param
  *      len         [in] The message length in bytes.
  * @param
- *      is_offline  [out] Whether the target user is offline when the message
- *                        is sent: true, offline; false, online. This pointer
- *                        can be NULL.
+ *      msgid       [out] The message ID.
+ * @param
+ *      cb          [in] The pointer to callback which will be called when the
+ *                        receipt is received or failed to send message.
+ * @param
+ *      content     [in] The user context in callback.
  *
  * @return
  *      0 if the text message successfully sent.
  *      Otherwise, return -1, and a specific error code can be
- *      retrieved by calling ela_get_error().
+ *      retrieved by calling carrier_get_error().
  */
 @_silgen_name("carrier_send_friend_message")
 internal func carrier_send_friend_message(_ carrier: OpaquePointer!,
                                       _ to: UnsafePointer<Int8>!,
                                       _ msg: UnsafePointer<Int8>!,
                                       _ len: Int,
-                                      _ is_offline: UnsafePointer<Bool>) -> Int32
+                                      _ msgid: UnsafeMutablePointer<UInt32>!,
+                                      _ callback: CFriendMessageReceiptCallback!,
+                                      _ context: UnsafeMutableRawPointer!) -> Int32
 
 /**
  * \~English

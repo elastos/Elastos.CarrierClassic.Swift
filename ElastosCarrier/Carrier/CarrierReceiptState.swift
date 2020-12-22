@@ -22,6 +22,7 @@
 
 import Foundation
 
+@objc(ELACarrierReceiptState)
 public enum CarrierReceiptState: Int, CustomStringConvertible  {
 
     /// Message has been accepted by remote friend via carrier network.
