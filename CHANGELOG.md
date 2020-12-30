@@ -1,3 +1,10 @@
+12/30/2020 Li Aihong liaihong@trinity-tech.io
+**version 6.0.2-hotfix**, main changes to previous version:
+
+```markdown
+- revert session extension name to remain compatibility.
+```
+
 12/22/2020 Li Aihong liaihong@trinity-tech.io
 **version 6.0.1**, main changes to previous version:
 
