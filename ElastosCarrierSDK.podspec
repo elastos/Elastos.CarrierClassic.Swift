@@ -19,8 +19,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '9.0'
   s.ios.deployment_target = '9.0'
   s.source       = {'http':'https://github.com/elastos/Elastos.NET.Carrier.Swift.SDK/releases/download/release-v6.0.3/ElastosCarrier-framework.zip'}
-  s.vendored_frameworks = 'ElastosCarrier-framework/*.framework'
-  s.source_files = 'ElastosCarrier-framework/ElastosCarrierSDK.framework/**/*.h'
+  s.vendored_frameworks = 'ElastosCarrier-framework/ElastosCarrierSDK.xcframework'
 
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
