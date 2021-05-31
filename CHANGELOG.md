@@ -1,3 +1,11 @@
+05/30/2021 Li Aihong liaihong@trinity-tech.io
+
+**version 6.0.3**, main changes to previous version:
+
+```markdown
+- Adapt to Xcode12.5.
+```
+
 12/30/2020 Li Aihong liaihong@trinity-tech.io
 **version 6.0.2-hotfix**, main changes to previous version:
 
