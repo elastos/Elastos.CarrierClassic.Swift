@@ -53,7 +53,8 @@ public class Log {
     public static func e(_ tag: String, _ format: String, _ args: CVarArg...) {
         if (logLevel >= CarrierLogLevel.Error) {
             let log = String(format: " E/" + tag + ": " + format, arguments: args)
-            NSLog(log)
+//            NSLog(log)
+            print(log)
         }
     }
 }

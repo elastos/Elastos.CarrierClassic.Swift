@@ -643,10 +643,11 @@ public class Carrier: NSObject {
             let handler = ectxt[1] as! CarrierFriendMessageReceiptResponseHandler
 
             let msgid = UInt32(cmsgid)
-            var status = Int(Int64(cstatus))
+            let status = Int(cstatus)
 
             if status == 2 {
-                status = getErrorCode()
+                let errno = getErrorCode()
+                Log.e(Carrier.TAG, "msgid: \(msgid) send message with receipt error: 0x%X", errno)
             }
             let receipt = CarrierReceiptState(rawValue: status)!
             handler(msgid, receipt)
@@ -707,9 +708,10 @@ public class Carrier: NSObject {
 
             let msgid = UInt32(cmsgid)
 
-            var status = Int(Int64(cstatus))
+            var status = Int(cstatus)
             if status == 2 {
-                status = getErrorCode()
+                let errno = getErrorCode()
+                Log.e(Carrier.TAG, "msgid: \(msgid) send message with receipt error: 0x%X", errno)
             }
             let receipt = CarrierReceiptState(rawValue: status)!
             handler(msgid, receipt)
