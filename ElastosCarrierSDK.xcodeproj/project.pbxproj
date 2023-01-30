@@ -1177,7 +1177,7 @@
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 					"$(PROJECT_DIR)/NativeDistributions/lib",
 				);
-				MARKETING_VERSION = 6.0.3;
+				MARKETING_VERSION = 6.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1215,7 +1215,7 @@
 					"$(PROJECT_DIR)/NativeDistributions/lib/$(EFFECTIVE_PLATFORM_NAME)",
 					"$(PROJECT_DIR)/NativeDistributions/lib",
 				);
-				MARKETING_VERSION = 6.0.3;
+				MARKETING_VERSION = 6.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = org.elastos.carrier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
