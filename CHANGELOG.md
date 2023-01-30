@@ -1,3 +1,12 @@
+01/30/2023 Li Aihong liaihong@trinity-tech.io
+
+**version 6.0.4**, main changes to previous version:
+
+```markdown
+- Fix bug for offline message.
+
+```
+
 05/30/2021 Li Aihong liaihong@trinity-tech.io
 
 **version 6.0.3**, main changes to previous version:
